@@ -18,15 +18,28 @@ class Signup extends Component {
     }
   }
   render() {
-    const { handleSubmit, fields: { email, password, passwordConfirm }} = this.props;
+    const { handleSubmit, fields: { email, username, display_name ,password, passwordConfirm }} = this.props;
 
     return (
+      <div className="half">
       <form onSubmit={handleSubmit(this.handleFormSubmit.bind(this))}>
         <fieldset className="form-group">
           <label>Email Address</label>
           <input {...email} type="email" placeholder="Enter email" className="form-control" />
           <small id="emailHelp" className="form-text text-muted">We will never share your email with anyone else.</small>
           {email.touched && email.error && <div className="error"><strong>{email.error}</strong></div>}
+        </fieldset>
+
+        <fieldset className="form-group">
+          <label>Display Name</label>
+          <input {...display_name} type="text" placeholder="Enter your display name" className="form-control" />
+          {display_name.touched && display_name.error && <div className="error"><strong>{display_name.error}</strong></div>}
+        </fieldset>
+
+        <fieldset className="form-group">
+          <label>Username</label>
+          <input {...username} type="text" placeholder="Enter username" className="form-control" />
+          {username.touched && username.error && <div className="error"><strong>{username.error}</strong></div>}
         </fieldset>
 
         <fieldset className="form-group">
@@ -42,9 +55,10 @@ class Signup extends Component {
 
         </fieldset>
         {this.renderAlert()}
-        <button action="submit" className="btn btn-primary">Register</button>
+        <button action="submit" className="btn btn-primary pull-right">Register</button>
 
       </form>
+      </div>
     );
   }
 }
@@ -58,6 +72,14 @@ function validate(formProps) {
 
   if(!formProps.password) {
     errors.password = 'Please enter a password.';
+  }
+
+  if(!formProps.username) {
+    errors.username = 'Please enter a username.';
+  }
+
+  if(!formProps.display_name) {
+    errors.display_name = 'Please enter a display name.';
   }
 
   if(!formProps.passwordConfirm) {
@@ -75,7 +97,7 @@ function mapStateToProps(state) {
 }
 export default reduxForm({
   form: 'signup',
-  fields: ['email', 'password', 'passwordConfirm'],
+  fields: ['email', 'username', 'display_name','password', 'passwordConfirm'],
   validate
 }, mapStateToProps, actions)(Signup);
 

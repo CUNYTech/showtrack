@@ -4,7 +4,7 @@ import * as actions from '../actions';
 
 class Home extends Component {
   componentWillMount() {
-    this.props.fetchMessage();
+    //this.props.fetchMessage();
   }
   render() {
     return (
