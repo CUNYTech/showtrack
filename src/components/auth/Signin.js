@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {reduxForm} from 'redux-form';
-import * as actions from '../../actions'
+import * as actions from '../../actions/';
 
 class Signin extends Component {
   handleFormSubmit({ username, password }) {
@@ -8,10 +8,11 @@ class Signin extends Component {
     this.props.signinUser({ username, password});
 }
   renderAlert() {
-    if(this.props.errorMessge) {
+    if(this.props.errorMessage) {
+      console.log(this.props.errorMessage);
       return (
         <div className="alert alert-danger">
-          <strong>Oops!</strong> {this.props.errorMessge}
+          <strong>Oops!</strong> {this.props.errorMessage}
         </div>
       )
     }
@@ -40,7 +41,7 @@ class Signin extends Component {
 }
 
 function mapStateToProps(state) {
-  return { errorMessge: state.auth.error };
+  return { errorMessage: state.auth.error };
 }
 
 export default reduxForm({

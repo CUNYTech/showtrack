@@ -19,11 +19,9 @@ import {
 
 export default (props) => {
   return (
-    <Hero backgroundImage="../../assets/img/heasder.jpg"
-        className="text-xs-center">
+    <Hero className="text-xs-center">
         <h1 className="display-4"> Show Track </h1>
         <p className="lead"> THE ONLINE TV SHOW COMMUNITY </p>
-
       </Hero>
   )
 }

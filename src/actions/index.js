@@ -1,4 +1,4 @@
-const ROOT_URL = 'http://dango.us-east-1.elasticbeanstalk.com/api/v1/accounts';
+const ROOT_URL = 'http://dango.us-east-1.elasticbeanstalk.com/api/v1';
 const LOCAL_ROOT_URL = 'http://localhost:3080';
 
 import axios from 'axios';
@@ -6,13 +6,14 @@ import { browserHistory } from 'react-router';
 import {
   AUTH_USER,
   AUTH_ERROR,
-  UNAUTH_USER
+  UNAUTH_USER,
+  SEARCH_RESULTS
 } from './types';
 
 export function signinUser({ username, password}) {
   // return a function with dispatch coming from redux thunk
   return function(dispatch) {
-    axios.post(`${ROOT_URL}/login/`, { username ,password })
+    axios.post(`${ROOT_URL}/accounts/login/`, { username ,password })
       .then(response => {
         dispatch({ type: AUTH_USER });
         localStorage.setItem('token', response.data.token);
@@ -21,7 +22,7 @@ export function signinUser({ username, password}) {
       .catch((response) => {
         console.log(response);
 
-        dispatch(authError('response.data.email'));
+        dispatch(authError(', something went wrong, please try again.'));
       })
   }
 }
@@ -29,7 +30,7 @@ export function signinUser({ username, password}) {
 export function signupUser({email, username, password, display_name}) {
   // return a function with dispatch coming from redux thunk
   return function(dispatch) {
-    axios.post(`${ROOT_URL}/register/`, { email, username, password, display_name})
+    axios.post(`${ROOT_URL}/accounts/register/`, { email, username, password, display_name})
       .then(response => {
         dispatch({ type: AUTH_USER });
         localStorage.setItem('token', response.data.token);
@@ -37,7 +38,7 @@ export function signupUser({email, username, password, display_name}) {
       })
       .catch((response) => {
         console.log(response);
-        dispatch(authError(response.data.email));
+        dispatch(authError(', something went wrong, please try again.'));
       })
   }
 }
@@ -56,13 +57,15 @@ export function signoutUser() {
   }
 }
 
-export function fetchMessage() {
+export function searchShows(searchTerm) {
   return function(dispatch) {
-    axios.get(ROOT_URL, {
-      headers: { authorization: localStorage.getItem('token') }
-    })
+    axios.get(`${ROOT_URL}/search/${searchTerm}/`)
       .then(response => {
         console.log(response);
+        dispatch({
+          type: SEARCH_RESULTS,
+          payload: response
+        })
       })
   }
 }
