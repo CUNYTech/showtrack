@@ -9,7 +9,7 @@ class Search extends Component {
     return (
       <div>
         <SearchBar />
-        <ShowListing  shows={this.props.searchResults}/>
+        <ShowListing shows={this.props.searchResults} />
       </div>
     )
   }

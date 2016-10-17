@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router';
+
 import Show from './Show';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
@@ -11,11 +13,13 @@ class ShowListing extends Component {
     let showProps = this.props.shows;
     let shows = null;
     let showItems = (<span>No shows were found!</span>);
+    console.log(this.props.shows);
     if (showProps.length > 0) {
       shows = showProps.map(show => {
         return (
-          <Show show={show.show}
-            key={show.show.id} />);
+          <Link key={show.show.id} to={"shows/" + show.show.id}>
+            <Show show={show.show} />
+          </Link>);
       });
     }
     return shows;

@@ -3,3 +3,4 @@ export const UNAUTH_USER = 'unauth_user';
 export const AUTH_ERROR = 'auth_error';
 
 export const SEARCH_RESULTS = 'search_results';
+export const FETCH_SHOW = 'fetch_show';

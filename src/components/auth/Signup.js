@@ -19,7 +19,7 @@ class Signup extends Component {
     }
   }
   render() {
-    const { handleSubmit, fields: { email, username, display_name ,password, passwordConfirm }} = this.props;
+    const { handleSubmit, fields: { email, username, display_name, password, passwordConfirm }} = this.props;
 
     return (
       <div className="half">
@@ -96,6 +96,7 @@ function validate(formProps) {
 function mapStateToProps(state) {
   return { errorMessage: state.auth.error };
 }
+
 export default reduxForm({
   form: 'signup',
   fields: ['email', 'username', 'display_name','password', 'passwordConfirm'],

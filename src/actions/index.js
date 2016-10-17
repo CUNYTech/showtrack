@@ -8,7 +8,8 @@ import {
   AUTH_USER,
   AUTH_ERROR,
   UNAUTH_USER,
-  SEARCH_RESULTS
+  SEARCH_RESULTS,
+  FETCH_SHOW
 } from './types';
 
 export function signinUser({ username, password}) {
@@ -61,6 +62,19 @@ export function signoutUser() {
 export function searchShows(searchTerm) {
   return function(dispatch) {
     axios.get(`${ROOT_URL_V2}/search/${searchTerm}/`)
+      .then(response => {
+        console.log(response);
+        dispatch({
+          type: SEARCH_RESULTS,
+          payload: response
+        })
+      })
+  }
+}
+
+export function fetchShow(id) {
+  return function(dispatch) {
+    axios.get(`${ROOT_URL_V2}/single/${searchTerm}/`)
       .then(response => {
         console.log(response);
         dispatch({
