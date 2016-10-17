@@ -4,7 +4,7 @@ class ShowDetail extends Component {
   render() {
     console.log(this.props);
     return (
-      <div> Post {this.props.params.id} </div>
+      <div> Post asdijasdknjasdknj{this.props.params.id} </div>
     )
   }
 }
