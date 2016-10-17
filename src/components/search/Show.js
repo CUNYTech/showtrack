@@ -1,15 +1,36 @@
-import React from 'react';
+import React, { Component } from 'react';
 
-const Show = ({
-  show,
-}) => {
-  return (
-    <div>{show.show.title}</div>
-  )
-};
+class Show extends Component {
+  constructor(props) {
+    super(props)
 
-Show.propTypes = {
-  show:        React.PropTypes.object.isRequired,
+    this.renderImage = this.renderImage.bind(this);
+  }
+
+   renderImage() {
+    if(this.props.show.image) {
+     return (
+       <img src={this.props.show.image.medium} role="presentation" />
+     )
+   }
+   else {
+      return (
+        <img src='http://placehold.it/210x295'/>
+      )
+    }
+  }
+
+  render() {
+    const showStyle = {
+      padding: '20px',
+    }
+
+    return (
+      <div style={showStyle}>
+        {this.renderImage()}
+      </div>
+    )
+  }
 };
 
 export default Show;

@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import Show from './Show';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
 class ShowListing extends Component {
   constructor(props) {
     super(props);
-
   }
 
   renderShows() {
@@ -14,22 +14,32 @@ class ShowListing extends Component {
     if (showProps.length > 0) {
       shows = showProps.map(show => {
         return (
-          <Show show={show}
-            key={show.show.ids.tvdb} />);
+          <Show show={show.show}
+            key={show.show.id} />);
       });
     }
     return shows;
   }
 
   render() {
-    console.log(this.props.shows);
+
+    const listingStyle = {
+      display: "flex",
+      flexDirection: "row",
+      background: "aliceblue",
+      margin: "20px",
+      flexWrap: "wrap",
+      justifyContent: "space-around"
+    }
 
     return (
-       !this.props.shows ?
-           <div>Loading...</div>
-       :
-           <div>{this.renderShows()}</div>
-   )
+      !this.props.shows ?
+        <div></div>
+      :
+      <div style={listingStyle}>
+        {this.renderShows()}
+      </div>
+    )
   }
 }
 

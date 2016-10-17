@@ -1,4 +1,5 @@
 const ROOT_URL = 'http://dango.us-east-1.elasticbeanstalk.com/api/v1';
+const ROOT_URL_V2 = 'http://dango.us-east-1.elasticbeanstalk.com/api/v2';
 const LOCAL_ROOT_URL = 'http://localhost:3080';
 
 import axios from 'axios';
@@ -59,7 +60,7 @@ export function signoutUser() {
 
 export function searchShows(searchTerm) {
   return function(dispatch) {
-    axios.get(`${ROOT_URL}/search/${searchTerm}/`)
+    axios.get(`${ROOT_URL_V2}/search/${searchTerm}/`)
       .then(response => {
         console.log(response);
         dispatch({

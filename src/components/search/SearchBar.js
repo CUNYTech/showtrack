@@ -24,8 +24,12 @@ class SearchBar extends Component {
   }
 
   render() {
+
+    const formStyle = {
+      width: 'auto'
+    }
     return (
-      <form onSubmit={this.onFormSubmit} className="input-group">
+      <form style={formStyle} onSubmit={this.onFormSubmit} className="input-group">
         <input
           type="search"
           required
