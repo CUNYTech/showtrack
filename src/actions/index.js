@@ -74,11 +74,11 @@ export function searchShows(searchTerm) {
 
 export function fetchShow(id) {
   return function(dispatch) {
-    axios.get(`${ROOT_URL_V2}/single/${searchTerm}/`)
+    axios.get(`${ROOT_URL_V2}/shows/${id}/`)
       .then(response => {
         console.log(response);
         dispatch({
-          type: SEARCH_RESULTS,
+          type: FETCH_SHOW,
           payload: response
         })
       })

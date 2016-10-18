@@ -1,12 +1,35 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { fetchShow } from '../../actions/index';
 
 class ShowDetail extends Component {
+
+  componentWillMount() {
+    this.props.fetchShow(this.props.params.id);
+  }
   render() {
-    console.log(this.props);
+    const { show } = this.props;
+
+    console.log('props', this.props.show);
+
+    if (!show) {
+      return (
+        <div>Loading...</div>
+      )
+    }
     return (
-      <div> Post asdijasdknjasdknj{this.props.params.id} </div>
+      <div>
+          { show.id }
+          { show.name }
+      </div>
     )
   }
 }
 
-export default ShowDetail;
+function mapStateToProps(state) {
+  return {
+    show: state.search.show
+  }
+}
+
+export default connect(mapStateToProps, { fetchShow }) (ShowDetail);
