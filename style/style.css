@@ -6,3 +6,36 @@
     width: 50%;
     margin: auto;
 }
+
+
+
+.browse-show-wrap figcaption {
+    position: relative;
+    top: -260px;
+    text-align: center;
+    opacity: 0;
+    height: 100%;
+    width: 100%;
+
+}
+.browse-show-wrap:hover figcaption{
+    opacity: 1;
+    transition: all 0.3s ease 0s;
+}
+.browse-show-wrap:hover img{
+    opacity: 0.2;
+    transition: all 0.3s ease 0s;
+}
+
+body a:hover {
+    color: #0275d8;
+    text-decoration: none;
+}
+
+figure figcaption .rating {
+    margin-bottom: 20px;
+}
+
+figure figcaption .btn-info {
+    margin-top: 40px;
+}
