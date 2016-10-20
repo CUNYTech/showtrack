@@ -6,3 +6,59 @@
     width: 50%;
     margin: auto;
 }
+
+
+
+.browse-show-wrap figcaption {
+    position: absolute;
+    top: 50px;
+    right: 0px;
+    left: 0px;
+    text-align: center;
+    opacity: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    transition: opacity 0.3s ease 0s;
+
+}
+.browse-show-wrap:hover figcaption{
+    opacity: 1;
+    transition: all 0.3s ease 0s;
+}
+
+.browse-show-wrap img{
+    opacity: 1;
+    transition: all 0.3s ease 0s;
+    
+}
+
+
+.browse-show-wrap:hover img{
+    opacity: 0.2;
+    transition: all 0.3s ease 0s;
+}
+
+figure.browse-show-wrap{
+  position: relative;
+  margin-bottom: 0px;
+}
+
+
+
+body a:hover {
+    color: #0275d8;
+    text-decoration: none;
+}
+
+figure figcaption .rating {
+    margin-bottom: 20px;
+}
+
+figure figcaption .btn-info {
+    margin-top: 40px;
+}
+
+figure{
+  
+}
