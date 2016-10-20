@@ -20,6 +20,12 @@ class Show extends Component {
     }
   }
 
+  renderNameAndYear(){
+    return(
+      <div id="showName">{this.props.show.name}</div>
+      )
+  }
+
   renderFigcaption() {
     return (
       <figcaption>
@@ -45,10 +51,13 @@ class Show extends Component {
     }
 
     return (
+      <div>
         <figure className="browse-show-wrap" style={showStyle}>
           {this.renderImage()}
           {this.renderFigcaption()}
         </figure>
+        {/*this.renderNameAndYear()*/}
+      </div>
     )
   }
 };
