@@ -11,7 +11,7 @@
 
 .browse-show-wrap figcaption {
     position: absolute;
-    top: 50px;
+    top: 20px;
     right: 0px;
     left: 0px;
     text-align: center;
@@ -47,6 +47,7 @@ figure.browse-show-wrap{
 
 div.browse-show-wrap {
   margin: 20px;
+  width: 210px;
 }
 
 
@@ -61,4 +62,7 @@ figure figcaption .rating {
 
 figure figcaption .btn-info {
   margin-top: 40px;
+}
+#browse-show-bottom h6 {
+    margin-bottom: 0px;
 }
