@@ -17,9 +17,11 @@ class ShowListing extends Component {
     if (showProps.length > 0) {
       shows = showProps.map(show => {
         return (
-          <Link key={show.show.id} to={"shows/" + show.show.id}>
-            <Show show={show.show} />
-          </Link>);
+          <div className="browse-show-wrap">
+            <Link key={show.show.id} to={"shows/" + show.show.id}>
+              <Show show={show.show} />
+            </Link>
+          </div>);
       });
     }
     return shows;

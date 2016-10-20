@@ -30,7 +30,7 @@
 .browse-show-wrap img{
     opacity: 1;
     transition: all 0.3s ease 0s;
-    
+
 }
 
 
@@ -42,23 +42,23 @@
 figure.browse-show-wrap{
   position: relative;
   margin-bottom: 0px;
+  padding: 0px!important;
 }
 
+div.browse-show-wrap {
+  margin: 20px;
+}
 
 
 body a:hover {
-    color: #0275d8;
-    text-decoration: none;
+  color: #0275d8;
+  text-decoration: none;
 }
 
 figure figcaption .rating {
-    margin-bottom: 20px;
+  margin-bottom: 20px;
 }
 
 figure figcaption .btn-info {
-    margin-top: 40px;
-}
-
-figure{
-  
+  margin-top: 40px;
 }
