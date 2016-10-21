@@ -6,3 +6,8 @@
     width: 50%;
     margin: auto;
 }
+
+.rating {
+  color: #7A292A;
+  font-size: 1.2em;
+}
