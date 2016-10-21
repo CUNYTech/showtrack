@@ -22,8 +22,7 @@ class ShowListing extends Component {
               <Show show={show.show} />
             </Link>
             <div id="browse-show-bottom">
-              <h6>{show.show.name} </h6>
-              {/*<h6><small> {show.show.premiered.substring(0, 4)} </small></h6>*/}
+              <h6>{show.show.name}</h6>
               { show.show.premiered ? <h6><small> {"(" + show.show.premiered.substring(0, 4) + ")"} </small></h6> : null }
             </div>
           </div>);

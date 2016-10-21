@@ -48,6 +48,7 @@ figure.browse-show-wrap{
 div.browse-show-wrap {
   margin: 20px;
   width: 210px;
+  height:340px;
 }
 
 
@@ -65,4 +66,5 @@ figure figcaption .btn-info {
 }
 #browse-show-bottom h6 {
     margin-bottom: 0px;
+    word-wrap: break-word;
 }
