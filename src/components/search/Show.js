@@ -22,7 +22,9 @@ class Show extends Component {
 
   renderNameAndYear(){
     return(
-      <div id="showName">{this.props.show.name}</div>
+      <div id="browse-show-bottom">
+        <h6>{this.props.show.name} <small>{this.props.show.premiered}</small></h6>
+      </div>
       )
   }
 
