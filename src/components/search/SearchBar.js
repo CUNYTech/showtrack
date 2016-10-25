@@ -28,17 +28,20 @@ class SearchBar extends Component {
       width: 'auto'
     }
     return (
-      <form style={formStyle} onSubmit={this.onFormSubmit} className="input-group">
-        <input
-          type="search"
-          required
-          placeholder="Search your TV shows!"
-          className="form-control"
-          value={this.state.term}
-          onChange={this.onInputChange} />
-        <span className="input-group-btn">
-          <button type="submit" className="btn btn-secondary">Submit</button>
-        </span>
+      <form className="navbar-form navbar-left" onSubmit={this.onFormSubmit}>
+        <div className="form-group">
+          <input
+            type="text"
+            required
+            placeholder="Search your TV shows!"
+            className="form-control"
+            value={this.state.term}
+            onChange={this.onInputChange} />
+        </div>
+
+
+        <button type="submit" className="btn btn-default">Submit</button>
+
       </form>
     );
   }

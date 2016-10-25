@@ -44,7 +44,6 @@ class ShowListing extends Component {
     const listingStyle = {
       display: "flex",
       flexDirection: "row",
-      background: "aliceblue",
       margin: "20px",
       flexWrap: "wrap",
       justifyContent: "space-around"
