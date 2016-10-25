@@ -11,6 +11,10 @@ body, html {
   background: #141414;
   }
 
+body a{
+  color:white;
+}
+
 .browse-show-wrap figcaption {
     position: absolute;
     top: 20px;
