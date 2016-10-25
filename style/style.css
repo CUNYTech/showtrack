@@ -7,7 +7,9 @@
     margin: auto;
 }
 
-
+body, html {
+  background: #141414;
+  }
 
 .browse-show-wrap figcaption {
     position: absolute;
