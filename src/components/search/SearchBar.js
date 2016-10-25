@@ -28,7 +28,7 @@ class SearchBar extends Component {
       width: 'auto'
     }
     return (
-      <form className="navbar-form navbar-left" onSubmit={this.onFormSubmit}>
+      <form style={formStyle} className="navbar-form navbar-left" onSubmit={this.onFormSubmit}>
         <div className="form-group">
           <input
             type="text"
