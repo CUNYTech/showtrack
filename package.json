@@ -7,7 +7,9 @@
   "scripts": {
     "dev": "node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js",
     "test": "mocha --compilers js:babel-core/register --require ./test/test_helper.js --recursive ./test",
-    "test:watch": "npm run test -- --watch"
+    "test:watch": "npm run test -- --watch",
+    "prod": "webpack -p",
+    "start": "node server.js"
   },
   "author": "Jason Deng",
   "license": "ISC",
@@ -28,6 +30,7 @@
   "dependencies": {
     "axios": "^0.9.1",
     "babel-preset-stage-1": "^6.1.18",
+    "express": "^4.14.0",
     "lodash": "^3.10.1",
     "neal-react": "^0.2.5",
     "react": "^0.14.3",
