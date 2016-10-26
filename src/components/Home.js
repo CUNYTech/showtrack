@@ -4,13 +4,28 @@ import * as actions from '../actions';
 
 class Home extends Component {
   componentWillMount() {
-    //this.props.fetchMessage();
+    //this.props.fetchWatchList();
   }
   render() {
+    const { watchList } = this.props;
+
+    console.log('props', this.props.watchList);
+
+    if (!watchList) {
+      return (
+        <div>Loading...</div>
+      )
+    }
     return (
-      <div>Home page</div>
+      <div>
+          Show watchlist
+      </div>
     )
   }
 }
 
-export default connect(null, actions)(Home);
+function mapStateToProps(state) {
+  return { watchList: state.user.list }
+}
+
+export default connect(mapStateToProps, actions)(Home);

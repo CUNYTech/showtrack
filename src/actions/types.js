@@ -4,3 +4,5 @@ export const AUTH_ERROR = 'auth_error';
 
 export const SEARCH_RESULTS = 'search_results';
 export const FETCH_SHOW = 'fetch_show';
+
+export const FETCH_WATCHLIST = 'fetch_watchlist';

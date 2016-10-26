@@ -1,5 +1,5 @@
 const ROOT_URL = 'http://dango.us-east-1.elasticbeanstalk.com/api/v1';
-const ROOT_URL_V2 = 'http://dango.us-east-1.elasticbeanstalk.com/api/v2';
+const ROOT_URL_V2 = 'http://dango.us-east-1.elasticbeanstalk.com/api/v2/';
 const LOCAL_ROOT_URL = 'http://localhost:3080';
 
 import axios from 'axios';
@@ -9,7 +9,8 @@ import {
   AUTH_ERROR,
   UNAUTH_USER,
   SEARCH_RESULTS,
-  FETCH_SHOW
+  FETCH_SHOW,
+  FETCH_WATCHLIST
 } from './types';
 
 export function signinUser({ username, password}) {
@@ -79,6 +80,19 @@ export function fetchShow(id) {
         console.log(response);
         dispatch({
           type: FETCH_SHOW,
+          payload: response
+        })
+      })
+  }
+}
+
+export function fetchWatchList() {
+  return function(dispatch) {
+    axios.get(`${ROOT_URL_V2}/user/list/`)
+      .then(response => {
+        console.log(response);
+        dispatch({
+          type: FETCH_WATCHLIST,
           payload: response
         })
       })
