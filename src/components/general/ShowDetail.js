@@ -1,35 +1,66 @@
+
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { fetchShow } from '../../actions/index';
 
 class ShowDetail extends Component {
+ constructor(props) {
+   super(props)
 
-  componentWillMount() {
-    this.props.fetchShow(this.props.params.id);
-  }
-  render() {
-    const { show } = this.props;
+   this.renderGenres = this.renderGenres.bind(this);
+ }
 
-    console.log('props', this.props.show);
+componentWillMount() {
+  this.props.fetchShow(this.props.params.id);
+}
 
-    if (!show) {
+renderGenres(show) {
+  const genres = show.genres;
+  let genreListing = null;
+  if (genres.length > 0) {
+    genreListing = genres.map(genre => {
       return (
-        <div>Loading...</div>
+        <div>
+          <span key={genre}>{genre}</span>
+        </div>
       )
-    }
+    })
+  }
+  return genreListing;
+}
+
+render() {
+  const { show } = this.props;
+
+
+  if (!show) {
     return (
-      <div>
-          { show.id }
-          { show.name }
-      </div>
+      <div>Loading...</div>
     )
   }
+  return (
+    <div className="container">
+      <div className="row">
+        <div className="col-xs-12 col-sm-4 col-md-6 col-lg-6">
+          <img src={show.image.original} className="img-responsive" alt={show.name} />
+        </div>
+        <div className="col-xs-12 col-sm-8 col-md-6 col-lg-6">
+          <h3>{show.name}</h3>
+          <br />
+          <p dangerouslySetInnerHTML={{__html: show.summary}} className="font-weight-normal font-italic"></p>
+          {this.renderGenres(show)}
+          <div className="text-xs-center rating">Rating: {show.rating.average || 0}/10</div>
+        </div>
+      </div>
+    </div>
+  )
+}
 }
 
 function mapStateToProps(state) {
-  return {
-    show: state.search.show
-  }
+return {
+  show: state.search.show
+}
 }
 
 export default connect(mapStateToProps, { fetchShow }) (ShowDetail);
