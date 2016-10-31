@@ -74,3 +74,44 @@ figure figcaption .btn-info {
     margin-bottom: 0px;
     word-wrap: break-word;
 }
+
+.social-buttons #facebook i:hover {
+    color: #738fc8;
+}
+
+.social-buttons #facebook i {
+    color: #3c5a99;
+}
+
+.social-buttons #twitter i:hover {
+    color: #6dacdd;
+}
+
+.social-buttons #twitter i {
+    color: #2b7bb9;
+}
+
+.social-buttons #reddit i:hover {
+    color: #95cef9;
+}
+
+.social-buttons #reddit i {
+    color: #359ff3;
+}
+
+.social-buttons #tumblr i:hover {
+    color: #59789e;
+}
+
+.social-buttons #tumblr i {
+    color: #34465d;
+}
+
+.social-buttons a i {
+    display: inline-block;
+    margin: 4px 4px 0 0;
+}
+
+.social-buttons #tumblr i {
+    margin-right: 0;
+}
