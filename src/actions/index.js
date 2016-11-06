@@ -9,7 +9,9 @@ import {
   AUTH_ERROR,
   UNAUTH_USER,
   SEARCH_RESULTS,
-  FETCH_SHOW
+  FETCH_SHOW,
+  FETCH_TRENDING_SHOWS,
+  FETCH_WATCHLIST
 } from './types';
 
 export function signinUser({ username, password}) {
@@ -79,6 +81,19 @@ export function fetchShow(id) {
         console.log(response);
         dispatch({
           type: FETCH_SHOW,
+          payload: response
+        })
+      })
+  }
+}
+
+export function fetchTrendingShows() {
+  return function(dispatch) {
+    axios.get(`${ROOT_URL_V2}/trending/`)
+      .then(response => {
+        console.log(response);
+        dispatch({
+          type: FETCH_TRENDING_SHOWS,
           payload: response
         })
       })
