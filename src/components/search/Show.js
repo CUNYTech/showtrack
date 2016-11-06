@@ -20,14 +20,45 @@ class Show extends Component {
     }
   }
 
+  renderNameAndYear(){
+    return(
+      <div id="browse-show-bottom">
+        <h6>{this.props.show.name} <small>{this.props.show.premiered}</small></h6>
+      </div>
+      )
+  }
+
+  renderFigcaption() {
+    return (
+      <figcaption>
+        <h4 className="rating">Rating: {this.props.show.rating.average} / 10</h4>
+
+        <h4>{this.props.show.genres[0]}</h4>
+        <h4>{this.props.show.genres[1]}</h4>
+        <h4>{this.props.show.genres[2]}</h4>
+
+        <div className="btn-group-vertical">
+          <span className="btn btn-info">View Details</span>
+          <span className="btn btn-primary">Add to Favorites</span>
+        </div>
+
+      </figcaption>
+    )
+  }
+
+
   render() {
     const showStyle = {
       padding: '20px',
     }
 
     return (
-      <div style={showStyle}>
-        {this.renderImage()}
+      <div>
+        <figure className="browse-show-wrap" style={showStyle}>
+          {this.renderImage()}
+          {this.renderFigcaption()}
+        </figure>
+        {/*this.renderNameAndYear()*/}
       </div>
     )
   }
