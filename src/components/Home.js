@@ -1,10 +1,10 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
 import * as actions from '../actions';
-
 import Slider from 'react-slick';
-//var Slider = require('react-slick');
 
+//import { searchShows } from '../../actions/index';
+//var Slider = require('react-slick');
 //import MultipleItems from 'react-slick';
 
 
@@ -23,9 +23,9 @@ class Home extends Component {
     return (
       <div>
         <Slider {...settings}>
-          <div><img src='http://placekitten.com/g/400/200' /></div>
-          <div><img src='http://placekitten.com/g/400/200' /></div>
-          <div><img src='http://placekitten.com/g/400/200' /></div>
+          <div><img src='http://tvmazecdn.com/uploads/images/medium_portrait/79/198046.jpg' /></div>
+          <div><img src='http://tvmazecdn.com/uploads/images/medium_portrait/79/198046.jpg' /></div>
+          <div><img src='http://tvmazecdn.com/uploads/images/medium_portrait/79/198046.jpg' /></div>
         </Slider>
 
         <Slider {...settings}>
