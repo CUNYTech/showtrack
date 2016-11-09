@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import * as actions from '../actions';
 import Show from './search/Show';
 import Slider from 'react-slick';
+import Spinner from 'react-spinkit';
 
 //import { searchShows } from '../../actions/index';
 //var Slider = require('react-slick');
@@ -13,10 +14,6 @@ class Home extends Component {
   componentWillMount() {
     this.props.fetchTrendingShows();
     this.props.fetchPopularShows();
-
-    console.log('TENDER SHOWS IN FETCH FUNCTION',this.props.trendingShows);
-    console.log('POPULAR SHOWS IN FETCH FUNCTION',this.props.popularShows);
-
   }
   renderTrendingShows() {
     let showProps = this.props.trendingShows;
@@ -49,6 +46,7 @@ class Home extends Component {
     }
     return shows;
   }
+
   render() {
     var settings = {
       dots: true,
@@ -62,26 +60,35 @@ class Home extends Component {
         <div>
             <div>
             {!this.props.trendingShows ? (
-                <div>LOADING TRENDING SHOWS</div>
+                <Spinner id={0} spinnerName='double-bounce' />
         ) : (
-            <Slider {...settings}>
-                {this.renderTrendingShows()}
-            </Slider> )}
+            <div>
+                <h2>Currently Trending Shows</h2>
+                <Slider {...settings}>
+                    {this.renderTrendingShows()}
+                </Slider>
+            </div>
+            )
+        }
             </div>
 
             <hr></hr>
 
             <div>
                 {!this.props.popularShows ? (
-                    <div>LOADING POPULAR SHOWS</div>
+                    <Spinner id={1} spinnerName='double-bounce' />
             ) : (
-                <Slider {...settings}>
-                    {this.renderPopularShows()}
-                </Slider> )}
+                <div>
+                    <h2>Currently Popular Shows</h2>
+
+                    <Slider {...settings}>
+                        {this.renderPopularShows()}
+                    </Slider>
+                </div>
+            )
+        }
             </div>
-
       </div>
-
     )
   }
 }
