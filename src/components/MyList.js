@@ -1,13 +1,35 @@
-import React from 'react';
-import {
-  Hero
-} from "neal-react";
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import * as actions from '../actions';
 
-export default (props) => {
-  return (
-    <Hero className="text-xs-center">
-        <h1 className="display-4"> Show Track </h1>
-        <p className="lead"> THE ONLINE TV SHOW COMMUNITY </p>
-      </Hero>
-  )
+class MyList extends Component {
+
+  componentWillMount() {
+      this.props.fetchWatchList();
+  }
+
+  renderWatchList() {
+      console.log('test');
+
+      return (<div>test</div>);
+  }
+
+  render() {
+    return (
+        !this.props.watchList ?
+          <div>No watchlist!</div>
+        :
+        <div>
+          {this.renderWatchList()}
+        </div>
+    )
+  }
 }
+
+function mapStateToProps(state) {
+    return {
+        watchList: state.show.watchList
+    }
+}
+
+export default connect(mapStateToProps, actions)(MyList);

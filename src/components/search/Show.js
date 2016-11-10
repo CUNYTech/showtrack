@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router';
 
 class Show extends Component {
   constructor(props) {
@@ -33,13 +34,14 @@ class Show extends Component {
       <figcaption>
         <h4 className="rating">Rating: {this.props.show.rating.average} / 10</h4>
 
-        <h4>{this.props.show.genres[0]}</h4>
-        <h4>{this.props.show.genres[1]}</h4>
-        <h4>{this.props.show.genres[2]}</h4>
+        <h5>{this.props.show.genres[0]}</h5>
+        <h5>{this.props.show.genres[1]}</h5>
 
         <div className="btn-group-vertical">
-          <span className="btn btn-info">View Details</span>
-          <span className="btn btn-primary">Add to Favorites</span>
+            <Link className="btn btn-info" to={"shows/" + this.props.show.id}>
+                View Details
+            </Link>
+            <span className="btn btn-primary">Add to my shows</span>
         </div>
 
       </figcaption>

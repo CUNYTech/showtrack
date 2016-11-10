@@ -9,5 +9,4 @@ export const FETCH_WATCHLIST = 'fetch_watchlist';
 export const FETCH_TRENDING_SHOWS = 'fetch_trending_shows';
 
 export const FETCH_POPULAR_SHOWS = 'fetch_popular_shows';
-
-export const FETCH_WATCHLIST = 'fetch_watchlist';
+export const RESET_SHOW = 'reset_show';

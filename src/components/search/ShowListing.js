@@ -18,9 +18,7 @@ class ShowListing extends Component {
       shows = showProps.map(show => {
         return (
           <div className="browse-show-wrap">
-            <Link key={show.show.id} to={"shows/" + show.show.id}>
-              <Show show={show.show} />
-            </Link>
+            <Show show={show.show} />
             <div id="browse-show-bottom">
               <h6>{show.show.name}</h6>
               { show.show.premiered ? <h6><small> {"(" + show.show.premiered.substring(0, 4) + ")"} </small></h6> : null }

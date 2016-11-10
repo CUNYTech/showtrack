@@ -1,7 +1,7 @@
 
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchShow } from '../../actions/index';
+import * as actions from '../../actions/index';
 
 class ShowDetail extends Component {
  constructor(props) {
@@ -11,7 +11,8 @@ class ShowDetail extends Component {
  }
 
 componentWillMount() {
-  this.props.fetchShow(this.props.params.id);
+    this.props.resetShow();
+    this.props.fetchShow(this.props.params.id);
 }
 
 renderGenres(show) {
@@ -58,9 +59,9 @@ render() {
 }
 
 function mapStateToProps(state) {
-return {
-  show: state.search.show
-}
+    return {
+      show: state.search.show
+    }
 }
 
-export default connect(mapStateToProps, { fetchShow }) (ShowDetail);
+export default connect(mapStateToProps, actions) (ShowDetail);

@@ -13,7 +13,7 @@ import {
   FETCH_TRENDING_SHOWS,
   FETCH_WATCHLIST,
   FETCH_POPULAR_SHOWS,
-  FETCH_WATCHLIST
+  RESET_SHOW
 } from './types';
 
 export function signinUser({ username, password}) {
@@ -127,4 +127,23 @@ export function fetchWatchList() {
         })
       })
   }
+}
+
+export function addToWatchList() {
+  return function(dispatch) {
+    axios.post(`${ROOT_URL_V2}/watchlist/list`)
+      .then(response => {
+        console.log('watch list', response);
+        dispatch({
+          type: FETCH_WATCHLIST,
+          payload: response
+        })
+      })
+  }
+}
+
+export function resetShow() {
+    return {
+      type: RESET_SHOW
+    }
 }
