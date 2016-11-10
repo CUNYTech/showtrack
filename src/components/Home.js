@@ -58,36 +58,47 @@ class Home extends Component {
 
     return (
         <div>
-            <div>
-            {!this.props.trendingShows ? (
-                <Spinner id={0} spinnerName='double-bounce' />
-        ) : (
-            <div>
-                <h2>Currently Trending Shows</h2>
-                <Slider {...settings}>
-                    {this.renderTrendingShows()}
-                </Slider>
-            </div>
-            )
-        }
-            </div>
-
-            <hr></hr>
-
-            <div>
-                {!this.props.popularShows ? (
-                    <Spinner id={1} spinnerName='double-bounce' />
-            ) : (
-                <div>
-                    <h2>Currently Popular Shows</h2>
-
-                    <Slider {...settings}>
-                        {this.renderPopularShows()}
-                    </Slider>
+          <h3>Popular Shows</h3>
+          <div>
+            {!this.props.popularShows ? (
+              <div className="container">
+                <div className="row">
+                  <div className="col-sm-4"></div>
+                  <Spinner id={0} spinnerName='three-bounce' className=".col-sm-4"/>
+                  <div className="col-sm-4"></div>
                 </div>
+              </div>
+            ) : (
+              <div>
+                  <Slider {...settings}>
+                      {this.renderPopularShows()}
+                  </Slider>
+              </div>
             )
-        }
-            </div>
+            }
+          </div>
+
+          <hr></hr>
+
+          <h3>Trending Shows</h3>
+          <div>
+            {!this.props.trendingShows ? (
+              <div className="container">
+                <div className="row">
+                  <div className="col-sm-4"></div>
+                  <Spinner id={0} spinnerName='three-bounce' className=".col-sm-4"/>
+                  <div className="col-sm-4"></div>
+                </div>
+              </div>
+            ) : (
+              <div>
+                  <Slider {...settings}>
+                      {this.renderTrendingShows()}
+                  </Slider>
+              </div>
+            )
+            }
+          </div>
       </div>
     )
   }

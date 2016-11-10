@@ -74,3 +74,12 @@ figure figcaption .btn-info {
     margin-bottom: 0px;
     word-wrap: break-word;
 }
+
+/****Spinner****/
+.bounce1, .bounce2, .bounce3{
+  background-color: #aaa!important;
+}
+.three-bounce > div{
+  width: 68px!important;
+  height: 68px!important;
+}

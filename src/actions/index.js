@@ -12,8 +12,7 @@ import {
   FETCH_SHOW,
   FETCH_TRENDING_SHOWS,
   FETCH_WATCHLIST,
-  FETCH_POPULAR_SHOWS,
-  FETCH_WATCHLIST
+  FETCH_POPULAR_SHOWS
 } from './types';
 
 export function signinUser({ username, password}) {
