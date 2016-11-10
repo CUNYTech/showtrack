@@ -11,7 +11,8 @@ import {
   SEARCH_RESULTS,
   FETCH_SHOW,
   FETCH_TRENDING_SHOWS,
-  FETCH_WATCHLIST
+  FETCH_WATCHLIST,
+  FETCH_POPULAR_SHOWS
 } from './types';
 
 export function signinUser({ username, password}) {
@@ -21,6 +22,7 @@ export function signinUser({ username, password}) {
       .then(response => {
         dispatch({ type: AUTH_USER });
         localStorage.setItem('token', response.data.token);
+        axios.defaults.headers.common['Authorization'] = response.data.token;
         browserHistory.push('/home'); // go to home route
       })
       .catch((response) => {
@@ -91,9 +93,35 @@ export function fetchTrendingShows() {
   return function(dispatch) {
     axios.get(`${ROOT_URL_V2}/trending/`)
       .then(response => {
-        console.log(response);
+        console.log('fetching trending shows', response);
         dispatch({
           type: FETCH_TRENDING_SHOWS,
+          payload: response
+        })
+      })
+  }
+}
+
+export function fetchPopularShows() {
+  return function(dispatch) {
+    axios.get(`${ROOT_URL_V2}/popular/`)
+      .then(response => {
+        console.log('fetching popular shows', response);
+        dispatch({
+          type: FETCH_POPULAR_SHOWS,
+          payload: response
+        })
+      })
+  }
+}
+
+export function fetchWatchList() {
+  return function(dispatch) {
+    axios.get(`${ROOT_URL_V2}/watchlist/list`)
+      .then(response => {
+        console.log('watch list', response);
+        dispatch({
+          type: FETCH_WATCHLIST,
           payload: response
         })
       })
