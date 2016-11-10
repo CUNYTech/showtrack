@@ -9,7 +9,7 @@ class Header extends Component {
       //link to sign out
       return [
         <li className="nav-item" key={1}>
-          <Link className="nav-link" to="/home">Home </Link>
+          <Link className="nav-link" to="/my-list">My Shows </Link>
         </li>,
         <li className="nav-item" key={2}>
           <Link className="nav-link" to="/search">Search </Link>
