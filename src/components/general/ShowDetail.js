@@ -1,7 +1,7 @@
-
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { fetchShow } from '../../actions/index';
+import Accordion from './Accordion';
 
 class ShowDetail extends Component {
  constructor(props) {
@@ -51,6 +51,7 @@ render() {
           {this.renderGenres(show)}
           <div className="text-xs-center rating">Rating: {show.rating.average || 0}/10</div>
         </div>
+        <Accordion/>
       </div>
     </div>
   )
