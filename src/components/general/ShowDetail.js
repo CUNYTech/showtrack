@@ -32,24 +32,64 @@ renderGenres(show) {
 render() {
   const { show } = this.props;
 
-  let data = [
-    {
-      title: "One",
-      content: 'Lorem ipsum dolor sit amet',
-    }, {
-      title: "Two",
-      content: 'Lorem ipsum dolor sit amet',
-    },{
-      title: "Three",
-      content: 'Lorem ipsum dolor sit amet',
-    }
-  ];
+
 
   if (!show) {
     return (
       <div>Loading...</div>
     )
   }
+
+  let data = [
+    {
+      title: "Test One",
+      content: `Lorem ipsum dolor sit amet,
+                consectetur adipiscing elit,
+                sed do eiusmod tempor incididunt
+                ut labore et dolore magna aliqua.
+                Ut enim ad minim veniam, quis
+                nostrud exercitation ullamco laboris
+                nisi ut aliquip ex ea commodo consequat.
+                Duis aute irure dolor in reprehenderit
+                in voluptate velit esse cillum dolore
+                eu fugiat nulla pariatur. Excepteur
+                sint occaecat cupidatat non proident,
+                sunt in culpa qui officia deserunt
+                mollit anim id est laborum.`,
+    }, {
+      title: "Two",
+      content: `Lorem ipsum dolor sit amet,
+                consectetur adipiscing elit,
+                sed do eiusmod tempor incididunt
+                ut labore et dolore magna aliqua.
+                Ut enim ad minim veniam, quis
+                nostrud exercitation ullamco laboris
+                nisi ut aliquip ex ea commodo consequat.
+                Duis aute irure dolor in reprehenderit
+                in voluptate velit esse cillum dolore
+                eu fugiat nulla pariatur. Excepteur
+                sint occaecat cupidatat non proident,
+                sunt in culpa qui officia deserunt
+                mollit anim id est laborum.`,
+    },{
+      title: "Test Three",
+      content: `Lorem ipsum dolor sit amet,
+                consectetur adipiscing elit,
+                sed do eiusmod tempor incididunt
+                ut labore et dolore magna aliqua.
+                Ut enim ad minim veniam, quis
+                nostrud exercitation ullamco laboris
+                nisi ut aliquip ex ea commodo consequat.
+                Duis aute irure dolor in reprehenderit
+                in voluptate velit esse cillum dolore
+                eu fugiat nulla pariatur. Excepteur
+                sint occaecat cupidatat non proident,
+                sunt in culpa qui officia deserunt
+                mollit anim id est laborum.`,
+    }
+  ];
+
+
   return (
     <div className="container">
       <div className="row">
@@ -63,8 +103,8 @@ render() {
           {this.renderGenres(show)}
           <div className="text-xs-center rating">Rating: {show.rating.average || 0}/10</div>
         </div>
-        <Accordion data={data}/>
       </div>
+      <Accordion data={data}/>
     </div>
   )
 }

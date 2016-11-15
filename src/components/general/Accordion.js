@@ -1,14 +1,19 @@
+
+/* Accordion - React */
+/* A Pen By Matthew Vincent */
+
+
 import React, { Component } from 'react';
 
 class Accordion extends Component {
 
   constructor(props){
     super(props)
+    this.click = this.click.bind(this);
   }
 
 	componentWillMount () {
   	let accordion = [];
-    console.log(this.props.data);
   	this.props.data.forEach((i) => {
       accordion.push({
         title: i.title,

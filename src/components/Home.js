@@ -57,19 +57,6 @@ class Home extends Component {
       slidesToScroll: 3
     };
 
-    let data = [
-      {
-        title: "One",
-        content: 'Lorem ipsum dolor sit amet',
-      }, {
-        title: "Two",
-        content: 'Lorem ipsum dolor sit amet',
-      },{
-        title: "Three",
-        content: 'Lorem ipsum dolor sit amet',
-      }
-    ];
-
     return (
         <div>
           <h3>Popular Shows</h3>
@@ -113,7 +100,6 @@ class Home extends Component {
             )
             }
           </div>
-          <Accordion data={data}/>
       </div>
     )
   }
