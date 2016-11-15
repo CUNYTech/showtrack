@@ -32,6 +32,18 @@ renderGenres(show) {
 render() {
   const { show } = this.props;
 
+  let data = [
+    {
+      title: "One",
+      content: 'Lorem ipsum dolor sit amet',
+    }, {
+      title: "Two",
+      content: 'Lorem ipsum dolor sit amet',
+    },{
+      title: "Three",
+      content: 'Lorem ipsum dolor sit amet',
+    }
+  ];
 
   if (!show) {
     return (
@@ -51,7 +63,7 @@ render() {
           {this.renderGenres(show)}
           <div className="text-xs-center rating">Rating: {show.rating.average || 0}/10</div>
         </div>
-        <Accordion/>
+        <Accordion data={data}/>
       </div>
     </div>
   )

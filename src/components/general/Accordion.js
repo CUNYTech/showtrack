@@ -8,7 +8,7 @@ class Accordion extends Component {
 
 	componentWillMount () {
   	let accordion = [];
-
+    console.log(this.props.data);
   	this.props.data.forEach((i) => {
       accordion.push({
         title: i.title,
@@ -16,11 +16,11 @@ class Accordion extends Component {
         open: false
       });
     });
-
+    console.log(accordion);
 		this.setState({
       accordionItems: accordion
     });
-  },
+  }
 
   click (i) {
   	const newAccordion = this.state.accordionItems.slice();
@@ -28,7 +28,7 @@ class Accordion extends Component {
 
     newAccordion[index].open = !newAccordion[index].open;
     this.setState({accordionItems: newAccordion});
-  },
+  }
 
 	render () {
     const sections = this.state.accordionItems.map((i) => (
