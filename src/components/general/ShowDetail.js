@@ -1,4 +1,3 @@
-
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import * as actions from '../../actions/index';
@@ -30,32 +29,32 @@ renderGenres(show) {
   return genreListing;
 }
 
-render() {
-  const { show } = this.props;
+  render() {
+    const { show } = this.props;
 
 
-  if (!show) {
+    if (!show) {
+      return (
+        <div>Loading...</div>
+      )
+    }
     return (
-      <div>Loading...</div>
-    )
-  }
-  return (
-    <div className="container">
-      <div className="row">
-        <div className="col-xs-12 col-sm-4 col-md-6 col-lg-6">
-          <img src={show.image.original} className="img-responsive" alt={show.name} />
-        </div>
-        <div className="col-xs-12 col-sm-8 col-md-6 col-lg-6">
-          <h3>{show.name}</h3>
-          <br />
-          <p dangerouslySetInnerHTML={{__html: show.summary}} className="font-weight-normal font-italic"></p>
-          {this.renderGenres(show)}
-          <div className="text-xs-center rating">Rating: {show.rating.average || 0}/10</div>
+      <div className="container">
+        <div className="row">
+          <div className="col-xs-12 col-sm-4 col-md-6 col-lg-6">
+            <img src={show.image.original} className="img-responsive" alt={show.name} />
+          </div>
+          <div className="col-xs-12 col-sm-8 col-md-6 col-lg-6">
+            <h3>{show.name}</h3>
+            <br />
+            <p dangerouslySetInnerHTML={{__html: show.summary}} className="font-weight-normal font-italic"></p>
+            {this.renderGenres(show)}
+            <div className="text-xs-center rating">Rating: {show.rating.average || 0}/10</div>
+          </div>
         </div>
       </div>
-    </div>
-  )
-}
+    )
+  }
 }
 
 function mapStateToProps(state) {
