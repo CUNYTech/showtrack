@@ -30,6 +30,20 @@ module.exports = {
   },
   devServer: {
     historyApiFallback: true,
-    contentBase: './'
+    contentBase: './',
+    quiet: false,
+    // It suppress everything except error, so it has to be set to false as well
+    // to see success build.
+    noInfo: false,
+    stats: {
+      // Config for minimal console.log mess.
+      assets: false,
+      colors: true,
+      version: false,
+      hash: false,
+      timings: true,
+      chunks: false,
+      chunkModules: false
+    }
   }
 };
