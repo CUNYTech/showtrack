@@ -1,5 +1,5 @@
-const ROOT_URL = 'http://dango.us-east-1.elasticbeanstalk.com/api/v1';
-const ROOT_URL_V2 = 'http://dango.us-east-1.elasticbeanstalk.com/api/v2';
+const ROOT_URL = 'http://starter-dev2.us-east-1.elasticbeanstalk.com/api/v1';
+const ROOT_URL_V2 = 'http://starter-dev2.us-east-1.elasticbeanstalk.com/api/v2';
 const LOCAL_ROOT_URL = 'http://localhost:3080';
 
 import axios from 'axios';
@@ -129,9 +129,9 @@ export function fetchWatchList() {
   }
 }
 
-export function addToWatchList() {
+export function addToWatchList(show) {
   return function(dispatch) {
-    axios.post(`${ROOT_URL_V2}/watchlist/list`)
+    axios.post(`${ROOT_URL_V2}/watchlist/`, {show_id: show.id})
       .then(response => {
         console.log('watch list', response);
         dispatch({
