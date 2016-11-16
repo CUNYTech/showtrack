@@ -9,10 +9,20 @@ class MyList extends Component {
   }
 
   renderWatchList() {
-      console.log('watchlist',this.props.watchList);
-      return (
-        <div>test</div>
-      );
+      let watchList = this.props.watchList;
+
+      let list = null;
+      let listItems = (<span>No shows were found!</span>);
+
+      if (watchList.length > 0) {
+        list = watchList.map(item => {
+          return (
+            <div key={item.id}>
+              {item.show_id}
+            </div>);
+        });
+      }
+      return list;
   }
 
   render() {
