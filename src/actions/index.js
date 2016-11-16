@@ -12,7 +12,8 @@ import {
   FETCH_SHOW,
   FETCH_TRENDING_SHOWS,
   FETCH_WATCHLIST,
-  FETCH_POPULAR_SHOWS
+  FETCH_POPULAR_SHOWS,
+  FETCH_EPISODES
 } from './types';
 
 export function signinUser({ username, password}) {
@@ -122,6 +123,19 @@ export function fetchWatchList() {
         console.log('watch list', response);
         dispatch({
           type: FETCH_WATCHLIST,
+          payload: response
+        })
+      })
+  }
+}
+
+export function fetchEpisodes(id) {
+  return function(dispatch) {
+    axios.get(`${ROOT_URL_V2}/shows/${id}/episodes`)
+      .then(response => {
+        console.log('episodes fetched', response);
+        dispatch({
+          type: FETCH_EPISODES,
           payload: response
         })
       })

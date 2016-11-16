@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchShow } from '../../actions/index';
+import * as actions from '../../actions/index';
 import Accordion from './Accordion';
 
 class ShowDetail extends Component {
@@ -12,6 +12,7 @@ class ShowDetail extends Component {
 
 componentWillMount() {
   this.props.fetchShow(this.props.params.id);
+  this.props.fetchEpisodes(this.props.params.id);
 }
 
 renderGenres(show) {
@@ -30,9 +31,7 @@ renderGenres(show) {
 }
 
 render() {
-  const { show } = this.props;
-
-
+  const { show, episodes } = this.props;
 
   if (!show) {
     return (
@@ -89,7 +88,6 @@ render() {
     }
   ];
 
-
   return (
     <div className="container">
       <div className="row">
@@ -111,9 +109,10 @@ render() {
 }
 
 function mapStateToProps(state) {
-return {
-  show: state.search.show
-}
+  return {
+    show: state.search.show,
+    episodes: state.show.episodes
+  }
 }
 
-export default connect(mapStateToProps, { fetchShow }) (ShowDetail);
+export default connect(mapStateToProps, actions) (ShowDetail);
