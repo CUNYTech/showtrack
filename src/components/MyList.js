@@ -9,9 +9,10 @@ class MyList extends Component {
   }
 
   renderWatchList() {
-      console.log('test');
-
-      return (<div>test</div>);
+      
+      return (
+        <div>test</div>
+      );
   }
 
   render() {

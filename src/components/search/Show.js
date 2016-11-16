@@ -1,11 +1,15 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
+import { connect } from 'react-redux';
+import * as actions from '../../actions/index';
 
 class Show extends Component {
   constructor(props) {
     super(props)
 
     this.renderImage = this.renderImage.bind(this);
+    this.addToWatchList = this.addToWatchList.bind(this);
+
   }
 
    renderImage() {
@@ -19,6 +23,11 @@ class Show extends Component {
         <img src='http://placehold.it/210x295'/>
       )
     }
+  }
+
+  addToWatchList(show) {
+    console.log(show);
+    this.props.addToWatchList(show);
   }
 
   renderNameAndYear(){
@@ -41,7 +50,7 @@ class Show extends Component {
             <Link className="btn btn-info" to={"shows/" + this.props.show.id}>
                 View Details
             </Link>
-            <span className="btn btn-primary">Add to my shows</span>
+            <span className="btn btn-primary" onClick={() => (this.addToWatchList(this.props.show))}>Add to my shows</span>
         </div>
 
       </figcaption>
@@ -66,4 +75,4 @@ class Show extends Component {
   }
 };
 
-export default Show;
+export default connect(null, actions)(Show);
