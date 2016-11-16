@@ -133,7 +133,6 @@ export function fetchWatchList() {
 
 export function addToWatchList(show) {
   return function(dispatch) {
-<<<<<<< HEAD
     axios.post(`${ROOT_URL_V3}/watchlist/`, {show_id : show.id})
       .then(response => {
         console.log('add to watch list', response);
@@ -141,14 +140,6 @@ export function addToWatchList(show) {
           type: FETCH_WATCHLIST,
           payload: response
         })
-=======
-    axios.post(`${ROOT_URL_V2}/watchlist/`, {show_id: show.id})
-      .then(response => {
-        console.log('successfully sent ', response);
-      })
-      .catch(error => {
-          console.log(error, 'error has occured');
->>>>>>> f2d3c3ccd36f62257eb3f1e7f91ae18dd625f1cf
       })
       .catch((error) => {
         console.log('error', error);

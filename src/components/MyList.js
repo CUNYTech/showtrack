@@ -9,7 +9,7 @@ class MyList extends Component {
   }
 
   renderWatchList() {
-      
+      console.log('watchlist',this.props.watchList);
       return (
         <div>test</div>
       );
