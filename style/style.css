@@ -218,13 +218,6 @@ h2, h3, h4 {
 }
 }
 
-h2, h3, h4 {
-    font-style: normal;
-    color: #222222;
-    text-rendering: optimizeLegibility;
-    margin-top: 0.8rem;
-    margin-bottom: 1rem;
-}
 
 a {
     color: #3c948b;
@@ -232,14 +225,7 @@ a {
     line-height: inherit;
 }
 
-p {
-    font-family: inherit;
-    font-weight: normal;
-    font-size: 1rem;
-    line-height: 1.6;
-    margin-bottom: 1.42857rem;
-    text-rendering: optimizeLegibility;
-}
+
 
 #next-episode-widget i.fa {
     position: relative;
