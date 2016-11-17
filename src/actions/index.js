@@ -14,7 +14,8 @@ import {
   FETCH_TRENDING_SHOWS,
   FETCH_WATCHLIST,
   FETCH_POPULAR_SHOWS,
-  RESET_SHOW
+  RESET_SHOW,
+  FETCH_EPISODES
 } from './types';
 
 export function signinUser({ username, password}) {
@@ -151,4 +152,16 @@ export function resetShow() {
     return {
       type: RESET_SHOW
     }
+}
+export function fetchEpisodes(id) {
+  return function(dispatch) {
+    axios.get(`${ROOT_URL_V2}/shows/${id}/episodes`)
+      .then(response => {
+        console.log('episodes fetched', response);
+        dispatch({
+          type: FETCH_EPISODES,
+          payload: response
+        })
+      })
+  }
 }
