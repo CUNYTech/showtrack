@@ -306,3 +306,11 @@ table tr td {
 table tr:nth-of-type(even) {
     background: #f9f9f9;
 }
+/****Spinner****/
+.bounce1, .bounce2, .bounce3{
+  background-color: #aaa!important;
+}
+.three-bounce > div{
+  width: 68px!important;
+  height: 68px!important;
+}

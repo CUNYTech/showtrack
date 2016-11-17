@@ -2,6 +2,5 @@ ShowTrack frontend
 
 ```
 	> npm install
-	> npm start
-  > random comment
+	> npm run dev
 ```
