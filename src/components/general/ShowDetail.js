@@ -141,11 +141,11 @@ render() {
           <a href="/videos/5480/the-walking-dead-7x03-the-cell-trailer"><i class="fa fa-film fa-lg"></i> Watch Trailer</a>
         </div>
       </div>
-      <div class="row">
-        <section class="small-12 medium-12 large-10 columns left" id="episode-list-short">
+      <div className="row">
+        <section className="col-sm-12 col-md-12 col-lg-10 columns left" id="episode-list-short">
           <h2>Previous Episodes</h2>
-          <div id="w0" class="grid-view">
-            <table class="table table-striped table-bordered">
+          <div id="w0" className="grid-view">
+            <table className="table table-striped table-bordered">
               <thead>
                 <tr>
                   <th>Episode Name</th>
@@ -155,8 +155,8 @@ render() {
               </thead>
               <tbody>
                 <tr data-key="895795"><td>7x04: <a href="/episodes/895795/the-walking-dead-7x04-service">Service</a></td><td>Nov 13, 2016</td><td></td></tr>
-                <tr data-key="895794"><td>7x03: <a href="/episodes/895794/the-walking-dead-7x03-the-cell">The Cell</a></td><td>Nov 6, 2016</td><td><a class="fa fa-film fa-lg" href="/videos/5480/the-walking-dead-7x03-the-cell-trailer"></a></td></tr>
-                <tr data-key="895793"><td>7x02: <a href="/episodes/895793/the-walking-dead-7x02-the-well">The Well</a></td><td>Oct 30, 2016</td><td><a class="fa fa-film fa-lg" href="/videos/5385/the-walking-dead-7x02-the-well-trailer"></a></td></tr>
+                <tr data-key="895794"><td>7x03: <a href="/episodes/895794/the-walking-dead-7x03-the-cell">The Cell</a></td><td>Nov 6, 2016</td><td><a className="fa fa-film fa-lg" href="/videos/5480/the-walking-dead-7x03-the-cell-trailer"></a></td></tr>
+                <tr data-key="895793"><td>7x02: <a href="/episodes/895793/the-walking-dead-7x02-the-well">The Well</a></td><td>Oct 30, 2016</td><td><a className="fa fa-film fa-lg" href="/videos/5385/the-walking-dead-7x02-the-well-trailer"></a></td></tr>
               </tbody>
             </table>
           </div>
