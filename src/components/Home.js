@@ -4,6 +4,7 @@ import * as actions from '../actions';
 import Show from './search/Show';
 import Slider from 'react-slick';
 import Spinner from 'react-spinkit';
+import Accordion from './general/Accordion';
 
 //import { searchShows } from '../../actions/index';
 //var Slider = require('react-slick');

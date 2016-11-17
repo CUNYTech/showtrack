@@ -13,14 +13,12 @@ class ShowListing extends Component {
     let showProps = this.props.shows;
     let shows = null;
     let showItems = (<span>No shows were found!</span>);
-    console.log(this.props.shows);
+
     if (showProps.length > 0) {
       shows = showProps.map(show => {
         return (
           <div className="browse-show-wrap">
-            <Link key={show.show.id} to={"shows/" + show.show.id}>
-              <Show show={show.show} />
-            </Link>
+            <Show key={show.id} show={show.show} />
             <div id="browse-show-bottom">
               <h6>{show.show.name}</h6>
               { show.show.premiered ? <h6><small> {"(" + show.show.premiered.substring(0, 4) + ")"} </small></h6> : null }

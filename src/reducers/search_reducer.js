@@ -1,4 +1,4 @@
-import { SEARCH_RESULTS, FETCH_SHOW } from '../actions/types';
+import { SEARCH_RESULTS, FETCH_SHOW, RESET_SHOW } from '../actions/types';
 
 export default function(state = [], action) {
   switch (action.type) {
@@ -6,6 +6,8 @@ export default function(state = [], action) {
     return { ...state, searchResults: action.payload.data };
   case FETCH_SHOW:
     return { ...state, show: action.payload.data };
+  case RESET_SHOW:
+    return { ...state, show: null };
   }
   return state;
 }

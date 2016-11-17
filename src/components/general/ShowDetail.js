@@ -1,7 +1,7 @@
-
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchShow } from '../../actions/index';
+import * as actions from '../../actions/index';
+import Accordion from './Accordion';
 
 class ShowDetail extends Component {
  constructor(props) {
@@ -11,7 +11,9 @@ class ShowDetail extends Component {
  }
 
 componentWillMount() {
+  this.props.resetShow();
   this.props.fetchShow(this.props.params.id);
+  this.props.fetchEpisodes(this.props.params.id);
 }
 
 renderGenres(show) {
@@ -30,14 +32,62 @@ renderGenres(show) {
 }
 
 render() {
-  const { show } = this.props;
+  const { show, episodes } = this.props;
+    if (!show) {
+      return (
+        <div>Loading...</div>
+      )
+    }
 
+  let data = [
+    {
+      title: "Test One",
+      content: `Lorem ipsum dolor sit amet,
+                consectetur adipiscing elit,
+                sed do eiusmod tempor incididunt
+                ut labore et dolore magna aliqua.
+                Ut enim ad minim veniam, quis
+                nostrud exercitation ullamco laboris
+                nisi ut aliquip ex ea commodo consequat.
+                Duis aute irure dolor in reprehenderit
+                in voluptate velit esse cillum dolore
+                eu fugiat nulla pariatur. Excepteur
+                sint occaecat cupidatat non proident,
+                sunt in culpa qui officia deserunt
+                mollit anim id est laborum.`,
+    }, {
+      title: "Two",
+      content: `Lorem ipsum dolor sit amet,
+                consectetur adipiscing elit,
+                sed do eiusmod tempor incididunt
+                ut labore et dolore magna aliqua.
+                Ut enim ad minim veniam, quis
+                nostrud exercitation ullamco laboris
+                nisi ut aliquip ex ea commodo consequat.
+                Duis aute irure dolor in reprehenderit
+                in voluptate velit esse cillum dolore
+                eu fugiat nulla pariatur. Excepteur
+                sint occaecat cupidatat non proident,
+                sunt in culpa qui officia deserunt
+                mollit anim id est laborum.`,
+    },{
+      title: "Test Three",
+      content: `Lorem ipsum dolor sit amet,
+                consectetur adipiscing elit,
+                sed do eiusmod tempor incididunt
+                ut labore et dolore magna aliqua.
+                Ut enim ad minim veniam, quis
+                nostrud exercitation ullamco laboris
+                nisi ut aliquip ex ea commodo consequat.
+                Duis aute irure dolor in reprehenderit
+                in voluptate velit esse cillum dolore
+                eu fugiat nulla pariatur. Excepteur
+                sint occaecat cupidatat non proident,
+                sunt in culpa qui officia deserunt
+                mollit anim id est laborum.`,
+    }
+  ];
 
-  if (!show) {
-    return (
-      <div>Loading...</div>
-    )
-  }
   return (
     <div className="container">
       <div className="row">
@@ -52,15 +102,17 @@ render() {
           <div className="text-xs-center rating">Rating: {show.rating.average || 0}/10</div>
         </div>
       </div>
+      <Accordion data={data}/>
     </div>
   )
 }
 }
 
 function mapStateToProps(state) {
-return {
-  show: state.search.show
-}
+  return {
+    show: state.search.show,
+    episodes: state.show.episodes
+  }
 }
 
-export default connect(mapStateToProps, { fetchShow }) (ShowDetail);
+export default connect(mapStateToProps, actions) (ShowDetail);
