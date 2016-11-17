@@ -11,6 +11,7 @@ class ShowDetail extends Component {
  }
 
 componentWillMount() {
+  this.props.resetShow();
   this.props.fetchShow(this.props.params.id);
   this.props.fetchEpisodes(this.props.params.id);
 }
@@ -32,12 +33,11 @@ renderGenres(show) {
 
 render() {
   const { show, episodes } = this.props;
-
-  if (!show) {
-    return (
-      <div>Loading...</div>
-    )
-  }
+    if (!show) {
+      return (
+        <div>Loading...</div>
+      )
+    }
 
   let data = [
     {

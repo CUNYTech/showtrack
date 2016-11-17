@@ -11,7 +11,7 @@ const store = configureStore();
 const token = localStorage.getItem('token');
 if (token) {
   store.dispatch({ type: AUTH_USER });
-  axios.defaults.headers.common['Authorization'] = token;
+  axios.defaults.headers.common['Authorization'] =  "JWT " + token;
 }
 
 ReactDOM.render(
