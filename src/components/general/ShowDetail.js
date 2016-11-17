@@ -29,6 +29,21 @@ renderGenres(show) {
   return genreListing;
 }
 
+renderEpisodeDetails(episodes){
+    console.log("episodes length:", episodes.length);
+
+    let episodeNames = null;
+
+    episodeNames = episodes.map(episodes => {
+      return(
+        <div>{episodes.name}</div>
+      )
+    });
+    return episodeNames;
+}
+
+
+
 render() {
   const { show, episodes } = this.props;
     if (!show) {
@@ -43,46 +58,19 @@ render() {
       content: `Lorem ipsum dolor sit amet,
                 consectetur adipiscing elit,
                 sed do eiusmod tempor incididunt
-                ut labore et dolore magna aliqua.
-                Ut enim ad minim veniam, quis
-                nostrud exercitation ullamco laboris
-                nisi ut aliquip ex ea commodo consequat.
-                Duis aute irure dolor in reprehenderit
-                in voluptate velit esse cillum dolore
-                eu fugiat nulla pariatur. Excepteur
-                sint occaecat cupidatat non proident,
-                sunt in culpa qui officia deserunt
-                mollit anim id est laborum.`,
+                ut labore et dolore magna aliqua.`,
     }, {
       title: "Two",
       content: `Lorem ipsum dolor sit amet,
                 consectetur adipiscing elit,
                 sed do eiusmod tempor incididunt
-                ut labore et dolore magna aliqua.
-                Ut enim ad minim veniam, quis
-                nostrud exercitation ullamco laboris
-                nisi ut aliquip ex ea commodo consequat.
-                Duis aute irure dolor in reprehenderit
-                in voluptate velit esse cillum dolore
-                eu fugiat nulla pariatur. Excepteur
-                sint occaecat cupidatat non proident,
-                sunt in culpa qui officia deserunt
-                mollit anim id est laborum.`,
+                ut labore et dolore magna aliqua.`,
     },{
       title: "Test Three",
       content: `Lorem ipsum dolor sit amet,
                 consectetur adipiscing elit,
                 sed do eiusmod tempor incididunt
-                ut labore et dolore magna aliqua.
-                Ut enim ad minim veniam, quis
-                nostrud exercitation ullamco laboris
-                nisi ut aliquip ex ea commodo consequat.
-                Duis aute irure dolor in reprehenderit
-                in voluptate velit esse cillum dolore
-                eu fugiat nulla pariatur. Excepteur
-                sint occaecat cupidatat non proident,
-                sunt in culpa qui officia deserunt
-                mollit anim id est laborum.`,
+                ut labore et dolore magna aliqua.`,
     }
   ];
 
@@ -119,7 +107,7 @@ render() {
           <div>Rating: {show.rating.average || 0}/10</div>
         </div>
       </div>
-      <div className="row" id="next-episode-widget">
+      {/*<div className="row" id="next-episode-widget">
         <header className="col-sm-12 columns">
           <h2>Next Episode</h2>
         </header>
@@ -162,7 +150,11 @@ render() {
           </div>
           <a href="/shows/73/the-walking-dead/episodes">View full episode list »</a>
         </section>
-      </div>
+      </div>*/}
+      <h2>Episode Name: {episodes[0].name}</h2>
+
+      <div>Episodes: {this.renderEpisodeDetails(episodes)}</div>
+      
       <Accordion data={data}/>
     </div>
   )
