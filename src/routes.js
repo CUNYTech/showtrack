@@ -5,7 +5,7 @@ import Signin from './components/auth/Signin';
 import Signout from './components/auth/Signout';
 import Signup from './components/auth/Signup';
 import Home from './components/Home';
-import MyList from './components/MyList';
+import MyList from './components/list/MyList';
 import Search from './components/search/Search';
 import ShowDetail from './components/general/ShowDetail';
 import RequireAuth from './components/auth/Require_Auth';

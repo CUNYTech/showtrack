@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import * as actions from '../actions';
+import * as actions from '../../actions';
 
 class MyList extends Component {
 
@@ -17,7 +17,7 @@ class MyList extends Component {
     if (watchList.length > 0) {
       list = watchList.map(item => {
         return (
-          <div key={item.id}>
+          <div key={item.show_id}>
             {item.show_id}
           </div>);
       });
