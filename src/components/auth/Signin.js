@@ -1,18 +1,16 @@
-import React, {Component} from 'react';
-import {reduxForm} from 'redux-form';
+import React, { Component } from 'react';
+import { reduxForm } from 'redux-form';
 import * as actions from '../../actions/';
 
 class Signin extends Component {
   handleFormSubmit({ username, password }) {
-    // Need to do something to log user in
-    this.props.signinUser({ username, password});
+    this.props.signinUser({ username, password });
 }
   renderAlert() {
     if(this.props.errorMessage) {
-      console.log(this.props.errorMessage);
       return (
         <div className="alert alert-danger">
-          <strong>Oops!</strong> {this.props.errorMessage}
+          {this.props.errorMessage}
         </div>
       )
     }
@@ -48,5 +46,3 @@ export default reduxForm({
   form: 'signin',
   fields: ['username', 'password']
 }, mapStateToProps, actions)(Signin);
-
-// gives us access to actions as props in our redux form

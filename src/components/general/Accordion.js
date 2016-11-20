@@ -1,8 +1,3 @@
-
-/* Accordion - React */
-/* A Pen By Matthew Vincent */
-
-
 import React, { Component } from 'react';
 
 class Accordion extends Component {
@@ -21,7 +16,7 @@ class Accordion extends Component {
         open: false
       });
     });
-    console.log(accordion);
+
 		this.setState({
       accordionItems: accordion
     });

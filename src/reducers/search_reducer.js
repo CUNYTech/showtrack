@@ -1,4 +1,8 @@
-import { SEARCH_RESULTS, FETCH_SHOW, RESET_SHOW } from '../actions/types';
+import {
+  SEARCH_RESULTS,
+  FETCH_SHOW,
+  RESET_SHOW
+} from '../actions/types';
 
 export default function(state = [], action) {
   switch (action.type) {

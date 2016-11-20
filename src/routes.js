@@ -1,6 +1,5 @@
 import React from 'react';
 import { Route, IndexRoute } from 'react-router';
-
 import App from './components/app';
 import Signin from './components/auth/Signin';
 import Signout from './components/auth/Signout';
@@ -20,6 +19,5 @@ export default (
     <Route path="search" component={Search} />
     <Route path="my-list" component={RequireAuth(MyList)} />
     <Route path="shows/:id" component={RequireAuth(ShowDetail)}/>
-
   </Route>
 );

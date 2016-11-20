@@ -1,4 +1,9 @@
-import { FETCH_WATCHLIST, FETCH_TRENDING_SHOWS, FETCH_POPULAR_SHOWS, FETCH_EPISODES } from '../actions/types';
+import {
+  FETCH_WATCHLIST,
+  FETCH_TRENDING_SHOWS,
+  FETCH_POPULAR_SHOWS,
+  FETCH_EPISODES
+} from '../actions/types';
 
 export default function(state = [], action) {
   switch (action.type) {

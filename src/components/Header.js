@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router';
 
@@ -6,7 +6,6 @@ class Header extends Component {
 
   renderLinks() {
     if (this.props.authenticated) {
-      //link to sign out
       return [
         <li className="nav-item" key={1}>
           <Link className="nav-link" to="/my-list">My Shows </Link>
@@ -19,7 +18,6 @@ class Header extends Component {
         </li>
       ]
     } else {
-      // link to sign in
       return [
         <li className="nav-item" key={1}>
           <Link className="nav-link" to="/signin">Login</Link>

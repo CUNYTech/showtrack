@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Link } from 'react-router';
 
 import Show from './Show';
-import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
 class ShowListing extends Component {
   constructor(props) {
