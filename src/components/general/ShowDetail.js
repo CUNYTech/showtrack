@@ -30,16 +30,18 @@ renderGenres(show) {
 }
 
 renderEpisodeDetails(episodes){
-    console.log("episodes length:", episodes.length);
-
-    let episodeNames = null;
-
-    episodeNames = episodes.map(episodes => {
-      return(
-        <div>{episodes.name}</div>
-      )
-    });
-    return episodeNames;
+  let episodeDetails = episodes.map((x) => {
+    return(
+      <div key={x.id}>
+        {/*x.image.medium*/}
+        <h2>{x.name}</h2>
+        {/*<img src={x.image.medium} className="img-responsive" alt={episodes.name} />*/}
+        <div> Number: {x.number} Season: {x.season}</div>
+        <p dangerouslySetInnerHTML={{__html: x.summary}} ></p>
+      </div>
+    )
+  });
+  return episodeDetails;
 }
 
 
@@ -151,10 +153,10 @@ render() {
           <a href="/shows/73/the-walking-dead/episodes">View full episode list »</a>
         </section>
       </div>*/}
-      <h2>Episode Name: {episodes[0].name}</h2>
+      {/*<h2>Episode Name: {episodes[0].name}</h2>*/}
 
-      <div>Episodes: {this.renderEpisodeDetails(episodes)}</div>
-      
+      <div>{this.renderEpisodeDetails(episodes)}</div>
+
       <Accordion data={data}/>
     </div>
   )
