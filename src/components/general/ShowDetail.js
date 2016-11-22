@@ -31,11 +31,12 @@ renderGenres(show) {
 }
 
 renderEpisodeDetails(episodes){
+  console.log(episodes.data.length);
   let episodeDetails = episodes.map((x) => {
     return(
       <div key={x.id}>
         <h2>{x.name}</h2>
-        <img src={x.image ? x.image.medium : 'http://placehold.it/210x295'} className="img-responsive" alt={episodes.name} />
+        <img src={x.image ? x.image.medium : 'http://placehold.it/250x140'} className="img-responsive" alt={episodes.name} />
         <div> Number: {x.number} Season: {x.season}</div>
         <p dangerouslySetInnerHTML={{__html: x.summary}} ></p>
       </div>
@@ -43,9 +44,6 @@ renderEpisodeDetails(episodes){
   });
   return episodeDetails;
 }
-
-
-
 render() {
   const { show, episodes } = this.props;
     if (!show) {
@@ -54,27 +52,21 @@ render() {
       )
     }
 
-  let data = [
-    {
-      title: "Test One",
-      content: `Lorem ipsum dolor sit amet,
-                consectetur adipiscing elit,
-                sed do eiusmod tempor incididunt
-                ut labore et dolore magna aliqua.`,
-    }, {
-      title: "Two",
-      content: `Lorem ipsum dolor sit amet,
-                consectetur adipiscing elit,
-                sed do eiusmod tempor incididunt
-                ut labore et dolore magna aliqua.`,
-    },{
-      title: "Test Three",
-      content: `Lorem ipsum dolor sit amet,
-                consectetur adipiscing elit,
-                sed do eiusmod tempor incididunt
-                ut labore et dolore magna aliqua.`,
-    }
-  ];
+    {/*title: "Test One",
+    content: `Lorem ipsum dolor sit amet,
+              consectetur adipiscing elit,
+              sed do eiusmod tempor incididunt
+              ut labore et dolore magna aliqua.`,*/}
+
+
+  // let episodeData = null;
+  // for(var i = 0; i < episodes.length; i++){
+  //   episodeData[i] = episodes[i].season;
+  // }
+
+  let episodeData = episodes.map((x) => {
+    return {title:x.season, content:<div>{x.name}</div>};
+  });
 
   return (
     <div className="container">
@@ -109,55 +101,11 @@ render() {
           <div>Rating: {show.rating.average || 0}/10</div>
         </div>
       </div>
-      {/*<div className="row" id="next-episode-widget">
-        <header className="col-sm-12 columns">
-          <h2>Next Episode</h2>
-        </header>
-        <div className="col-sm-12 columns">
-          <time datetime="2016-11-20" className="icon pull-left">
-            <strong>Nov</strong>
-            <span>20</span>
-            <em>Sun</em>
-          </time>
-          <div className="header-wrap">
-            <h3>
-              <a href="/episodes/895794/the-walking-dead-7x03-the-cell">The Cell</a>
-            </h3>
-            <h4>
-              Episode 7x05; Nov 20, 2016
-            </h4>
-          </div>
-          <p>A new group of survivors seem to have it all in their impressive community; however, there is a price.</p>
-          <a href="/videos/5480/the-walking-dead-7x03-the-cell-trailer"><i class="fa fa-film fa-lg"></i> Watch Trailer</a>
-        </div>
-      </div>
-      <div className="row">
-        <section className="col-sm-12 col-md-12 col-lg-10 columns left" id="episode-list-short">
-          <h2>Previous Episodes</h2>
-          <div id="w0" className="grid-view">
-            <table className="table table-striped table-bordered">
-              <thead>
-                <tr>
-                  <th>Episode Name</th>
-                  <th>Airdate</th>
-                  <th>Trailer</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr data-key="895795"><td>7x04: <a href="/episodes/895795/the-walking-dead-7x04-service">Service</a></td><td>Nov 13, 2016</td><td></td></tr>
-                <tr data-key="895794"><td>7x03: <a href="/episodes/895794/the-walking-dead-7x03-the-cell">The Cell</a></td><td>Nov 6, 2016</td><td><a className="fa fa-film fa-lg" href="/videos/5480/the-walking-dead-7x03-the-cell-trailer"></a></td></tr>
-                <tr data-key="895793"><td>7x02: <a href="/episodes/895793/the-walking-dead-7x02-the-well">The Well</a></td><td>Oct 30, 2016</td><td><a className="fa fa-film fa-lg" href="/videos/5385/the-walking-dead-7x02-the-well-trailer"></a></td></tr>
-              </tbody>
-            </table>
-          </div>
-          <a href="/shows/73/the-walking-dead/episodes">View full episode list »</a>
-        </section>
-      </div>*/}
-      {/*<h2>Episode Name: {episodes[0].name}</h2>*/}
+
 
       <div>{this.renderEpisodeDetails(episodes)}</div>
 
-      <Accordion data={data}/>
+      <Accordion data={episodeData}/>
       <EpisodeDetail/>
     </div>
   )
