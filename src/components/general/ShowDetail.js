@@ -158,7 +158,7 @@ render() {
       <div>{this.renderEpisodeDetails(episodes)}</div>
 
       <Accordion data={data}/>
-      <EpisodeDetail />
+      <EpisodeDetail/>
     </div>
   )
 }
