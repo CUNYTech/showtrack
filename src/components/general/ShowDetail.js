@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import * as actions from '../../actions/index';
 import Accordion from './Accordion';
+import EpisodeDetail from './EpisodeDetail';
 
 class ShowDetail extends Component {
  constructor(props) {
@@ -33,9 +34,8 @@ renderEpisodeDetails(episodes){
   let episodeDetails = episodes.map((x) => {
     return(
       <div key={x.id}>
-        {/*x.image.medium*/}
         <h2>{x.name}</h2>
-        {/*<img src={x.image.medium} className="img-responsive" alt={episodes.name} />*/}
+        <img src={x.image ? x.image.medium : 'http://placehold.it/210x295'} className="img-responsive" alt={episodes.name} />
         <div> Number: {x.number} Season: {x.season}</div>
         <p dangerouslySetInnerHTML={{__html: x.summary}} ></p>
       </div>
@@ -158,6 +158,7 @@ render() {
       <div>{this.renderEpisodeDetails(episodes)}</div>
 
       <Accordion data={data}/>
+      <EpisodeDetail />
     </div>
   )
 }
