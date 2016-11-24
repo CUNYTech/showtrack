@@ -59,41 +59,66 @@ class ShowDetail extends Component {
                 consectetur adipiscing elit,
                 sed do eiusmod tempor incididunt
                 ut labore et dolore magna aliqua.`,*/}
+                //
+                // let episodeData = [
+                //   {
+                //     title: "Test One",
+                //     content: [<div> test content</div>
+                //               ,<div> test 2</div>],
+                //   }, {
+                //     title: "Two",
+                //     content: `Lorem ipsum dolor sit amet,
+                //               consectetur adipiscing elit,
+                //               sed do eiusmod tempor incididunt
+                //               ut labore et dolore magna aliqua.`,
+                //   },{
+                //     title: "Test Three",
+                //     content: `Lorem ipsum dolor sit amet,
+                //               consectetur adipiscing elit,
+                //               sed do eiusmod tempor incididunt
+                //               ut labore et dolore magna aliqua.`,
+                //   }
+                // ];
 
 
 
     var episodeData = [];
-    for(var i = 0; i < episodes.length; i++){
-      //console.log("episodes length new :", episodes.length);
-      if(i == 0){
-        episodeData.push({ title:"season " + episodes[i].season, content:<div>{episodes[i].name}</div> });
-        var j = i+1;
-        while(episodes[i].season == episodes[j].season){
-          //should be appending rather than overwriting.
-          episodeData[i].content = <div>{episodes[j].name}</div>;
-          j++;
-        }
-      }
-
-      else{
-        if(episodes[i].season != episodes[i-1].season){
-          episodeData.push({ title:episodes[i].season, content:<div>{episodes[i].number} {episodes[i].name}</div> });
-        }
-      }
+    var totalSeasons = episodes[episodes.length - 1].season;
+    for(var i = 1;i <= totalSeasons; i++) {
+      var seasonDetails = {title: `season ${i}`, content: []};
+      var seasonContents = episodes.filter(function(episode) {
+        return episode.season === i;
+      });
+      var episodeContent = seasonContents.map(function(episode) {
+        return <div>{`${episode.number} ${episode.name}`}</div>
+      });
+      seasonDetails.content = [...episodeContent];
+      episodeData.push(seasonDetails);
     }
+    console.log("total seasons:", totalSeasons);
 
-    var episodeData = [
-      {title: "title 1"
-       content: "test content"
-      },
-      {title: "title 2"
-       content: "test content"
-      },
-      {title: "title 3"
-       content: "test content"
-      }
 
-    ]
+    //for(var i = 0; i < episodes.length; i++){
+      //console.log("episodes length new :", episodes.length);
+
+      // if(i == 0){
+      //   episodeData.push({ title:"season " + episodes[i].season, content:[<div>{episodes[i].name}</div>] });
+      //   var j = i+1;
+      //   while(episodes[i].season == episodes[j].season){
+      //     //should be appending rather than overwriting.
+      //     episodeData[i].content.push(<div>{episodes[j].name}</div>);
+      //     j++;
+      //   }
+      //}
+
+    //   else{
+    //     if(episodes[i].season != episodes[i-1].season){
+    //       episodeData.push({ title:episodes[i].season, content:<div>{episodes[i].number} {episodes[i].name}</div> });
+    //     }
+    //   }
+    // }
+
+
     console.log(episodeData);
     //console.log("episodes length new :", episodes.length);
 
