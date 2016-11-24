@@ -54,34 +54,6 @@ class ShowDetail extends Component {
       )
     }
 
-      {/*title: "Test One",
-      content: `Lorem ipsum dolor sit amet,
-                consectetur adipiscing elit,
-                sed do eiusmod tempor incididunt
-                ut labore et dolore magna aliqua.`,*/}
-                //
-                // let episodeData = [
-                //   {
-                //     title: "Test One",
-                //     content: [<div> test content</div>
-                //               ,<div> test 2</div>],
-                //   }, {
-                //     title: "Two",
-                //     content: `Lorem ipsum dolor sit amet,
-                //               consectetur adipiscing elit,
-                //               sed do eiusmod tempor incididunt
-                //               ut labore et dolore magna aliqua.`,
-                //   },{
-                //     title: "Test Three",
-                //     content: `Lorem ipsum dolor sit amet,
-                //               consectetur adipiscing elit,
-                //               sed do eiusmod tempor incididunt
-                //               ut labore et dolore magna aliqua.`,
-                //   }
-                // ];
-
-
-
     var episodeData = [];
     var totalSeasons = episodes[episodes.length - 1].season;
     for(var i = 1;i <= totalSeasons; i++) {
@@ -90,41 +62,13 @@ class ShowDetail extends Component {
         return episode.season === i;
       });
       var episodeContent = seasonContents.map(function(episode) {
-        return <div>{`${episode.number} ${episode.name}`}</div>
+        return <div>{episode.number}. <a>{episode.name}</a></div>
       });
       seasonDetails.content = [...episodeContent];
       episodeData.push(seasonDetails);
     }
     console.log("total seasons:", totalSeasons);
-
-
-    //for(var i = 0; i < episodes.length; i++){
-      //console.log("episodes length new :", episodes.length);
-
-      // if(i == 0){
-      //   episodeData.push({ title:"season " + episodes[i].season, content:[<div>{episodes[i].name}</div>] });
-      //   var j = i+1;
-      //   while(episodes[i].season == episodes[j].season){
-      //     //should be appending rather than overwriting.
-      //     episodeData[i].content.push(<div>{episodes[j].name}</div>);
-      //     j++;
-      //   }
-      //}
-
-    //   else{
-    //     if(episodes[i].season != episodes[i-1].season){
-    //       episodeData.push({ title:episodes[i].season, content:<div>{episodes[i].number} {episodes[i].name}</div> });
-    //     }
-    //   }
-    // }
-
-
     console.log(episodeData);
-    //console.log("episodes length new :", episodes.length);
-
-    // let episodeData = episodes.map((x) => {
-    //   return {title:x.season, content:<div>{x.name}</div>};
-    // });
 
     return (
       <div className="container">
@@ -160,11 +104,10 @@ class ShowDetail extends Component {
           </div>
         </div>
 
-
-        {/*<div>{this.renderEpisodeDetails(episodes)}</div>*/}
-
-        <Accordion data={episodeData}/>
-        <EpisodeDetail/>
+        <div className="row">
+          {/*<div>{this.renderEpisodeDetails(episodes)}</div>*/}
+          <Accordion data={episodeData}/>
+        </div> {/*row*/}
       </div>
     )
   }
