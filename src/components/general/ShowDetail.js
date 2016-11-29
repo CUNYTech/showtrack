@@ -69,6 +69,7 @@ class ShowDetail extends Component {
     }
     console.log("total seasons:", totalSeasons);
     console.log(episodeData);
+    console.log(show);
 
     return (
       <div className="container">
