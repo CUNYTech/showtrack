@@ -18,37 +18,34 @@ import {
   FETCH_EPISODES
 } from './types';
 
-export function signinUser({ username, password}) {
-  // return a function with dispatch coming from redux thunk
+export function signinUser({ username, password }) {
   return function(dispatch) {
     axios.post(`${ROOT_URL}/accounts/login/`, { username, password })
       .then(response => {
         dispatch({ type: AUTH_USER });
         localStorage.setItem('token', response.data.token);
         axios.defaults.headers.common['Authorization'] =  "JWT " + response.data.token;
-        browserHistory.push('/my-list'); // go to home route
+        browserHistory.push('/my-list');
       })
-      .catch((response) => {
-        console.log(response);
-
-        dispatch(authError(', something went wrong, please try again.'));
+      .catch((error) => {
+        console.log(error);
+        dispatch(authError('Something went wrong, please try again.'));
       })
   }
 }
 
-export function signupUser({email, username, password, display_name}) {
-  // return a function with dispatch coming from redux thunk
+export function signupUser({ email, username, password, display_name }) {
   return function(dispatch) {
-    axios.post(`${ROOT_URL}/accounts/register/`, { email, username, password, display_name})
+    axios.post(`${ROOT_URL}/accounts/register/`, { email, username, password, display_name })
       .then(response => {
         dispatch({ type: AUTH_USER });
         localStorage.setItem('token', response.data.token);
         axios.defaults.headers.common['Authorization'] =  "JWT " + response.data.token;
-        browserHistory.push('/my-list'); // go to home route
+        browserHistory.push('/my-list');
       })
-      .catch((response) => {
-        console.log(response);
-        dispatch(authError(', something went wrong, please try again.'));
+      .catch((error) => {
+        console.log(error);
+        dispatch(authError('Something went wrong, please try again.'));
       })
   }
 }
@@ -71,7 +68,6 @@ export function searchShows(searchTerm) {
   return function(dispatch) {
     axios.get(`${ROOT_URL_V2}/search/${searchTerm}/`)
       .then(response => {
-        console.log(response);
         dispatch({
           type: SEARCH_RESULTS,
           payload: response
@@ -84,7 +80,6 @@ export function fetchShow(id) {
   return function(dispatch) {
     axios.get(`${ROOT_URL_V2}/shows/${id}/`)
       .then(response => {
-        console.log('shows fetched',response);
         dispatch({
           type: FETCH_SHOW,
           payload: response
@@ -97,7 +92,6 @@ export function fetchTrendingShows() {
   return function(dispatch) {
     axios.get(`${ROOT_URL_V2}/trending/`)
       .then(response => {
-        console.log('fetching trending shows', response);
         dispatch({
           type: FETCH_TRENDING_SHOWS,
           payload: response
@@ -110,7 +104,6 @@ export function fetchPopularShows() {
   return function(dispatch) {
     axios.get(`${ROOT_URL_V2}/popular/`)
       .then(response => {
-        console.log('fetching popular shows', response);
         dispatch({
           type: FETCH_POPULAR_SHOWS,
           payload: response
@@ -123,7 +116,7 @@ export function fetchWatchList() {
   return function(dispatch) {
     axios.get(`${ROOT_URL_V2}/watchlist/list`)
       .then(response => {
-        console.log('get watch list', response);
+        console.log(response);
         dispatch({
           type: FETCH_WATCHLIST,
           payload: response
@@ -132,11 +125,10 @@ export function fetchWatchList() {
   }
 }
 
-export function addToWatchList(show) {
+export function addToWatchList(show, progress) {
   return function(dispatch) {
-    axios.post(`${ROOT_URL_V3}/watchlist/`, {show_id : show.id})
+    axios.post(`${ROOT_URL_V3}/watchlist/`, { show_id : show.id, progress: progress })
       .then(response => {
-        console.log('add to watch list', response);
         dispatch({
           type: FETCH_WATCHLIST,
           payload: response
@@ -157,7 +149,6 @@ export function fetchEpisodes(id) {
   return function(dispatch) {
     axios.get(`${ROOT_URL_V2}/shows/${id}/episodes`)
       .then(response => {
-        console.log('episodes fetched', response);
         dispatch({
           type: FETCH_EPISODES,
           payload: response

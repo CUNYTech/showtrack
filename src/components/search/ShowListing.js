@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Link } from 'react-router';
 
 import Show from './Show';
-import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
 class ShowListing extends Component {
   constructor(props) {
@@ -17,8 +16,8 @@ class ShowListing extends Component {
     if (showProps.length > 0) {
       shows = showProps.map(show => {
         return (
-          <div className="browse-show-wrap">
-            <Show key={show.id} show={show.show} />
+          <div key={show.id} className="browse-show-wrap">
+            <Show show={show.show} />
             <div id="browse-show-bottom">
               <h6>{show.show.name}</h6>
               { show.show.premiered ? <h6><small> {"(" + show.show.premiered.substring(0, 4) + ")"} </small></h6> : null }
