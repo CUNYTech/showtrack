@@ -15,7 +15,8 @@ import {
   FETCH_WATCHLIST,
   FETCH_POPULAR_SHOWS,
   RESET_SHOW,
-  FETCH_EPISODES
+  FETCH_EPISODES,
+  FETCH_SEASONS
 } from './types';
 
 export function signinUser({ username, password }) {
@@ -125,9 +126,9 @@ export function fetchWatchList() {
   }
 }
 
-export function addToWatchList(show, progress) {
+export function addToWatchList(show) {
   return function(dispatch) {
-    axios.post(`${ROOT_URL_V3}/watchlist/`, { show_id : show.id, progress: progress })
+    axios.post(`${ROOT_URL_V3}/watchlist/`, { show_id : show.id })
       .then(response => {
         dispatch({
           type: FETCH_WATCHLIST,
@@ -140,11 +141,24 @@ export function addToWatchList(show, progress) {
   }
 }
 
+export function updateProgressWatchList(show, progress) {
+  return function(dispatch) {
+    axios.post(`${ROOT_URL_V3}/watchlist/update`, { show_id : show.id, progress: progress })
+      .then(response => {
+        console.log(response);
+      })
+      .catch((error) => {
+        console.log('error', error);
+      })
+  }
+}
+
 export function resetShow() {
     return {
       type: RESET_SHOW
     }
 }
+
 export function fetchEpisodes(id) {
   return function(dispatch) {
     axios.get(`${ROOT_URL_V2}/shows/${id}/episodes`)
@@ -152,6 +166,30 @@ export function fetchEpisodes(id) {
         dispatch({
           type: FETCH_EPISODES,
           payload: response
+        })
+      })
+  }
+}
+
+export function fetchSeasons(id) {
+  return function(dispatch) {
+    axios.get(`${ROOT_URL_V2}/shows/${id}/episodes`)
+      .then(response => {
+        let episodes = response.data;
+        let totalSeasons = episodes[episodes.length - 1].season;
+        let season = {};
+
+        episodes.forEach(function(episode) {
+          let currSeason = episode.season;
+          if( !(currSeason in season) )
+            season[currSeason] = 1;
+
+          season[currSeason] = Math.max(season[currSeason], episode.number)
+        })
+
+        dispatch({
+          type: FETCH_SEASONS,
+          payload: { id , seasons: season }
         })
       })
   }
