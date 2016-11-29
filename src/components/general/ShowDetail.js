@@ -64,7 +64,7 @@ class ShowDetail extends Component {
         return episode.season === i;
       });
       var episodeContent = seasonContents.map(function(episode) {
-        return <div>{episode.number}. <a>{episode.name}</a></div>
+        return <div>{episode.number}. {episode.name}<img src={episode.image.medium}/></div>
       });
       seasonDetails.content = [...episodeContent];
       episodeData.push(seasonDetails);
