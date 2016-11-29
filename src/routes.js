@@ -10,6 +10,8 @@ import MyList from './components/MyList';
 import Search from './components/search/Search';
 import ShowDetail from './components/general/ShowDetail';
 import RequireAuth from './components/auth/Require_Auth';
+import EpisodeDetail from './components/general/EpisodeDetail';
+
 
 export default (
   <Route path="/" component={App} >
@@ -20,6 +22,7 @@ export default (
     <Route path="search" component={Search} />
     <Route path="my-list" component={RequireAuth(MyList)} />
     <Route path="shows/:id" component={RequireAuth(ShowDetail)}/>
+    <Route path="episode" component={RequireAuth(EpisodeDetail)}/>
 
   </Route>
 );

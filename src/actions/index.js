@@ -84,7 +84,7 @@ export function fetchShow(id) {
   return function(dispatch) {
     axios.get(`${ROOT_URL_V2}/shows/${id}/`)
       .then(response => {
-        console.log(response);
+        console.log('shows fetched',response);
         dispatch({
           type: FETCH_SHOW,
           payload: response
