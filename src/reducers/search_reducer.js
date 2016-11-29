@@ -5,7 +5,7 @@ export default function(state = [], action) {
   case SEARCH_RESULTS:
     return { ...state, searchResults: action.payload.data };
   case FETCH_SHOW:
-    return { ...state, show: action.payload.data };
+    return { ...state, show: action.payload.data.content };
   case RESET_SHOW:
     return { ...state, show: null };
   }

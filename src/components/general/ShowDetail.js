@@ -47,9 +47,8 @@ class ShowDetail extends Component {
     return episodeDetails;
   }
   render() {
-    console.log('asdasd', this.props.show);
-    let { show, episodes } = this.props;
-    let show = this.props.show.content;
+    
+    const { show, episodes } = this.props;
     if (!show) {
       return (
         <div>Loading...</div>
