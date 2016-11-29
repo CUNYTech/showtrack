@@ -30,10 +30,8 @@ class ShowDetail extends Component {
     return genreListing;
   }
 
-  renderEpisodeDetails(episodes){
-    //console.log(episodes.data.length);
-    console.log("episodes length:", episodes.length);
 
+  renderEpisodeDetails(episodes){
     let episodeDetails = episodes.map((x) => {
       return(
         <div key={x.id}>
@@ -46,6 +44,10 @@ class ShowDetail extends Component {
     });
     return episodeDetails;
   }
+
+
+
+
   render() {
 
     const { show, episodes } = this.props;
@@ -55,6 +57,8 @@ class ShowDetail extends Component {
 
       )
     }
+
+    //create array of episode details per season for accordions
     console.log(episodes);
     var episodeData = [];
     var totalSeasons = episodes[episodes.length - 1].season;
@@ -63,14 +67,19 @@ class ShowDetail extends Component {
       var seasonContents = episodes.filter(function(episode) {
         return episode.season === i;
       });
-      var episodeContent = seasonContents.map(function(episode) {
-        return <div>{episode.number}. {episode.name}<img src={episode.image.medium}/></div>
+      var episodeContent = seasonContents.map( (x) => {
+        return(
+          <div key={x.id}>
+            <h5>{x.number}. {x.name}</h5> <p> Aired: {x.airdate}</p>
+            <img src={x.image ? x.image.medium : 'http://placehold.it/250x140'} className="img-responsive" alt={episodes.name} />
+            <p dangerouslySetInnerHTML={{__html: x.summary}} ></p>
+          </div>
+        )
       });
       seasonDetails.content = [...episodeContent];
       episodeData.push(seasonDetails);
     }
-    //console.log("total seasons:", totalSeasons);
-   //console.log(episodeData);
+
 
     return (
       <div className="container">
@@ -107,8 +116,9 @@ class ShowDetail extends Component {
         </div>
 
         <div className="row">
-          {/*<div>{this.renderEpisodeDetails(episodes)}</div>*/}
           <Accordion data={episodeData}/>
+          {/*<div>{this.renderEpisodeDetails(episodes)}</div>*/}
+
         </div> {/*row*/}
       </div>
     )
