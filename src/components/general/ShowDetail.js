@@ -47,14 +47,15 @@ class ShowDetail extends Component {
     return episodeDetails;
   }
   render() {
-    
+
     const { show, episodes } = this.props;
-    if (!show) {
+    if (!show || !episodes) {
       return (
         <div>Loading...</div>
+
       )
     }
-
+    console.log(episodes);
     var episodeData = [];
     var totalSeasons = episodes[episodes.length - 1].season;
     for(var i = 1;i <= totalSeasons; i++) {
@@ -69,7 +70,7 @@ class ShowDetail extends Component {
       episodeData.push(seasonDetails);
     }
     //console.log("total seasons:", totalSeasons);
-    //console.log(episodeData);
+   //console.log(episodeData);
 
     return (
       <div className="container">

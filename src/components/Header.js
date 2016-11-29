@@ -11,7 +11,7 @@ class Header extends Component {
           <Link className="nav-link" to="/my-list">My Shows </Link>
         </li>,
         <li className="nav-item" key={2}>
-          <Link className="nav-link" to="/search">Search </Link>
+          <Link className="nav-link" to="/search"> Search <i className="fa fa-search" aria-hidden="true"></i></Link>
         </li>,
         <li className="nav-item" key={3}>
           <Link className="nav-link" to="/signout">Logout </Link>
