@@ -116,6 +116,7 @@ export function fetchWatchList() {
   return function(dispatch) {
     axios.get(`${ROOT_URL_V2}/watchlist/list`)
       .then(response => {
+        console.log(response);
         dispatch({
           type: FETCH_WATCHLIST,
           payload: response
@@ -124,9 +125,9 @@ export function fetchWatchList() {
   }
 }
 
-export function addToWatchList(show) {
+export function addToWatchList(show, progress) {
   return function(dispatch) {
-    axios.post(`${ROOT_URL_V3}/watchlist/`, { show_id : show.id })
+    axios.post(`${ROOT_URL_V3}/watchlist/`, { show_id : show.id, progress: progress })
       .then(response => {
         dispatch({
           type: FETCH_WATCHLIST,

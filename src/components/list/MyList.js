@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import WatchListElement from './WatchListElement';
+
 import * as actions from '../../actions';
 
 class MyList extends Component {
@@ -15,10 +17,10 @@ class MyList extends Component {
     let listItems = (<span>No shows were found!</span>);
 
     if (watchList.length > 0) {
-      list = watchList.map(item => {
+      list = watchList.map(show => {
         return (
-          <div key={item.show_id}>
-            {item.show_id}
+          <div key={show.show_id}>
+            <WatchListElement show={show}/>
           </div>);
       });
     }
