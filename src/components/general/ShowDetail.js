@@ -30,22 +30,33 @@ class ShowDetail extends Component {
     return genreListing;
   }
 
-
-  renderEpisodeDetails(episodes){
-    let episodeDetails = episodes.map((x) => {
-      return(
-        <div key={x.id}>
-          <h2>{x.name}</h2>
-          <img src={x.image ? x.image.medium : 'http://placehold.it/250x140'} className="img-responsive" alt={episodes.name} />
-          <div> Number: {x.number} Season: {x.season}</div>
-          <p dangerouslySetInnerHTML={{__html: x.summary}} ></p>
-        </div>
-      )
-    });
-    return episodeDetails;
+  renderEpisodeData(episodes){
+    console.log(episodes);
+    var episodeData = [];
+    var totalSeasons = episodes[episodes.length - 1].season;
+    for(var i = 1;i <= totalSeasons; i++) {
+      var seasonDetails = {title: `season ${i}`, content: []};
+      var seasonContents = episodes.filter(function(episode) {
+        return episode.season === i;
+      });
+      var episodeContent = seasonContents.map( (x) => {
+        return(
+          <div key={x.id} className="row">
+            <div className="col-sm-3">
+              <img src={x.image ? x.image.medium : 'http://placehold.it/250x140'} className="img-responsive" alt={episodes.name} />
+            </div>
+            <div className="col-xs-6">
+              <h5>{x.number}. {x.name}</h5> <p> Aired: {x.airdate}</p>
+              <p dangerouslySetInnerHTML={{__html: x.summary}} ></p>
+            </div>
+          </div>
+        )
+      });
+      seasonDetails.content = [...episodeContent];
+      episodeData.push(seasonDetails);
+    }
+    return episodeData;
   }
-
-
 
 
   render() {
@@ -58,27 +69,6 @@ class ShowDetail extends Component {
       )
     }
 
-    //create array of episode details per season for accordions
-    console.log(episodes);
-    var episodeData = [];
-    var totalSeasons = episodes[episodes.length - 1].season;
-    for(var i = 1;i <= totalSeasons; i++) {
-      var seasonDetails = {title: `season ${i}`, content: []};
-      var seasonContents = episodes.filter(function(episode) {
-        return episode.season === i;
-      });
-      var episodeContent = seasonContents.map( (x) => {
-        return(
-          <div key={x.id}>
-            <h5>{x.number}. {x.name}</h5> <p> Aired: {x.airdate}</p>
-            <img src={x.image ? x.image.medium : 'http://placehold.it/250x140'} className="img-responsive" alt={episodes.name} />
-            <p dangerouslySetInnerHTML={{__html: x.summary}} ></p>
-          </div>
-        )
-      });
-      seasonDetails.content = [...episodeContent];
-      episodeData.push(seasonDetails);
-    }
 
 
     return (
@@ -116,8 +106,7 @@ class ShowDetail extends Component {
         </div>
 
         <div className="row">
-          <Accordion data={episodeData}/>
-          {/*<div>{this.renderEpisodeDetails(episodes)}</div>*/}
+          <Accordion data={this.renderEpisodeData(episodes)}/>
 
         </div> {/*row*/}
       </div>
