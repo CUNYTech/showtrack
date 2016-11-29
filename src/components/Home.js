@@ -48,9 +48,9 @@ class Home extends Component {
     var settings = {
       dots: true,
       infinite: true,
-      speed: 500,
-      slidesToShow: 3,
-      slidesToScroll: 3
+      speed: 900,
+      slidesToShow: 5,
+      slidesToScroll: 5
     };
 
     var titleStyle = {
@@ -64,49 +64,51 @@ class Home extends Component {
     }
 
     return (
-        <div>
-          <h3 className="text-center" style={titleStyle}>Popular Shows</h3>
-          <div>
-            {!this.props.popularShows ? (
-              <div className="container">
-                <div className="row">
-                  <div className="col-sm-4"></div>
-                  <Spinner id={0} spinnerName='three-bounce' className=".col-sm-4"/>
-                  <div className="col-sm-4"></div>
+        <div className="container">
+          <div className="row">
+            <h3 style={titleStyle} className="sliderHeader">Popular Shows</h3>
+            <div>
+              {!this.props.popularShows ? (
+                <div className="container">
+                  <div className="row">
+                    <div className="col-sm-4"></div>
+                    <Spinner id={0} spinnerName='three-bounce' className=".col-sm-4"/>
+                    <div className="col-sm-4"></div>
+                  </div>
                 </div>
-              </div>
-            ) : (
-              <div>
-                <Slider {...settings}>
-                  {this.renderPopularShows()}
-                </Slider>
-              </div>
-              )
-            }
-          </div>
-
-          <hr style={lineStyle}></hr>
-
-          <h3 className="text-center" style={titleStyle}>Trending Shows</h3>
-          <div>
-            {!this.props.trendingShows ? (
-              <div className="container">
-                <div className="row">
-                  <div className="col-sm-4"></div>
-                  <Spinner id={0} spinnerName='three-bounce' className=".col-sm-4"/>
-                  <div className="col-sm-4"></div>
-                </div>
-              </div>
-            ) : (
-              <div>
+              ) : (
+                <div>
                   <Slider {...settings}>
-                      {this.renderTrendingShows()}
+                    {this.renderPopularShows()}
                   </Slider>
-              </div>
-            )
-            }
+                </div>
+                )
+              }
+            </div>
           </div>
-      </div>
+
+          <div className="row">
+            <h3 style={titleStyle} className="sliderHeader">Trending Shows</h3>
+            <div>
+              {!this.props.trendingShows ? (
+                <div className="container">
+                  <div className="row">
+                    <div className="col-sm-4"></div>
+                    <Spinner id={0} spinnerName='three-bounce' className=".col-sm-4"/>
+                    <div className="col-sm-4"></div>
+                  </div>
+                </div>
+              ) : (
+                <div>
+                    <Slider {...settings}>
+                        {this.renderTrendingShows()}
+                    </Slider>
+                </div>
+              )
+              }
+            </div>
+          </div>
+        </div>
     )
   }
 }

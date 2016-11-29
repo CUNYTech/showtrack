@@ -41,7 +41,7 @@ class ShowDetail extends Component {
       });
       var episodeContent = seasonContents.map( (x) => {
         return(
-          <div key={x.id} className="row">
+          <div key={x.id} className="row accordion-episode">
             <div className="col-sm-3">
               <img src={x.image ? x.image.medium : 'http://placehold.it/250x140'} className="img-responsive" alt={episodes.name} />
             </div>

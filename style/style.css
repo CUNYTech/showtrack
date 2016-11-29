@@ -1,3 +1,33 @@
+html {
+    height: 100%;
+}
+
+body{
+  /*background: #141414;*/
+  /*background: rgba(92,129,202,1);*/
+  /*height: 100%;*/
+  margin: 0;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background:
+    -moz-linear-gradient(
+      top,
+      rgba(20,20,20,1) 0%,
+      rgba(60,0,0,1) 100%
+  ) fixed;
+  background:
+    -webkit-linear-gradient(
+        top,
+        rgba(20,20,20,1) 0%,
+        rgba(60,0,0,1) 100%
+  ) fixed;
+
+}
+
+body a{
+  color:white;
+}
+
 .error {
     color: red;
 }
@@ -5,14 +35,6 @@
 .half {
     width: 50%;
     margin: auto;
-}
-
-body, html {
-  background: #141414;
-  }
-
-body a{
-  color:white;
 }
 
 .browse-show-wrap figcaption {
@@ -79,26 +101,41 @@ figure figcaption .btn-info {
 }
 .accordion .title {
   height: auto!important;
-  background-color: #777;
-  color: black;
+  color: white;
   width: auto;
 
 }
 .accordion .title:hover {
-  background-color: #aaa;
-  color: black;
+  background-color: rgba(150,100,100,.4);
+  color: white;
 }
 
 .accordion .content-open {
   height: auto;
   width: auto;
+  background-color: rgba(0,0,0, .4);
 
 }
 .accordion .title-text {
   font-size: 20px;
 }
-.accordion .content-open {
-  background-color: #333;
+
+.row.accordion-episode {
+  padding-bottom: 20px;
+  margin-bottom: 30px;
+}
+
+/*slick slider*/
+
+.row .sliderHeader{
+  padding-bottom: 0px!important;
+  color:#eee!important;
+}
+.slick-slider {
+    padding-bottom: 20px;
+    margin-bottom: 30px;
+    /*margin-right: 26px!important;*/
+
 }
 
 #browse-show-bottom h6 {

@@ -3,7 +3,7 @@
 body {
   font-family: 'quicksand';
   font-weight: lighter;
-  background: rgba(92,129,202,1);
+  /*background: rgba(92,129,202,1);
   background:
     -moz-linear-gradient(
       left,
@@ -15,7 +15,7 @@ body {
         left,
         rgba(92,129,202,1) 0%,
         rgba(249,140,112,1) 100%
-  );
+  );*/
 }
 
 .accordion {
@@ -58,7 +58,7 @@ body {
   width: 420px;
   background-color: transparent;
   border-radius: 4px;
-  color: white;
+  /*color: white;*/
   font-size: 14px;
   text-align: center;
   position: relative;
