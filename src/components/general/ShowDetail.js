@@ -47,7 +47,9 @@ class ShowDetail extends Component {
     return episodeDetails;
   }
   render() {
-    const { show, episodes } = this.props;
+    console.log('asdasd', this.props.show);
+    let { show, episodes } = this.props;
+    let show = this.props.show.content;
     if (!show) {
       return (
         <div>Loading...</div>
@@ -67,9 +69,8 @@ class ShowDetail extends Component {
       seasonDetails.content = [...episodeContent];
       episodeData.push(seasonDetails);
     }
-    console.log("total seasons:", totalSeasons);
-    console.log(episodeData);
-    console.log(show);
+    //console.log("total seasons:", totalSeasons);
+    //console.log(episodeData);
 
     return (
       <div className="container">
