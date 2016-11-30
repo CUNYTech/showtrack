@@ -9,12 +9,12 @@ class WatchListElement extends Component {
 
   componentWillMount() {
     this.props.fetchSeasons(this.props.show.show_id);
+    console.log(this.props.show);
   }
 
   renderProgress() {
     let episodesPerSeason = this.props.episodesPerSeason[this.props.show.show_id];
     console.log(this.props.show.show_details.content.name, episodesPerSeason);
-    console.log(this.props.show);
     var options = [
       { value: '1', label: '1' },
       { value: '2', label: '2' }
@@ -57,6 +57,12 @@ class WatchListElement extends Component {
       )
   }
 
+  renderCurrentProgress() {
+    return (
+      <p>You are currently on <strong>season {this.props.show.progress.season}</strong> and <strong>episode {this.props.show.progress.episode}</strong>!</p>
+    )
+  }
+
   render() {
     if(!this.props.episodesPerSeason) {
       return (
@@ -65,16 +71,18 @@ class WatchListElement extends Component {
     }
 
     let show = this.props.show.show_details.content;
+
     return (
       <div className="well">
         <div className="row" style={{ marginBottom: 10 }}>
           <h4 className="col-md-6 text-center">{show.name}</h4>
         </div>
         <div className="row">
-          <div className="col-md-6 text-center">{this.renderImage()}</div>
+            <div className="col-md-6 text-center">{this.renderImage()}</div>
             <p className="col-md-6" dangerouslySetInnerHTML={{__html: show.summary}} ></p>
             <Link to={"/shows/"+ this.props.show.show_id}>View more details</Link>
-          {this.renderProgress()}
+            {this.renderCurrentProgress()}
+            {this.renderProgress()}
         </div>
       </div>
     )
