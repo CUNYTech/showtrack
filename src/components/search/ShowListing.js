@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
-
 import Show from './Show';
 
 class ShowListing extends Component {
