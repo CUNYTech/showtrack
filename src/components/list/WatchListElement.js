@@ -6,37 +6,59 @@ import 'react-select/dist/react-select.css';
 import { Link } from 'react-router';
 
 class WatchListElement extends Component {
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      season: this.props.show.progress.season,
+      episode: this.props.show.progress.episode
+    }
+  }
 
   componentWillMount() {
     this.props.fetchSeasons(this.props.show.show_id);
     console.log(this.props.show);
   }
 
+  updateProgressWatchList() {
+    this.props.updateProgressWatchList(this.props.show.show_id, {season: '2', episode:'3'})
+  }
+
   renderProgress() {
     let episodesPerSeason = this.props.episodesPerSeason[this.props.show.show_id];
     console.log(this.props.show.show_details.content.name, episodesPerSeason);
+
     var options = [
       { value: '1', label: '1' },
-      { value: '2', label: '2' }
+      { value: '2', label: '2' },
+      { value: '3', label: '3' },
+      { value: '4', label: '4' },
+      { value: '5', label: '5' },
+      { value: '6', label: '6' },
+      { value: '7', label: '7' },
+      { value: '8', label: '8' },
+      { value: '9', label: '9' },
+      { value: '10', label: '10' }
     ];
+
 
     return (
       <div>
         <Select
             name="form-field-name"
-            value="one"
+            value={this.state.season}
             options={options}
             onChange={this.logChange}
             className="col-md-2"
         />
         <Select
           name="form-field-name"
-          value="one"
+          value={this.state.episode}
           options={options}
           onChange={this.logChange}
           className="col-md-2"
         />
-      <button type="button" className="btn btn-default btn-md"> Save </button>
+      <button type="button" onClick={() => (this.updateProgressWatchList())} className="btn btn-default btn-md"> Save </button>
       </div>
     )
   }
@@ -63,6 +85,15 @@ class WatchListElement extends Component {
     )
   }
 
+  renderDate() {
+    var date = this.props.show.last_updated;
+    var newDate = date.slice(0,10);
+
+    return (
+      <div>Last Updated: {newDate}</div>
+    )
+  }
+
   render() {
     if(!this.props.episodesPerSeason) {
       return (
@@ -81,6 +112,7 @@ class WatchListElement extends Component {
             <div className="col-md-6 text-center">{this.renderImage()}</div>
             <p className="col-md-6" dangerouslySetInnerHTML={{__html: show.summary}} ></p>
             <Link to={"/shows/"+ this.props.show.show_id}>View more details</Link>
+            {this.renderDate()}
             {this.renderCurrentProgress()}
             {this.renderProgress()}
         </div>

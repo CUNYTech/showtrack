@@ -11,7 +11,7 @@ export default function(state = [], action) {
     case FETCH_TRENDING_SHOWS:
       return { ...state, trendingShows: action.payload.data };
     case FETCH_WATCHLIST:
-      return { ...state, watchList: action.payload.data };
+      return { ...state, watchList: action.payload };
     case FETCH_POPULAR_SHOWS:
       return { ...state, popularShows: action.payload.data.results };
     case FETCH_EPISODES:

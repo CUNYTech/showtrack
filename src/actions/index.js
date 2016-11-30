@@ -117,10 +117,13 @@ export function fetchWatchList() {
   return function(dispatch) {
     axios.get(`${ROOT_URL_V2}/watchlist/list`)
       .then(response => {
-        console.log(response);
+        let data = response.data;
+        data.sort(function(a,b){
+          return new Date(b.last_updated) - new Date(a.last_updated);
+        });
         dispatch({
           type: FETCH_WATCHLIST,
-          payload: response
+          payload: data
         })
       })
   }
@@ -143,7 +146,8 @@ export function addToWatchList(show) {
 
 export function updateProgressWatchList(show, progress) {
   return function(dispatch) {
-    axios.post(`${ROOT_URL_V3}/watchlist/update`, { show_id : show.id, progress: progress })
+    console.log(show);
+    axios.patch(`${ROOT_URL_V3}/watchlist/update/`, { show_id : show, progress: progress })
       .then(response => {
         console.log(response);
       })
