@@ -26,9 +26,8 @@ body {
    margin-top: 50px;
 }
 
-.title {
+.title, a.navbar-brand{
   height: 30px;
-  width: 400px;
   background-color: rgba(0,0,0, .4);
   color: #ffddcc;
   text-transform: uppercase;
@@ -48,7 +47,7 @@ body {
   margin-left: 10px;
 }
 
-.title:hover {
+.title:hover{
   cursor: pointer;
   background-color: rgba(0,0,0, .5);
 }

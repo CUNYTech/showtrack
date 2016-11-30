@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import * as actions from '../../actions/index';
 import Accordion from './Accordion';
 import EpisodeDetail from './EpisodeDetail';
+import Spinner from 'react-spinkit';
 
 class ShowDetail extends Component {
  constructor(props) {
@@ -64,8 +65,14 @@ class ShowDetail extends Component {
     const { show, episodes } = this.props;
     if (!show || !episodes) {
       return (
-        <div>Loading...</div>
-
+        <div className="container">
+          <span>loading...</span>
+          <div className="row">
+            <div className="col-sm-4"></div>
+            <Spinner id={0} spinnerName='three-bounce' className=".col-sm-4"/>
+            <div className="col-sm-4"></div>
+          </div>
+        </div>
       )
     }
 

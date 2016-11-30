@@ -8,13 +8,13 @@ class Header extends Component {
     if (this.props.authenticated) {
       return [
         <li className="nav-item" key={1}>
-          <Link className="nav-link" to="/my-list">My Shows </Link>
+          <Link className="nav-link" to="/my-list">My Shows <i className="fa fa-television" aria-hidden="true"></i></Link>
         </li>,
         <li className="nav-item" key={2}>
           <Link className="nav-link" to="/search"> Search <i className="fa fa-search" aria-hidden="true"></i></Link>
         </li>,
         <li className="nav-item" key={3}>
-          <Link className="nav-link" to="/signout">Logout </Link>
+          <Link className="nav-link" to="/signout">Logout <i className="fa fa-sign-out" aria-hidden="true"></i></Link>
         </li>
       ]
     } else {
@@ -30,12 +30,17 @@ class Header extends Component {
   }
   render() {
     return (
-      <nav className="navbar navbar-light">
-        <Link to="/" className="navbar-brand">ShowTrack </Link>
-        <ul className="nav navbar-nav pull-sm-right">
-          {this.renderLinks()}
-        </ul>
-      </nav>
+      <div>
+        <nav className="navbar navbar-light">
+          <Link to="/" className="navbar-brand">ShowTrack <i className="fa fa-film fa-2x" aria-hidden="true"></i></Link>
+          <ul className="nav navbar-nav pull-sm-right">
+            {this.renderLinks()}
+          </ul>
+
+
+        </nav>
+
+      </div>
     )
   }
 }

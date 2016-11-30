@@ -6,7 +6,9 @@ body{
   /*background: #141414;*/
   /*background: rgba(92,129,202,1);*/
   /*height: 100%;*/
+  color: #aaa;
   margin: 0;
+
   background-repeat: no-repeat;
   background-attachment: fixed;
   background:
@@ -26,6 +28,10 @@ body{
 
 body a{
   color:white;
+}
+
+#search-field{
+  max-width: 490px;
 }
 
 .error {
@@ -78,9 +84,13 @@ div.browse-show-wrap {
   height:340px;
 }
 
+a.navbar-brand {
+    height: 60px;
+    color: white;
+}
 
 body a:hover {
-  color: #0275d8;
+  /*color: #0275d8;*/
   text-decoration: none;
 }
 
@@ -101,11 +111,11 @@ figure figcaption .btn-info {
 }
 .accordion .title {
   height: auto!important;
-  color: white;
+  color: white!important;
   width: auto;
 
 }
-.accordion .title:hover {
+.accordion .title:hover, a.navbar-brand:hover {
   background-color: rgba(150,100,100,.4);
   color: white;
 }
@@ -136,6 +146,10 @@ figure figcaption .btn-info {
     margin-bottom: 30px;
     /*margin-right: 26px!important;*/
 
+}
+
+.navbar{
+  /*margin-bottom: 0px;*/
 }
 
 #browse-show-bottom h6 {
