@@ -83,6 +83,9 @@ figure figcaption .btn-info {
 .nav.navbar-nav {
     margin-top: 13px;
 }
+li.nav-item {
+    margin-left: 13px;
+}
 
 /***********************  Accordions and Matching Navbar ******************************/
 .accordion {
@@ -98,7 +101,7 @@ figure figcaption .btn-info {
   height: auto;
   color: white;
   width: auto;
-  background-color: rgba(0,0,0, .4);
+  background-color: rgba(80,80,80, 0.4);
   text-transform: uppercase;
   letter-spacing: 1px;
   text-align: left;
