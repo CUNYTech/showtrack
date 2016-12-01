@@ -41,7 +41,6 @@ class WatchListElement extends Component {
       { value: '10', label: '10' }
     ];
 
-
     return (
       <div>
         <Select
