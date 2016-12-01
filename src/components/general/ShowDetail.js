@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import * as actions from '../../actions/index';
 import Accordion from './Accordion';
 import EpisodeDetail from './EpisodeDetail';
+import Spinner from 'react-spinkit';
 
 class ShowDetail extends Component {
  constructor(props) {
@@ -30,31 +31,8 @@ class ShowDetail extends Component {
     return genreListing;
   }
 
-  renderEpisodeDetails(episodes){
-    //console.log(episodes.data.length);
-    console.log("episodes length:", episodes.length);
-
-    let episodeDetails = episodes.map((x) => {
-      return(
-        <div key={x.id}>
-          <h2>{x.name}</h2>
-          <img src={x.image ? x.image.medium : 'http://placehold.it/250x140'} className="img-responsive" alt={episodes.name} />
-          <div> Number: {x.number} Season: {x.season}</div>
-          <p dangerouslySetInnerHTML={{__html: x.summary}} ></p>
-        </div>
-      )
-    });
-    return episodeDetails;
-  }
-  render() {
-    
-    const { show, episodes } = this.props;
-    if (!show) {
-      return (
-        <div>Loading...</div>
-      )
-    }
-
+  renderEpisodeData(episodes){
+    console.log(episodes);
     var episodeData = [];
     var totalSeasons = episodes[episodes.length - 1].season;
     for(var i = 1;i <= totalSeasons; i++) {
@@ -62,14 +40,43 @@ class ShowDetail extends Component {
       var seasonContents = episodes.filter(function(episode) {
         return episode.season === i;
       });
-      var episodeContent = seasonContents.map(function(episode) {
-        return <div>{episode.number}. <a>{episode.name}</a></div>
+      var episodeContent = seasonContents.map( (x) => {
+        return(
+          <div key={x.id} className="row accordion-episode">
+            <div className="col-sm-3">
+              <img src={x.image ? x.image.medium : 'http://placehold.it/250x140'} className="img-responsive" alt={episodes.name} />
+            </div>
+            <div className="col-xs-6">
+              <h5>{x.number}. {x.name}</h5> <p> Aired: {x.airdate}</p>
+              <p dangerouslySetInnerHTML={{__html: x.summary}} ></p>
+            </div>
+          </div>
+        )
       });
       seasonDetails.content = [...episodeContent];
       episodeData.push(seasonDetails);
     }
-    //console.log("total seasons:", totalSeasons);
-    //console.log(episodeData);
+    return episodeData;
+  }
+
+
+  render() {
+
+    const { show, episodes } = this.props;
+    if (!show || !episodes) {
+      return (
+        <div className="container">
+          <span>loading...</span>
+          <div className="row">
+            <div className="col-sm-4"></div>
+            <Spinner id={0} spinnerName='three-bounce' className=".col-sm-4"/>
+            <div className="col-sm-4"></div>
+          </div>
+        </div>
+      )
+    }
+
+
 
     return (
       <div className="container">
@@ -106,8 +113,8 @@ class ShowDetail extends Component {
         </div>
 
         <div className="row">
-          {/*<div>{this.renderEpisodeDetails(episodes)}</div>*/}
-          <Accordion data={episodeData}/>
+          <Accordion data={this.renderEpisodeData(episodes)}/>
+
         </div> {/*row*/}
       </div>
     )
