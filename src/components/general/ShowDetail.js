@@ -13,9 +13,13 @@ class ShowDetail extends Component {
  }
 
   componentWillMount() {
-    this.props.resetShow();
     this.props.fetchShow(this.props.params.id);
     this.props.fetchEpisodes(this.props.params.id);
+  }
+
+  componentWillUnmount() {
+    this.props.resetShow();
+    this.props.resetEpisodes();
   }
 
   renderGenres(show) {
@@ -66,10 +70,9 @@ class ShowDetail extends Component {
     if (!show || !episodes) {
       return (
         <div className="container">
-          <span>loading...</span>
           <div className="row">
             <div className="col-sm-4"></div>
-            <Spinner id={0} spinnerName='three-bounce' className=".col-sm-4"/>
+            <Spinner id={0} noFadeIn spinnerName='three-bounce' className=".col-sm-4"/>
             <div className="col-sm-4"></div>
           </div>
         </div>

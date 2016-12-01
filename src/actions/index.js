@@ -17,7 +17,8 @@ import {
   RESET_SHOW,
   FETCH_EPISODES,
   FETCH_SEASONS,
-  RESET_SEARCH_RESULTS
+  RESET_SEARCH_RESULTS,
+  RESET_EPISODES
 } from './types';
 
 export function signinUser({ username, password }) {
@@ -161,6 +162,12 @@ export function updateProgressWatchList(show, progress) {
 export function resetShow() {
     return {
       type: RESET_SHOW
+    }
+}
+
+export function resetEpisodes() {
+    return {
+      type: RESET_EPISODES
     }
 }
 

@@ -17,7 +17,6 @@ class WatchListElement extends Component {
 
   componentWillMount() {
     this.props.fetchSeasons(this.props.show.show_id);
-    console.log(this.props.show);
   }
 
   updateProgressWatchList() {
@@ -26,7 +25,6 @@ class WatchListElement extends Component {
 
   renderProgress() {
     let episodesPerSeason = this.props.episodesPerSeason[this.props.show.show_id];
-    console.log(this.props.show.show_details.content.name, episodesPerSeason);
 
     var options = [
       { value: '1', label: '1' },
