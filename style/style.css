@@ -1,3 +1,39 @@
+html {
+    height: 100%;
+}
+
+body{
+  /*background: #141414;*/
+  /*background: rgba(92,129,202,1);*/
+  /*height: 100%;*/
+  color: #aaa;
+  margin: 0;
+
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background:
+    -moz-linear-gradient(
+      top,
+      rgba(20,20,20,1) 0%,
+      rgba(60,0,0,1) 100%
+  ) fixed;
+  background:
+    -webkit-linear-gradient(
+        top,
+        rgba(20,20,20,1) 0%,
+        rgba(60,0,0,1) 100%
+  ) fixed;
+
+}
+
+body a{
+  color:white;
+}
+
+#search-field{
+  max-width: 490px;
+}
+
 .error {
     color: red;
 }
@@ -5,14 +41,6 @@
 .half {
     width: 50%;
     margin: auto;
-}
-
-body, html {
-    background: #141414;
-}
-
-body a {
-    color: white;
 }
 
 .browse-show-wrap figcaption {
@@ -26,84 +54,102 @@ body a {
     width: 100%;
     opacity: 0;
     transition: opacity 0.3s ease 0s;
-    width: 210px;
-    height: 295px;
 }
-
-.browse-show-wrap:hover figcaption {
+.browse-show-wrap:hover figcaption{
     opacity: 1;
     transition: all 0.3s ease 0s;
 }
 
-.browse-show-wrap img {
+.browse-show-wrap img{
     opacity: 1;
     transition: all 0.3s ease 0s;
+
 }
 
-.browse-show-wrap:hover img {
+
+.browse-show-wrap:hover img{
     opacity: 0.2;
     transition: all 0.3s ease 0s;
 }
 
-figure.browse-show-wrap {
-    position: relative;
-    margin-bottom: 0px;
-    padding: 0px!important;
+figure.browse-show-wrap{
+  position: relative;
+  margin-bottom: 0px;
+  padding: 0px!important;
 }
 
 div.browse-show-wrap {
-    margin: 20px;
-    width: 210px;
-    height: 340px;
+  margin: 20px;
+  width: 210px;
+  height:340px;
+}
+
+a.navbar-brand {
+    height: 60px;
+    color: white;
 }
 
 body a:hover {
-    color: #0275d8;
-    text-decoration: none;
+  /*color: #0275d8;*/
+  text-decoration: none;
 }
 
 figure figcaption .rating {
-    margin-bottom: 20px;
+  margin-bottom: 20px;
 }
 
 figure figcaption .btn-info {
-    margin-top: 40px;
+  margin-top: 40px;
 }
-
 
 /*  accordions */
-
-.accordion {
-    width: auto;
+.accordion{
+  width: auto;
 }
-
 .arrow-wrapper {
-    margin-left: -5px;
+  margin-left: -5px;
 }
-
 .accordion .title {
-    height: auto!important;
-    background-color: #777;
-    color: black;
-    width: auto;
-}
+  height: auto!important;
+  color: white!important;
+  width: auto;
 
-.accordion .title:hover {
-    background-color: #aaa;
-    color: black;
+}
+.accordion .title:hover, a.navbar-brand:hover {
+  background-color: rgba(150,100,100,.4);
+  color: white;
 }
 
 .accordion .content-open {
-    height: auto;
-    width: auto;
-}
+  height: auto;
+  width: auto;
+  background-color: rgba(0,0,0, .4);
 
+}
 .accordion .title-text {
-    font-size: 20px;
+  font-size: 20px;
 }
 
-.accordion .content-open {
-    background-color: #333;
+.row.accordion-episode {
+  padding-bottom: 20px;
+  margin-bottom: 30px;
+}
+
+/*slick slider*/
+
+.row .sliderHeader{
+  padding-bottom: 0px!important;
+  color:#eee!important;
+}
+.slick-slider {
+    padding-bottom: 20px;
+    margin-bottom: 30px;
+    /*margin-right: 26px!important;*/
+
+}
+
+.navbar{
+  /*margin-bottom: 0px;*/
 }
 
 #browse-show-bottom h6 {
@@ -111,37 +157,21 @@ figure figcaption .btn-info {
     word-wrap: break-word;
 }
 
-.social-buttons #facebook i:hover {
-    color: #738fc8;
-}
+.social-buttons #facebook i:hover { color: #738fc8; }
 
-.social-buttons #facebook i {
-    color: #3c5a99;
-}
+.social-buttons #facebook i { color: #3c5a99; }
 
-.social-buttons #twitter i:hover {
-    color: #6dacdd;
-}
+.social-buttons #twitter i:hover { color: #6dacdd; }
 
-.social-buttons #twitter i {
-    color: #2b7bb9;
-}
+.social-buttons #twitter i { color: #2b7bb9; }
 
-.social-buttons #reddit i:hover {
-    color: #95cef9;
-}
+.social-buttons #reddit i:hover { color: #95cef9; }
 
-.social-buttons #reddit i {
-    color: #359ff3;
-}
+.social-buttons #reddit i { color: #359ff3; }
 
-.social-buttons #tumblr i:hover {
-    color: #59789e;
-}
+.social-buttons #tumblr i:hover { color: #59789e; }
 
-.social-buttons #tumblr i {
-    color: #34465d;
-}
+.social-buttons #tumblr i { color: #34465d; }
 
 .social-buttons a i {
     display: inline-block;
@@ -157,12 +187,12 @@ section {
 }
 
 @media only screen and (min-width: 40.063em) {
-    .columns {
-        position: relative;
-        padding-left: 0.71429rem;
-        padding-right: 0.71429rem;
-        float: left;
-    }
+.columns {
+    position: relative;
+    padding-left: 0.71429rem;
+    padding-right: 0.71429rem;
+    float: left;
+}
 }
 
 .left {
@@ -223,15 +253,11 @@ table tr td {
 table tr:nth-of-type(even) {
     background: #f9f9f9;
 }
-
-
 /****Spinner****/
-
-.bounce1, .bounce2, .bounce3 {
-    background-color: #aaa!important;
+.bounce1, .bounce2, .bounce3{
+  background-color: #aaa!important;
 }
-
-.three-bounce>div {
-    width: 68px!important;
-    height: 68px!important;
+.three-bounce > div{
+  width: 68px!important;
+  height: 68px!important;
 }

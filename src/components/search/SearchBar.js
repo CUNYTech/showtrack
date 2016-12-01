@@ -28,7 +28,7 @@ class SearchBar extends Component {
       width: 'auto'
     }
     return (
-      <form style={formStyle} onSubmit={this.onFormSubmit} className="input-group">
+      <form style={formStyle} onSubmit={this.onFormSubmit} className="input-group" id="search-field">
         <input
           type="search"
           required
