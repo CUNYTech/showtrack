@@ -20,7 +20,7 @@ class Home extends Component {
       shows = showProps.map(show => {
         return (
           <div key={show.id}>
-            <img src={show.image.medium}></img>
+            <Show show={show} />
           </div>
         )
       });
@@ -34,9 +34,10 @@ class Home extends Component {
     let showItems = (<span>No shows were found!</span>);
     if(showProps.length > 0) {
       shows = showProps.map(show => {
+        console.log('popular show', show);
         return (
           <div key={show.id}>
-            <img height="295" width="210" src={show.poster_img}></img>
+            <Show show={show} image={show.poster_img}/>
           </div>
         )
       });

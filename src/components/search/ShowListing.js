@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
-
 import Show from './Show';
 
 class ShowListing extends Component {
@@ -18,10 +17,6 @@ class ShowListing extends Component {
         return (
           <div key={show.id} className="browse-show-wrap">
             <Show show={show.show} />
-            <div id="browse-show-bottom">
-              <h6>{show.show.name}</h6>
-              { show.show.premiered ? <h6><small> {"(" + show.show.premiered.substring(0, 4) + ")"} </small></h6> : null }
-            </div>
           </div>);
       });
     }
