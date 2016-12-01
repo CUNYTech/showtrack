@@ -81,34 +81,88 @@ figure figcaption .btn-info {
 }
 
 /******************************  Accordions  ******************************/
-.accordion{
-  width: auto;
+.accordion {
+   -webkit-box-shadow: 0px 13px 23px -13px rgba(0,0,0,0.5);
+   width: auto;
+   background-color: transparent;
+   margin: auto;
+   margin-top: 50px;
 }
-.arrow-wrapper {
-  margin-left: -5px;
-}
-.accordion .title {
+.accordion .title{
   height: auto!important;
   color: white!important;
   width: auto;
+  background-color: rgba(0,0,0, .4);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-align: left;
+  line-height: 2;
+  font-weight: lighter;
+  position: relative;
+  padding: 10px;
+  z-index: 2000;
+  border-radius: 4px;
+  margin-top: 2px;
+  transition: all .2s ease-in;
 }
 .accordion .title:hover, a.navbar-brand:hover {
   background-color: rgba(150,100,100,.4);
   color: white;
+  cursor: pointer;
+}
+.accordion .title-text {
+  font-size: 20px;
+  margin-left: 10px;
+}
+.accordion .content{
+  height: 30px;
+  background-color: transparent;
+  border-radius: 4px;
+  font-size: 14px;
+  text-align: center;
+  position: relative;
+  z-index: 1000;
+  margin-top: -30px;
+  text-align: left;
+  transition: all 200ms cubic-bezier(0.600, -0.280, 0.735, 0.045);
 }
 .accordion .content-open {
   height: auto;
   width: auto;
   background-color: rgba(0,0,0, .4);
+  margin-top: 0px;
+  transition: all 350ms cubic-bezier(0.080, 1.090, 0.320, 1.275);
 }
-.accordion .title-text {
-  font-size: 20px;
+.accordion .content-text {
+  padding: 15px;
+  visibility: hidden;
+  /*display: none;*/
+  opacity: 0;
+  overflow: auto;
+  transition: all .2s ease-in;
+}
+.accordion .content-text-open {
+  /*display: inline;*/
+  visibility: visible;
+  opacity: 1;
+  transition: all .8s ease-in;
 }
 .row.accordion-episode {
   padding-bottom: 20px;
   margin-bottom: 30px;
 }
-
+.fa-angle-down {
+  font-size: 20px;
+  color: rgba(255,255,255, .5);
+  transition: all .6s cubic-bezier(0.080, 1.090, 0.320, 1.275);
+}
+.fa-rotate-180 {
+  color: rgba(255,255,255, 1);
+}
+.arrow-wrapper {
+  position: absolute;
+  margin-left: -5px;
+}
 /******************************  Slick Slider  ******************************/
 .row .sliderHeader{
   padding-bottom: 0px!important;
