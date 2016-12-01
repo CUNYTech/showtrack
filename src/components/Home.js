@@ -73,7 +73,7 @@ class Home extends Component {
                 <div className="container">
                   <div className="row">
                     <div className="col-sm-4"></div>
-                    <Spinner id={0} spinnerName='three-bounce' className=".col-sm-4"/>
+                    <Spinner id={0} spinnerName='three-bounce' noFadeIn className=".col-sm-4"/>
                     <div className="col-sm-4"></div>
                   </div>
                 </div>
@@ -95,7 +95,7 @@ class Home extends Component {
                 <div className="container">
                   <div className="row">
                     <div className="col-sm-4"></div>
-                    <Spinner id={0} spinnerName='three-bounce' className=".col-sm-4"/>
+                    <Spinner id={0} spinnerName='three-bounce' noFadeIn className=".col-sm-4"/>
                     <div className="col-sm-4"></div>
                   </div>
                 </div>
