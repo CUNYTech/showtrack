@@ -1,14 +1,10 @@
+/******************************  General  ******************************/
 html {
     height: 100%;
 }
-
 body{
-  /*background: #141414;*/
-  /*background: rgba(92,129,202,1);*/
-  /*height: 100%;*/
   color: #aaa;
   margin: 0;
-
   background-repeat: no-repeat;
   background-attachment: fixed;
   background:
@@ -23,86 +19,68 @@ body{
         rgba(20,20,20,1) 0%,
         rgba(60,0,0,1) 100%
   ) fixed;
-
 }
-
 body a{
   color:white;
 }
-
 #search-field{
   max-width: 490px;
 }
 
-.error {
-    color: red;
-}
-
-.half {
-    width: 50%;
-    margin: auto;
-}
-
+/******************************  Show Details on Hover  ******************************/
 .browse-show-wrap figcaption {
-    position: absolute;
-    top: 20px;
-    right: 0px;
-    left: 0px;
-    text-align: center;
-    opacity: 0;
-    height: 100%;
-    width: 100%;
-    opacity: 0;
-    transition: opacity 0.3s ease 0s;
+  position: absolute;
+  top: 20px;
+  right: 0px;
+  left: 0px;
+  text-align: center;
+  opacity: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  transition: opacity 0.3s ease 0s;
 }
 .browse-show-wrap:hover figcaption{
-    opacity: 1;
-    transition: all 0.3s ease 0s;
+  opacity: 1;
+  transition: all 0.3s ease 0s;
 }
-
 .browse-show-wrap img{
-    opacity: 1;
-    transition: all 0.3s ease 0s;
-
+  opacity: 1;
+  transition: all 0.3s ease 0s;
 }
-
-
 .browse-show-wrap:hover img{
-    opacity: 0.2;
-    transition: all 0.3s ease 0s;
+  opacity: 0.2;
+  transition: all 0.3s ease 0s;
 }
-
 figure.browse-show-wrap{
   position: relative;
   margin-bottom: 0px;
   padding: 0px!important;
 }
-
 div.browse-show-wrap {
   margin: 20px;
   width: 210px;
   height:340px;
 }
-
 a.navbar-brand {
-    height: 60px;
-    color: white;
+  height: 60px;
+  color: white;
 }
-
 body a:hover {
-  /*color: #0275d8;*/
   text-decoration: none;
 }
-
 figure figcaption .rating {
   margin-bottom: 20px;
 }
-
 figure figcaption .btn-info {
   margin-top: 40px;
 }
+#browse-show-bottom h6 {
+    margin-bottom: 0px;
+    word-wrap: break-word;
+}
 
-/*  accordions */
+/******************************  Accordions  ******************************/
 .accordion{
   width: auto;
 }
@@ -113,30 +91,25 @@ figure figcaption .btn-info {
   height: auto!important;
   color: white!important;
   width: auto;
-
 }
 .accordion .title:hover, a.navbar-brand:hover {
   background-color: rgba(150,100,100,.4);
   color: white;
 }
-
 .accordion .content-open {
   height: auto;
   width: auto;
   background-color: rgba(0,0,0, .4);
-
 }
 .accordion .title-text {
   font-size: 20px;
 }
-
 .row.accordion-episode {
   padding-bottom: 20px;
   margin-bottom: 30px;
 }
 
-/*slick slider*/
-
+/******************************  Slick Slider  ******************************/
 .row .sliderHeader{
   padding-bottom: 0px!important;
   color:#eee!important;
@@ -144,116 +117,25 @@ figure figcaption .btn-info {
 .slick-slider {
     padding-bottom: 20px;
     margin-bottom: 30px;
-    /*margin-right: 26px!important;*/
-
 }
-
-.navbar{
-  /*margin-bottom: 0px;*/
-}
-
-#browse-show-bottom h6 {
-    margin-bottom: 0px;
-    word-wrap: break-word;
-}
-
+/******************************  Social Buttons  ******************************/
 .social-buttons #facebook i:hover { color: #738fc8; }
-
 .social-buttons #facebook i { color: #3c5a99; }
-
 .social-buttons #twitter i:hover { color: #6dacdd; }
-
 .social-buttons #twitter i { color: #2b7bb9; }
-
 .social-buttons #reddit i:hover { color: #95cef9; }
-
 .social-buttons #reddit i { color: #359ff3; }
-
 .social-buttons #tumblr i:hover { color: #59789e; }
-
 .social-buttons #tumblr i { color: #34465d; }
 
 .social-buttons a i {
     display: inline-block;
     margin: 4px 4px 0 0;
 }
-
 .social-buttons #tumblr i {
     margin-right: 0;
 }
-
-section {
-    margin-bottom: 10px;
-}
-
-@media only screen and (min-width: 40.063em) {
-.columns {
-    position: relative;
-    padding-left: 0.71429rem;
-    padding-right: 0.71429rem;
-    float: left;
-}
-}
-
-.left {
-    float: left!important;
-}
-
-a {
-    color: #3c948b;
-    text-decoration: none;
-    line-height: inherit;
-}
-
-table thead {
-    background: #f5f5f5;
-}
-
-#episode-list-short th:first-child {
-    text-align: left;
-}
-
-#episode-list-short th {
-    text-align: center;
-}
-
-table thead tr th {
-    display: table-cell;
-    line-height: 1.28571rem;
-    padding: 0.57143rem 0.71429rem 0.71429rem;
-    font-size: 1rem;
-    font-weight: bold;
-    color: #222222;
-}
-
-#episode-list-short td:first-child {
-    text-align: left;
-}
-
-table tbody tr td, table tr td {
-    display: table-cell;
-    line-height: 1.28571rem;
-}
-
-table tr td {
-    padding: 0.64286rem 0.71429rem;
-    font-size: 1rem;
-    color: #222222;
-    text-align: left;
-}
-
-#episode-list-short td:nth-child(2) {
-    color: #808997;
-}
-
-#episode-list-short td {
-    text-align: center;
-}
-
-table tr:nth-of-type(even) {
-    background: #f9f9f9;
-}
-/****Spinner****/
+/******************************  Spinner  ******************************/
 .bounce1, .bounce2, .bounce3{
   background-color: #aaa!important;
 }
