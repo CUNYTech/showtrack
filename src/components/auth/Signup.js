@@ -5,10 +5,10 @@ import * as actions from '../../actions'
 class Signup extends Component {
 
   componentWillMount(){
-    document.body.setAttribute('id', 'signup');
+    document.body.setAttribute('id', 'bg-image');
   }
   componentWillUnmount(){
-    document.body.removeAttribute('id', 'signup');
+    document.body.removeAttribute('id', 'bg-image');
   }
 
   handleFormSubmit(formProps) {
