@@ -10,15 +10,18 @@ class ShowListing extends Component {
   renderShows() {
     let showProps = this.props.shows;
     let shows = null;
-    let showItems = (<span>No shows were found!</span>);
+    let showItems = (<div className="well text-center">No shows were found!</div>);
 
     if (showProps.length > 0) {
       shows = showProps.map(show => {
         return (
-          <div key={show.id} className="browse-show-wrap">
+          <div key={show.show.id} className="browse-show-wrap">
             <Show show={show.show} />
           </div>);
       });
+    }
+    else {
+      shows = showItems;
     }
     return shows;
   }

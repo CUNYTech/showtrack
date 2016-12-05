@@ -34,7 +34,6 @@ class Home extends Component {
     let showItems = (<span>No shows were found!</span>);
     if(showProps.length > 0) {
       shows = showProps.map(show => {
-        console.log('popular show', show);
         return (
           <div key={show.id}>
             <Show show={show} image={show.poster_img}/>
@@ -73,14 +72,14 @@ class Home extends Component {
                 <div className="container">
                   <div className="row">
                     <div className="col-sm-4"></div>
-                    <Spinner id={0} spinnerName='three-bounce' noFadeIn className=".col-sm-4"/>
+                    <Spinner id={0} spinnerName='three-bounce' noFadeIn className="col-sm-4"/>
                     <div className="col-sm-4"></div>
                   </div>
                 </div>
               ) : (
                 <div>
                   <Slider {...settings}>
-                    {this.renderPopularShows()}
+                    {this.renderPopularShows() || <div></div>}
                   </Slider>
                 </div>
                 )
@@ -95,14 +94,14 @@ class Home extends Component {
                 <div className="container">
                   <div className="row">
                     <div className="col-sm-4"></div>
-                    <Spinner id={0} spinnerName='three-bounce' noFadeIn className=".col-sm-4"/>
+                    <Spinner id={0} spinnerName='three-bounce' noFadeIn className="col-sm-4"/>
                     <div className="col-sm-4"></div>
                   </div>
                 </div>
               ) : (
                 <div>
                     <Slider {...settings}>
-                        {this.renderTrendingShows()}
+                        {this.renderTrendingShows() || <div></div>}
                     </Slider>
                 </div>
               )

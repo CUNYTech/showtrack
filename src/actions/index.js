@@ -148,10 +148,9 @@ export function addToWatchList(show) {
 
 export function updateProgressWatchList(show, progress) {
   return function(dispatch) {
-    console.log(show);
     axios.patch(`${ROOT_URL_V3}/watchlist/update/`, { show_id : show, progress: progress })
       .then(response => {
-        console.log(response);
+        window.location.reload();
       })
       .catch((error) => {
         console.log('error', error);
