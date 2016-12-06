@@ -13,9 +13,13 @@ class ShowDetail extends Component {
  }
 
   componentWillMount() {
-    this.props.resetShow();
     this.props.fetchShow(this.props.params.id);
     this.props.fetchEpisodes(this.props.params.id);
+  }
+
+  componentWillUnmount() {
+    this.props.resetShow();
+    this.props.resetEpisodes();
   }
 
   renderGenres(show) {

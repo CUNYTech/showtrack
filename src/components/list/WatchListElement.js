@@ -8,64 +8,91 @@ import Spinner from 'react-spinkit';
 
 class WatchListElement extends Component {
   constructor(props) {
-    super(props)
+    super(props);
 
     this.state = {
       season: this.props.show.progress.season,
       episode: this.props.show.progress.episode
     }
+
+    this.selectedSeason = this.selectedSeason.bind(this);
+    this.selectedEpisode = this.selectedEpisode.bind(this);
   }
 
   componentWillMount() {
     this.props.fetchSeasons(this.props.show.show_id);
-    console.log(this.props.show);
   }
 
   updateProgressWatchList() {
-    this.props.updateProgressWatchList(this.props.show.show_id, {season: '2', episode:'3'})
+    this.props.updateProgressWatchList(this.props.show.show_id, {season: this.state.season, episode:this.state.episode})
+  }
+
+  removeShow() {
+    this.props.removeShow(this.props.show)
   }
 
   renderProgress() {
     let episodesPerSeason = this.props.episodesPerSeason[this.props.show.show_id];
-    console.log(this.props.show.show_details.content.name, episodesPerSeason);
+    var episodeData = {};
+    var seasonData = [];
 
-    var options = [
-      { value: '1', label: '1' },
-      { value: '2', label: '2' },
-      { value: '3', label: '3' },
-      { value: '4', label: '4' },
-      { value: '5', label: '5' },
-      { value: '6', label: '6' },
-      { value: '7', label: '7' },
-      { value: '8', label: '8' },
-      { value: '9', label: '9' },
-      { value: '10', label: '10' }
-    ];
+    for(let season in episodesPerSeason) {
+      let episodes = [];
+      for(let i = 1; i < episodesPerSeason[season]; i++) {
+        let obj = {};
+        obj['value'] = i;
+        obj['label'] = i;
+        episodes.push(obj);
+      }
+      episodeData[season] = episodes;
+
+      let obj = {};
+      obj['value'] = season;
+      obj['label'] = season;
+      seasonData.push(obj);
+    }
+
+    const episodeOptions = episodeData[this.state.season];
+    const seasonOptions = seasonData;
 
     return (
       <div>
         <Select
-            name="form-field-name"
+            name="form-field-season"
             value={this.state.season}
-            options={options}
-            onChange={this.logChange}
+            options={seasonOptions}
+            onChange={this.selectedSeason}
             className="col-md-2"
+            clearable={false}
+            searchable={true}
         />
         <Select
-          name="form-field-name"
+          name="form-field-episode"
           value={this.state.episode}
-          options={options}
-          onChange={this.logChange}
+          options={episodeOptions}
+          onChange={this.selectedEpisode}
           className="col-md-2"
+          clearable={false}
+          searchable={true}
         />
       <button type="button" onClick={() => (this.updateProgressWatchList())} className="btn btn-default btn-md"> Save </button>
+      <button type="button" onClick={() => (this.removeShow())} className="btn btn-danger btn-md"> Remove </button>
+
       </div>
     )
   }
 
 
-     logChange(val) {
-        console.log("Selected: " + val);
+    selectedSeason(season) {
+        this.setState({
+          season: season.value
+        })
+    }
+
+    selectedEpisode(episode) {
+        this.setState({
+          episode: episode.value
+        })
     }
 
     renderImage() {
@@ -94,6 +121,16 @@ class WatchListElement extends Component {
     )
   }
 
+  renderSummary() {
+    let summary = this.props.show.show_details.content.summary;
+    if(summary.length > 400) {
+      summary = summary.substring(0, 400) + '...';
+    }
+    return (
+      <p className="col-md-6" dangerouslySetInnerHTML={{__html: summary}}></p>
+    )
+  }
+
   render() {
     if(!this.props.episodesPerSeason) {
       return (
@@ -118,7 +155,7 @@ class WatchListElement extends Component {
         </div>
         <div className="row">
             <div className="col-md-6 text-center">{this.renderImage()}</div>
-            <p className="col-md-6" dangerouslySetInnerHTML={{__html: show.summary}} ></p>
+            {this.renderSummary()}
             <Link to={"/shows/"+ this.props.show.show_id}>View more details</Link>
             {this.renderDate()}
             {this.renderCurrentProgress()}

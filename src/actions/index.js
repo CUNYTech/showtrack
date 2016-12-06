@@ -17,7 +17,8 @@ import {
   RESET_SHOW,
   FETCH_EPISODES,
   FETCH_SEASONS,
-  RESET_SEARCH_RESULTS
+  RESET_SEARCH_RESULTS,
+  RESET_EPISODES
 } from './types';
 
 export function signinUser({ username, password }) {
@@ -147,10 +148,27 @@ export function addToWatchList(show) {
 
 export function updateProgressWatchList(show, progress) {
   return function(dispatch) {
-    console.log(show);
-    axios.patch(`${ROOT_URL_V3}/watchlist/update/`, { show_id : show, progress: progress })
+    axios.patch(`${ROOT_URL_V3}/watchlist/update/`,
+      { show_id : show, progress: progress })
+      .then(response => {
+        window.location.reload();
+      })
+      .catch((error) => {
+        console.log('error', error);
+      })
+  }
+}
+
+export function removeShow(show) {
+  let id = {
+    show_id: show.show_id
+  }
+  return function(dispatch) {
+    axios.delete(`${ROOT_URL_V3}/watchlist/delete`,
+      { data : id })
       .then(response => {
         console.log(response);
+        window.location.reload();
       })
       .catch((error) => {
         console.log('error', error);
@@ -161,6 +179,12 @@ export function updateProgressWatchList(show, progress) {
 export function resetShow() {
     return {
       type: RESET_SHOW
+    }
+}
+
+export function resetEpisodes() {
+    return {
+      type: RESET_EPISODES
     }
 }
 

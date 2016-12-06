@@ -3,7 +3,8 @@ import {
   FETCH_TRENDING_SHOWS,
   FETCH_POPULAR_SHOWS,
   FETCH_EPISODES,
-  FETCH_SEASONS
+  FETCH_SEASONS,
+  RESET_EPISODES
 } from '../actions/types';
 
 export default function(state = [], action) {
@@ -16,6 +17,8 @@ export default function(state = [], action) {
       return { ...state, popularShows: action.payload.data.results };
     case FETCH_EPISODES:
       return { ...state, episodes: action.payload.data };
+    case RESET_EPISODES:
+      return { ...state, episodes: null };
     case FETCH_SEASONS:
       return { ...state, episodesPerSeason: { ...state.episodesPerSeason, [action.payload.id]: action.payload.seasons}};
     }
