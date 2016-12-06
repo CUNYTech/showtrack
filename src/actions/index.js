@@ -148,8 +148,26 @@ export function addToWatchList(show) {
 
 export function updateProgressWatchList(show, progress) {
   return function(dispatch) {
-    axios.patch(`${ROOT_URL_V3}/watchlist/update/`, { show_id : show, progress: progress })
+    axios.patch(`${ROOT_URL_V3}/watchlist/update/`,
+      { show_id : show, progress: progress })
       .then(response => {
+        window.location.reload();
+      })
+      .catch((error) => {
+        console.log('error', error);
+      })
+  }
+}
+
+export function removeShow(show) {
+  let id = {
+    show_id: show.show_id
+  }
+  return function(dispatch) {
+    axios.delete(`${ROOT_URL_V3}/watchlist/delete`,
+      { data : id })
+      .then(response => {
+        console.log(response);
         window.location.reload();
       })
       .catch((error) => {

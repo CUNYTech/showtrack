@@ -26,6 +26,10 @@ class WatchListElement extends Component {
     this.props.updateProgressWatchList(this.props.show.show_id, {season: this.state.season, episode:this.state.episode})
   }
 
+  removeShow() {
+    this.props.removeShow(this.props.show)
+  }
+
   renderProgress() {
     let episodesPerSeason = this.props.episodesPerSeason[this.props.show.show_id];
     var episodeData = {};
@@ -71,6 +75,8 @@ class WatchListElement extends Component {
           searchable={true}
         />
       <button type="button" onClick={() => (this.updateProgressWatchList())} className="btn btn-default btn-md"> Save </button>
+      <button type="button" onClick={() => (this.removeShow())} className="btn btn-danger btn-md"> Remove </button>
+
       </div>
     )
   }
@@ -114,6 +120,16 @@ class WatchListElement extends Component {
     )
   }
 
+  renderSummary() {
+    let summary = this.props.show.show_details.content.summary;
+    if(summary.length > 400) {
+      summary = summary.substring(0, 400) + '...';
+    }
+    return (
+      <p className="col-md-6" dangerouslySetInnerHTML={{__html: summary}}></p>
+    )
+  }
+
   render() {
     if(!this.props.episodesPerSeason) {
       return (
@@ -130,7 +146,7 @@ class WatchListElement extends Component {
         </div>
         <div className="row">
             <div className="col-md-6 text-center">{this.renderImage()}</div>
-            <p className="col-md-6" dangerouslySetInnerHTML={{__html: show.summary}} ></p>
+            {this.renderSummary()}
             <Link to={"/shows/"+ this.props.show.show_id}>View more details</Link>
             {this.renderDate()}
             {this.renderCurrentProgress()}
