@@ -70,9 +70,11 @@ class ShowDetail extends Component {
     if (!show || !episodes) {
       return (
         <div className="container">
-          <div className="row">
+          <div className="row spinner-row">
             <div className="col-sm-4"></div>
-            <Spinner id={0} noFadeIn spinnerName='three-bounce' className=".col-sm-4"/>
+            <div className="col-sm-4">
+              <Spinner id={0} spinnerName='circle' noFadeIn/>
+            </div>
             <div className="col-sm-4"></div>
           </div>
         </div>

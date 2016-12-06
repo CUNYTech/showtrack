@@ -3,6 +3,14 @@ import { reduxForm } from 'redux-form';
 import * as actions from '../../actions/';
 
 class Signin extends Component {
+
+  componentWillMount(){
+    document.body.setAttribute('id', 'bg-image');
+  }
+  componentWillUnmount(){
+    document.body.removeAttribute('id', 'bg-image');
+  }
+
   handleFormSubmit({ username, password }) {
     this.props.signinUser({ username, password });
 }
@@ -21,18 +29,26 @@ class Signin extends Component {
 
     return (
       <div className="half">
-      <form onSubmit={handleSubmit(this.handleFormSubmit.bind(this))}>
-        <fieldset className="form-group">
-          <label>Username</label>
-            <input {...username} type="text" placeholder="Enter username" className="form-control" />
-        </fieldset>
-        <fieldset className="form-group">
-          <label>Password</label>
-          <input {...password} type="password" placeholder="Enter password" className="form-control" />
-        </fieldset>
-        {this.renderAlert()}
-        <button action="submit" className="btn btn-primary pull-right">Sign in</button>
-      </form>
+        <div className="row">
+          <div className="col-sm-4"></div>
+            <div className="col-sm-6 well">
+              <form onSubmit={handleSubmit(this.handleFormSubmit.bind(this))}>
+                <fieldset className="form-group">
+                  <label>Username</label>
+                    <input {...username} type="text" placeholder="Enter username" className="form-control" />
+                </fieldset>
+                <fieldset className="form-group">
+                  <label>Password</label>
+                  <input {...password} type="password" placeholder="Enter password" className="form-control" />
+                </fieldset>
+                {this.renderAlert()}
+                <button action="submit" className="btn btn-primary pull-right">Sign in</button>
+              </form>
+            </div>
+          <div className="col-sm-2"></div>
+
+        </div>
+
       </div>
     );
   }

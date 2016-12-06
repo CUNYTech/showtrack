@@ -11,6 +11,9 @@ class Home extends Component {
     this.props.fetchTrendingShows();
     this.props.fetchPopularShows();
   }
+  componentDidMount(){
+    // this.refs.currentNavLocation.getDOMNode().focus();
+  }
 
   renderTrendingShows() {
     let showProps = this.props.trendingShows;
@@ -72,7 +75,9 @@ class Home extends Component {
                 <div className="container">
                   <div className="row">
                     <div className="col-sm-4"></div>
-                    <Spinner id={0} spinnerName='three-bounce' noFadeIn className="col-sm-4"/>
+                    <div className="col-sm-4">
+                      <Spinner id={0} spinnerName='three-bounce' noFadeIn/>
+                    </div>
                     <div className="col-sm-4"></div>
                   </div>
                 </div>
@@ -94,7 +99,9 @@ class Home extends Component {
                 <div className="container">
                   <div className="row">
                     <div className="col-sm-4"></div>
-                    <Spinner id={0} spinnerName='three-bounce' noFadeIn className="col-sm-4"/>
+                    <div className="col-sm-4">
+                      <Spinner id={0} spinnerName='three-bounce' noFadeIn/>
+                    </div>
                     <div className="col-sm-4"></div>
                   </div>
                 </div>

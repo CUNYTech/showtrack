@@ -4,6 +4,7 @@ import * as actions from '../../actions';
 import Select from 'react-select';
 import 'react-select/dist/react-select.css';
 import { Link } from 'react-router';
+import Spinner from 'react-spinkit';
 
 class WatchListElement extends Component {
   constructor(props) {
@@ -133,7 +134,15 @@ class WatchListElement extends Component {
   render() {
     if(!this.props.episodesPerSeason) {
       return (
-        <div>Loading...</div>
+        <div className="container">
+          <div className="row spinner-row">
+            <div className="col-sm-4"></div>
+            <div className="col-sm-4">
+              <Spinner id={0} spinnerName='circle' noFadeIn/>
+            </div>
+            <div className="col-sm-4"></div>
+          </div>
+        </div>
       )
     }
 
