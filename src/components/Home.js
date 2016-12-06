@@ -11,6 +11,9 @@ class Home extends Component {
     this.props.fetchTrendingShows();
     this.props.fetchPopularShows();
   }
+  componentDidMount(){
+    // this.refs.currentNavLocation.getDOMNode().focus();
+  }
 
   renderTrendingShows() {
     let showProps = this.props.trendingShows;
