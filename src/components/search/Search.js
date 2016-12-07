@@ -6,7 +6,7 @@ import ShowListing from './ShowListing';
 
 class Search extends Component {
   componentWillUnmount() {
-    this.props.resetSearchResults();
+    //this.props.resetSearchResults();
   }
   render() {
     return (

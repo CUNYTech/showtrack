@@ -67,7 +67,7 @@ class ShowDetail extends Component {
   render() {
 
     const { show, episodes } = this.props;
-    if (!show || !episodes) {
+    if (!show && !episodes) {
       return (
         <div className="container">
           <div className="row spinner-row">
