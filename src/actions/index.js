@@ -30,8 +30,8 @@ export function signinUser({ username, password }) {
         axios.defaults.headers.common['Authorization'] =  "JWT " + response.data.token;
         browserHistory.push('/my-list');
       })
-      .catch((error) => {
-        console.log(error);
+      .catch((response) => {
+        console.log(response.data.error[0]);
         dispatch(authError('Something went wrong, please try again.'));
       })
   }
@@ -46,9 +46,9 @@ export function signupUser({ email, username, password, display_name }) {
         axios.defaults.headers.common['Authorization'] =  "JWT " + response.data.token;
         browserHistory.push('/my-list');
       })
-      .catch((error) => {
-        console.log(error);
-        dispatch(authError('Something went wrong, please try again.'));
+      .catch((response) => {
+        let errorMsg = response.data.error[0] || 'Something went wrong, please try again.';
+        dispatch(authError(errorMsg));
       })
   }
 }
