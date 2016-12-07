@@ -4,6 +4,7 @@ import * as actions from '../../actions/index';
 import Accordion from './Accordion';
 import EpisodeDetail from './EpisodeDetail';
 import Spinner from 'react-spinkit';
+import ReactDisqusThread from 'react-disqus-thread';
 
 class ShowDetail extends Component {
  constructor(props) {
@@ -118,8 +119,17 @@ class ShowDetail extends Component {
         </div>
 
         <div className="row">
-          <Accordion data={this.renderEpisodeData(episodes)}/>
-
+          <div className="col-sm-8">
+            <Accordion data={this.renderEpisodeData(episodes)}/>
+          </div>
+          <div className="col-sm-4">
+            <ReactDisqusThread
+              shortname={this.props.params.id}
+              identifier={'test' + this.props.params.id}
+              title="Example Thread"
+              url="showtrakr-1.disqus.com"
+              category_id={this.props.params.id}/>
+            </div>
         </div> {/*row*/}
       </div>
     )
