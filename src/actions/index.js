@@ -1,7 +1,6 @@
 const ROOT_URL = 'http://starter-dev2.us-east-1.elasticbeanstalk.com/api/v1';
 const ROOT_URL_V2 = 'http://starter-dev2.us-east-1.elasticbeanstalk.com/api/v2';
 const ROOT_URL_V3 = 'http://starter-dev2.us-east-1.elasticbeanstalk.com'
-const LOCAL_ROOT_URL = 'http://localhost:3080';
 
 import axios from 'axios';
 import { browserHistory } from 'react-router';
@@ -19,6 +18,7 @@ import {
   FETCH_SEASONS,
   RESET_SEARCH_RESULTS,
   RESET_EPISODES
+
 } from './types';
 
 export function signinUser({ username, password }) {
@@ -90,7 +90,6 @@ export function fetchShow(id) {
       })
   }
 }
-
 export function fetchTrendingShows() {
   return function(dispatch) {
     axios.get(`${ROOT_URL_V2}/trending/`)
@@ -201,10 +200,11 @@ export function fetchEpisodes(id) {
         dispatch({
           type: FETCH_EPISODES,
           payload: response
-        })
       })
+    })
   }
 }
+
 
 export function fetchSeasons(id) {
   return function(dispatch) {
