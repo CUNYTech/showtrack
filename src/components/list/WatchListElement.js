@@ -151,10 +151,10 @@ class WatchListElement extends Component {
     return (
       <div className="well">
         <div className="row" style={{ marginBottom: 10 }}>
-          <h4 className="col-md-6 text-center">{show.name}</h4>
+          <h6 className="col-md-6">{show.name}</h6>
         </div>
         <div className="row">
-            <div className="col-md-6 text-center">{this.renderImage()}</div>
+            <div className="col-md-6">{this.renderImage()}</div>
             {this.renderSummary()}
             <Link to={"/shows/"+ this.props.show.show_id}>View more details</Link>
             {this.renderDate()}
