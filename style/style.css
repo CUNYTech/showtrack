@@ -87,7 +87,7 @@ figure figcaption .btn-info {
     word-wrap: break-word;
 }
 a.btn.btn-info, button.btn.btn-info.btn-md {
-    background-color: rgb(120, 50, 50);
+    background-color: rgb(72, 148, 196);
     border-style: none;
     margin-bottom: 20px;
     border-bottom-right-radius: 4px!important;
@@ -95,7 +95,7 @@ a.btn.btn-info, button.btn.btn-info.btn-md {
     transition: all 0.3s ease 0s;
 }
 a.btn.btn-info:hover, button.btn.btn-info.btn-md:hover{
-  background-color: rgb(160, 90, 90);
+  background-color: rgb(112, 148, 196);
   transition: all 0.3s ease 0s;
 }
 
@@ -266,4 +266,26 @@ li.nav-item {
 }
 button.btn.btn-info.btn-md {
     margin-top: 20px;
+}
+#myShowsRow{
+  position:relative;
+}
+
+button#removeBtn {
+  background-color: rgb(120, 50, 50);
+  border-style: none;
+  transition: all 0.3s ease 0s;
+  margin-bottom: 0px;
+  margin-right: 15px;
+  position:absolute;
+  bottom:0;
+  right:0;
+}
+button#removeBtn:hover{
+  background-color: rgb(160, 90, 90);
+  transition: all 0.3s ease 0s;
+}
+
+button#saveEpisode {
+  margin-top: 20px;
 }
