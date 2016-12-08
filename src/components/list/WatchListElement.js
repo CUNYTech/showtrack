@@ -109,25 +109,10 @@ class WatchListElement extends Component {
       )
   }
 
-  // renderCurrentProgress() {
-  //   return (
-  //     <h6>You are currently on <strong>season {this.props.show.progress.season}</strong> and <strong>episode {this.props.show.progress.episode}</strong>!</h6>
-  //   )
-  // }
-  //
-  // renderDate() {
-  //   var date = this.props.show.last_updated;
-  //   var newDate = date.slice(0,10);
-  //
-  //   return (
-  //     <div>Last Updated: {newDate}</div>
-  //   )
-  // }
-
   renderSummary() {
     let summary = this.props.show.show_details.content.summary;
-    if(summary.length > 400) {
-      summary = summary.substring(0, 400) + '...';
+    if(summary.length > 475) {
+      summary = summary.substring(0, 475) + '...';
     }
     return (
       <div dangerouslySetInnerHTML={{__html: summary}} ></div>
@@ -164,8 +149,6 @@ class WatchListElement extends Component {
             <Link className="btn btn-info" to={"/shows/"+ this.props.show.show_id}>View Details</Link>
           </div>
           <div className="col-md-4">
-            {/*this.renderDate()*/}
-            {/*this.renderCurrentProgress()*/}
             {this.renderProgress()}
           </div>
           <button type="button" id="removeBtn" onClick={() => (this.removeShow())} className="btn btn-danger btn-md"> Remove Show</button>
