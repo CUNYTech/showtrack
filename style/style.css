@@ -86,7 +86,7 @@ figure figcaption .btn-info {
     margin-bottom: 0px;
     word-wrap: break-word;
 }
-a.btn.btn-info {
+a.btn.btn-info, button.btn.btn-info.btn-md {
     background-color: rgb(120, 50, 50);
     border-style: none;
     margin-bottom: 20px;
@@ -94,19 +94,19 @@ a.btn.btn-info {
     border-bottom-left-radius: 4px!important;
     transition: all 0.3s ease 0s;
 }
-a.btn.btn-info:hover{
+a.btn.btn-info:hover, button.btn.btn-info.btn-md:hover{
   background-color: rgb(160, 90, 90);
   transition: all 0.3s ease 0s;
 }
 
-span.btn.btn-primary {
+span.btn.btn-primary, button.btn.btn-primary.btn-md {
     border-top-right-radius: 4px!important;
     border-top-left-radius: 4px!important;
     border-style: none;
     background-color: gray;
     transition: all 0.3s ease 0s;
 }
-span.btn.btn-primary:hover{
+span.btn.btn-primary:hover, button.btn.btn-primary.btn-md:hover{
   background-color: #999;
   transition: all 0.3s ease 0s;
 }
@@ -259,4 +259,11 @@ li.nav-item {
 }
 .spinner-row{
   margin-top: 25vh;
+}
+/******************************  WatchList  ******************************/
+.Select.col-md-2.Select--single.is-searchable {
+    padding-left: 0px;
+}
+button.btn.btn-info.btn-md {
+    margin-top: 20px;
 }

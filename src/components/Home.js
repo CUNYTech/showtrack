@@ -11,9 +11,7 @@ class Home extends Component {
     this.props.fetchTrendingShows();
     this.props.fetchPopularShows();
   }
-  componentDidMount(){
-    // this.refs.currentNavLocation.getDOMNode().focus();
-  }
+
 
   renderTrendingShows() {
     let showProps = this.props.trendingShows;
@@ -68,7 +66,7 @@ class Home extends Component {
 
     return (
         <div className="container">
-          <div className="row">
+          {/*<div className="row">
             <h3 style={titleStyle} className="sliderHeader">Popular Shows</h3>
             <div>
               {!this.props.popularShows ? (
@@ -90,7 +88,7 @@ class Home extends Component {
                 )
               }
             </div>
-          </div>
+          </div>*/}
 
           <div className="row">
             <h3 style={titleStyle} className="sliderHeader">Trending Shows</h3>

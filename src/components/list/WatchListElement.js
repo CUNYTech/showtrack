@@ -75,8 +75,8 @@ class WatchListElement extends Component {
           clearable={false}
           searchable={true}
         />
-      <button type="button" onClick={() => (this.updateProgressWatchList())} className="btn btn-default btn-md"> Save </button>
-      <button type="button" onClick={() => (this.removeShow())} className="btn btn-danger btn-md"> Remove </button>
+      <button type="button" onClick={() => (this.updateProgressWatchList())} className="btn btn-primary btn-md"> Save Last Episode</button>
+      <button type="button" onClick={() => (this.removeShow())} className="btn btn-info btn-md"> Remove Show</button>
 
       </div>
     )
@@ -98,10 +98,10 @@ class WatchListElement extends Component {
     renderImage() {
       return (
         !this.props.show.show_details.content.image.medium ?
-          <img className='img-rounded' src='http://placehold.it/210x295' role="presentation"/>
+          <img src='http://placehold.it/210x295' role="presentation"/>
         :
         <div>
-          <img className='img-rounded' src={this.props.show.show_details.content.image.medium} role="presentation"/>
+          <img src={this.props.show.show_details.content.image.medium} role="presentation"/>
         </div>
       )
   }
