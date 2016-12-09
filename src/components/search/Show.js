@@ -12,7 +12,8 @@ class Show extends Component {
   }
 
   addToWatchList = () => {
-     this.props.addToWatchList(this.props.show);
+    this.props.addToWatchList(this.props.show);
+    alert("show added");
   }
 
    renderImage() {
