@@ -1,6 +1,6 @@
-const ROOT_URL = 'http://starter-dev2.us-east-1.elasticbeanstalk.com/api/v1';
-const ROOT_URL_V2 = 'http://starter-dev2.us-east-1.elasticbeanstalk.com/api/v2';
-const ROOT_URL_V3 = 'http://starter-dev2.us-east-1.elasticbeanstalk.com'
+const ROOT_URL = ' https://showtrack.chengpan.me/api/v1';
+const ROOT_URL_V2 = ' https://showtrack.chengpan.me/api/v2';
+const ROOT_URL_V3 = ' https://showtrack.chengpan.me/'
 
 import axios from 'axios';
 import { browserHistory } from 'react-router';

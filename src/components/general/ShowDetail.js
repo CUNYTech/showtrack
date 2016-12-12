@@ -123,13 +123,14 @@ class ShowDetail extends Component {
             <Accordion data={this.renderEpisodeData(episodes)}/>
           </div>
           <div className="col-sm-4">
+          {console.log(this.props.params.id)}
             <ReactDisqusThread
-              shortname={this.props.params.id}
-              identifier={'test' + this.props.params.id}
-              title="Example Thread"
-              url="showtrakr-1.disqus.com"
-              category_id={this.props.params.id}/>
-            </div>
+              shortname="showtrakr-1"
+              identifier={this.props.params.id}
+              title={this.props.params.id}
+              url={'http://showtrakr.com/shows/' + this.props.params.id}
+              />
+          </div>
         </div> {/*row*/}
       </div>
     )
