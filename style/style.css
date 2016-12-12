@@ -289,3 +289,23 @@ button#removeBtn:hover{
 button#saveEpisode {
   margin-top: 20px;
 }
+@media (max-width: 767px){
+  a.navbar-brand{
+    float:none;
+  }
+  ul.nav.navbar-nav {
+    display: inline;
+  }
+  li.nav-item {
+    margin-left: 0px;
+    margin-top: 5px;
+  }
+  i.fa.fa-film.fa-2x {
+    font-size: 1em;
+  }
+  .slick-initialized.slick-slider {
+    margin-left: 30px;
+    margin-right: 30px;
+  }
+
+}

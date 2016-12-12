@@ -51,7 +51,39 @@ class Home extends Component {
       infinite: true,
       speed: 900,
       slidesToShow: 5,
-      slidesToScroll: 5
+      slidesToScroll: 5,
+      responsive: [
+        {
+          breakpoint: 1200,
+          settings: {
+            slidesToShow: 4,
+            slidesToScroll: 4,
+          }
+        },
+        {
+          breakpoint: 991,
+          settings: {
+            slidesToShow: 3,
+            slidesToScroll: 3,
+          }
+        },
+        {
+          breakpoint: 767,
+          settings: {
+            slidesToShow: 2,
+            slidesToScroll: 2,
+            autoplay: true
+          }
+        },
+        {
+          breakpoint: 600,
+          settings: {
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            autoplay: true
+          }
+        }
+      ]
     };
 
     var titleStyle = {
