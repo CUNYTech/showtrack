@@ -13,7 +13,7 @@ class Show extends Component {
 
   addToWatchList = () => {
     this.props.addToWatchList(this.props.show);
-    alert("show added");
+    alert("Show Added");
   }
 
    renderImage() {
