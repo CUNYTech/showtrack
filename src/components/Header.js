@@ -32,14 +32,14 @@ class Header extends Component {
     return (
       <div>
         <nav className="navbar navbar-light">
+
           <Link to="/" className="navbar-brand">ShowTrack <i className="fa fa-film fa-2x" aria-hidden="true"></i></Link>
+
           <ul className="nav navbar-nav pull-sm-right">
             {this.renderLinks()}
           </ul>
 
-
         </nav>
-
       </div>
     )
   }

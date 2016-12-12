@@ -56,32 +56,35 @@ class WatchListElement extends Component {
     const seasonOptions = seasonData;
 
     return (
-      <div>
-        <Select
+      <div className="row">
+        <div className="col-sm-6">
+          <h6>Current Season: </h6>
+          <Select
             name="form-field-season"
             value={this.state.season}
             options={seasonOptions}
             onChange={this.selectedSeason}
-            className="col-md-2"
             clearable={false}
             searchable={true}
-        />
-        <Select
-          name="form-field-episode"
-          value={this.state.episode}
-          options={episodeOptions}
-          onChange={this.selectedEpisode}
-          className="col-md-2"
-          clearable={false}
-          searchable={true}
-        />
-      <button type="button" onClick={() => (this.updateProgressWatchList())} className="btn btn-default btn-md"> Save </button>
-      <button type="button" onClick={() => (this.removeShow())} className="btn btn-danger btn-md"> Remove </button>
+          />
+        <button type="button" id="saveEpisode" onClick={() => (this.updateProgressWatchList())} className="btn btn-primary btn-md">Save</button>
+        </div>
+
+        <div className="col-sm-6">
+          <h6>Current Episode: </h6>
+          <Select
+            name="form-field-episode"
+            value={this.state.episode}
+            options={episodeOptions}
+            onChange={this.selectedEpisode}
+            clearable={false}
+            searchable={true}
+          />
+        </div>
 
       </div>
     )
   }
-
 
     selectedSeason(season) {
         this.setState({
@@ -98,36 +101,21 @@ class WatchListElement extends Component {
     renderImage() {
       return (
         !this.props.show.show_details.content.image.medium ?
-          <img className='img-rounded' src='http://placehold.it/210x295' role="presentation"/>
+          <img src='http://placehold.it/210x295' className="center-block" role="presentation"/>
         :
         <div>
-          <img className='img-rounded' src={this.props.show.show_details.content.image.medium} role="presentation"/>
+          <img src={this.props.show.show_details.content.image.medium} className="center-block" role="presentation"/>
         </div>
       )
   }
 
-  renderCurrentProgress() {
-    return (
-      <p>You are currently on <strong>season {this.props.show.progress.season}</strong> and <strong>episode {this.props.show.progress.episode}</strong>!</p>
-    )
-  }
-
-  renderDate() {
-    var date = this.props.show.last_updated;
-    var newDate = date.slice(0,10);
-
-    return (
-      <div>Last Updated: {newDate}</div>
-    )
-  }
-
   renderSummary() {
     let summary = this.props.show.show_details.content.summary;
-    if(summary.length > 400) {
-      summary = summary.substring(0, 400) + '...';
+    if(summary.length > 475) {
+      summary = summary.substring(0, 475) + '...';
     }
     return (
-      <p className="col-md-6" dangerouslySetInnerHTML={{__html: summary}}></p>
+      <div dangerouslySetInnerHTML={{__html: summary}} ></div>
     )
   }
 
@@ -150,16 +138,20 @@ class WatchListElement extends Component {
 
     return (
       <div className="well">
-        <div className="row" style={{ marginBottom: 10 }}>
-          <h4 className="col-md-6 text-center">{show.name}</h4>
-        </div>
-        <div className="row">
-            <div className="col-md-6 text-center">{this.renderImage()}</div>
+        <div className="row" id="myShowsRow">
+          <div className="col-md-4">
+            {this.renderImage()}
+
+          </div>
+          <div className="col-md-4">
+            <h6>{show.name}</h6> { show.premiered ? <h6><small> {"(" + show.premiered.substring(0, 4) + ")"} </small></h6> : null }
             {this.renderSummary()}
-            <Link to={"/shows/"+ this.props.show.show_id}>View more details</Link>
-            {this.renderDate()}
-            {this.renderCurrentProgress()}
+            <Link className="btn btn-info" to={"/shows/"+ this.props.show.show_id}>View Details</Link>
+          </div>
+          <div className="col-md-4">
             {this.renderProgress()}
+          </div>
+          <button type="button" id="removeBtn" onClick={() => (this.removeShow())} className="btn btn-danger btn-md"> Remove Show</button>
         </div>
       </div>
     )
@@ -171,6 +163,5 @@ function mapStateToProps(state) {
     episodesPerSeason: state.show.episodesPerSeason
   }
 }
-
 
 export default connect(mapStateToProps, actions)(WatchListElement);
