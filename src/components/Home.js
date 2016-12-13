@@ -72,7 +72,7 @@ class Home extends Component {
           settings: {
             slidesToShow: 2,
             slidesToScroll: 2,
-            autoplay: true
+            autoplay: false
           }
         },
         {
@@ -80,7 +80,7 @@ class Home extends Component {
           settings: {
             slidesToShow: 1,
             slidesToScroll: 1,
-            autoplay: true
+            autoplay: false
           }
         }
       ]
