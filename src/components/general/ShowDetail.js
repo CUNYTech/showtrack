@@ -107,7 +107,7 @@ class ShowDetail extends Component {
           </div>
           <div className="col-sm-3">
             <h3>Show Info</h3>
-            <div>Airs on: {show.network.country.code} {show.network.name} ({show.premiered})</div>
+            <div>Airs on: {show.network ? show.network.country.code : ""} {show.network ? show.network.name : ""} ({show.premiered})</div>
             <div>Scheduled: {show.schedule.days[0]} at {show.schedule.time}</div>
             <div>Status: {show.status}</div>
             <div>Show Type: {show.type}</div>

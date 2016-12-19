@@ -51,29 +51,39 @@ class Show extends Component {
   }
 
   renderFigcaption() {
-    return (
-      <figcaption>
-        {
-          (this.props.show.rating)
-          ? <h4 className="rating">Rating: {this.props.show.rating.average} / 10 </h4>
-          : null
-        }
+    if (this.props.authenticated){
+      return (
+        <figcaption>
+          {
+            (this.props.show.rating)
+            ? <h4 className="rating">Rating: {this.props.show.rating.average} / 10 </h4>
+            : null
+          }
 
-        {
-          (this.props.show.genres)
-          ? <h5>{this.props.show.genres[0]}</h5>
-          : null
-        }
+          {
+            (this.props.show.genres)
+            ? <h5>{this.props.show.genres[0]}</h5>
+            : null
+          }
 
-        <div className="btn-group-vertical">
-            <Link className="btn btn-info" to={"shows/" + this.props.show.id}>
-                View Details
-            </Link>
-            <span className="btn btn-primary" onClick={() => (this.addToWatchList(this.props.show))}>Add to my shows</span>
-        </div>
+          <div className="btn-group-vertical">
+              <Link className="btn btn-info" to={"shows/" + this.props.show.id}>
+                  View Details
+              </Link>
+              <span className="btn btn-primary" onClick={() => (this.addToWatchList(this.props.show))}>Add to my shows</span>
+          </div>
 
-      </figcaption>
-    )
+        </figcaption>
+      )
+    }
+    else{
+      return(
+        <figcaption>
+          <h4 className="rating">Please Log In</h4>
+        </figcaption>
+      )
+
+    }
   }
 
 
@@ -99,4 +109,13 @@ class Show extends Component {
   }
 };
 
-export default connect(null, actions)(Show);
+function mapStateToProps(state) {
+  return {
+    authenticated: state.auth.authenticated
+  }
+}
+
+//can only export one or the other below
+
+//export default connect(null, actions)(Show);
+export default connect(mapStateToProps, actions)(Show);
