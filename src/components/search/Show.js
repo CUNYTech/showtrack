@@ -115,5 +115,7 @@ function mapStateToProps(state) {
   }
 }
 
+//can only export one or the other below
+
 //export default connect(null, actions)(Show);
 export default connect(mapStateToProps)(Show);
