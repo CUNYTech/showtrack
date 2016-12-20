@@ -38,12 +38,10 @@ body a{
 .browse-show-wrap figcaption {
   position: absolute;
   top: 20px;
-  right: 0px;
-  left: 0px;
+  left: 25px;
   text-align: center;
   opacity: 0;
   height: 100%;
-  width: 100%;
   opacity: 0;
   transition: opacity 0.3s ease 0s;
 }
@@ -222,9 +220,7 @@ li.nav-item {
     padding-bottom: 20px;
     margin-bottom: 30px;
 }
-.slick-slider figcaption {
-    padding-right: 24px;
-}
+
 /******************************  Social Buttons  ******************************/
 .social-buttons #facebook i:hover { color: #738fc8; }
 .social-buttons #facebook i { color: #3c5a99; }
