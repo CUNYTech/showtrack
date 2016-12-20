@@ -49,7 +49,7 @@ class Home extends Component {
     var settings = {
       dots: true,
       infinite: true,
-      speed: 900,
+      autoplaySpeed: 6000,
       slidesToShow: 5,
       slidesToScroll: 5,
       responsive: [
@@ -72,7 +72,7 @@ class Home extends Component {
           settings: {
             slidesToShow: 2,
             slidesToScroll: 2,
-            autoplay: false
+            autoplay: true
           }
         },
         {
@@ -80,7 +80,7 @@ class Home extends Component {
           settings: {
             slidesToShow: 1,
             slidesToScroll: 1,
-            autoplay: false
+            autoplay: true
           }
         }
       ]
