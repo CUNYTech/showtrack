@@ -223,7 +223,9 @@ li.nav-item {
 .slick-slide img{
   margin:auto;
 }
-
+.slick-slide div#browse-show-bottom {
+  display: none;
+}
 
 /******************************  Social Buttons  ******************************/
 .social-buttons #facebook i:hover { color: #738fc8; }

@@ -38,17 +38,6 @@ class Show extends Component {
     this.props.addToWatchList(show);
   }
 
-  renderNameAndYear(){
-    return (
-      <div id="browse-show-bottom">
-        <h6>{this.props.show.name} <small>{this.props.show.premiered}</small></h6>
-      </div>
-      )
-  }
-
-  renderRating() {
-
-  }
 
   renderFigcaption() {
     if (this.props.authenticated){
