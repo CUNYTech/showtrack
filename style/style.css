@@ -38,7 +38,7 @@ body a{
 .browse-show-wrap figcaption {
   position: absolute;
   top: 20px;
-  left: 25px;
+  width: 100%;
   text-align: center;
   opacity: 0;
   height: 100%;
@@ -220,6 +220,10 @@ li.nav-item {
     padding-bottom: 20px;
     margin-bottom: 30px;
 }
+.slick-slide img{
+  margin:auto;
+}
+
 
 /******************************  Social Buttons  ******************************/
 .social-buttons #facebook i:hover { color: #738fc8; }
