@@ -226,6 +226,23 @@ li.nav-item {
 .slick-slide div#browse-show-bottom {
   display: none;
 }
+/*.slick-prev, .slick-next {
+  opacity:1;
+  transition: all .5s ease-in;
+}*/
+.slick-prev:before, .slick-next:before {
+  font-size: 28px!important;
+  line-height: 0!important;
+  transition: all .2s ease-in;
+}
+.slick-prev:focus, .slick-next:focus {
+  opacity:.75;
+  transition: all .2s ease-in;
+}
+.slick-prev:hover, .slick-next:hover {
+  opacity:1;
+  transition: all .2s ease-in;
+}
 
 /******************************  Social Buttons  ******************************/
 .social-buttons #facebook i:hover { color: #738fc8; }
