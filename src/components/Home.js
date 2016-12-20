@@ -86,11 +86,7 @@ class Home extends Component {
       ]
     };
 
-    var titleStyle = {
-      color: 'white',
-      fontSize: '30px',
-      paddingBottom: '20px'
-    };
+
 
     var lineStyle = {
       padding: '20x'
@@ -99,7 +95,7 @@ class Home extends Component {
     return (
         <div className="container">
           {/*<div className="row">
-            <h3 style={titleStyle} className="sliderHeader">Popular Shows</h3>
+            <h3 className="sliderHeader">Popular Shows</h3>
             <div>
               {!this.props.popularShows ? (
                 <div className="container">
@@ -123,7 +119,7 @@ class Home extends Component {
           </div>*/}
 
           <div className="row">
-            <h3 style={titleStyle} className="sliderHeader">Trending Shows</h3>
+            <h4 className="sliderHeader">Trending Shows</h4>
             <div>
               {!this.props.trendingShows ? (
                 <div className="container">

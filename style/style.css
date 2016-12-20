@@ -214,7 +214,7 @@ li.nav-item {
 /******************************  Slick Slider  ******************************/
 .row .sliderHeader{
   padding-bottom: 0px!important;
-  color:#eee!important;
+  color:#ccc!important;
 }
 .slick-slider {
     padding-bottom: 20px;
@@ -327,6 +327,9 @@ button#saveEpisode {
   .slick-initialized.slick-slider {
     margin-left: 30px;
     margin-right: 30px;
+  }
+  .sliderHeader {
+    text-align: center;
   }
 
 }
