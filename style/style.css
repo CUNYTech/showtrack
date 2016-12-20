@@ -243,7 +243,9 @@ li.nav-item {
   opacity:1;
   transition: all .2s ease-in;
 }
-
+.slick-dots li button:before{
+  color:white!important;
+}
 /******************************  Social Buttons  ******************************/
 .social-buttons #facebook i:hover { color: #738fc8; }
 .social-buttons #facebook i { color: #3c5a99; }
