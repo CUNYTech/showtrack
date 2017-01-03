@@ -16,6 +16,11 @@ class Show extends Component {
     alert("Show Added");
   }
 
+  addToWatchList(show) {
+    this.props.addToWatchList(show);
+  }
+
+
    renderImage() {
     if(this.props.show.image) {
      return (
@@ -33,11 +38,6 @@ class Show extends Component {
       )
     }
   }
-
-  addToWatchList(show) {
-    this.props.addToWatchList(show);
-  }
-
 
   renderFigcaption() {
     if (this.props.authenticated){
@@ -86,7 +86,9 @@ class Show extends Component {
     return (
       <div>
         <figure className="browse-show-wrap" style={showStyle}>
-          {this.renderImage()}
+          <Link to={"shows/" + this.props.show.id}>
+            {this.renderImage()}
+          </Link>
           {this.renderFigcaption()}
         </figure>
         <div id="browse-show-bottom">

@@ -47,7 +47,7 @@ body a{
   transition: opacity 0.3s ease 0s;
 
 }
-.browse-show-wrap:hover figcaption{
+.no-touch .browse-show-wrap:hover figcaption{
   opacity: 1;
   display: block;
   transition: all 0.3s ease 0s;
@@ -57,7 +57,7 @@ body a{
   opacity: 1;
   transition: all 0.3s ease 0s;
 }
-.browse-show-wrap:hover img{
+.no-touch .browse-show-wrap:hover img{
   opacity: 0.2;
   transition: all 0.3s ease 0s;
 }
