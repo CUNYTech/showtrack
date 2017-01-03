@@ -43,11 +43,15 @@ body a{
   opacity: 0;
   height: 100%;
   opacity: 0;
+  display: none;
   transition: opacity 0.3s ease 0s;
+
 }
 .browse-show-wrap:hover figcaption{
   opacity: 1;
+  display: block;
   transition: all 0.3s ease 0s;
+
 }
 .browse-show-wrap img{
   opacity: 1;
