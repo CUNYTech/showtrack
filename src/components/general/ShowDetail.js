@@ -65,6 +65,16 @@ class ShowDetail extends Component {
   }
 
 
+  addToWatchList = () => {
+    this.props.addToWatchList(this.props.show);
+    alert("Show Added");
+  }
+
+  addToWatchList(show) {
+    this.props.addToWatchList(show);
+  }
+
+
   render() {
 
     const { show, episodes } = this.props;
@@ -115,6 +125,7 @@ class ShowDetail extends Component {
             <div>Episodes ordered: {show.type}</div>
             <br />
             <div>Rating: {show.rating.average || 0}/10</div>
+            <span className="btn btn-primary" id="detailsPageButton" onClick={() => (this.addToWatchList(this.props.show))}>Add to my shows</span>
           </div>
         </div>
 

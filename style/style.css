@@ -314,6 +314,12 @@ button#removeBtn:hover{
 button#saveEpisode {
   margin-top: 20px;
 }
+/******************************  Details Page  ******************************/
+#detailsPageButton{
+  margin-top: 20px;
+}
+
+
 @media (max-width: 767px){
   a.navbar-brand{
     float:none;
