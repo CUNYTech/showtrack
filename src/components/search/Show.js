@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { Link } from 'react-router';
 import { connect } from 'react-redux';
 import * as actions from '../../actions/index';
+import Notifications, {notify} from 'react-notify-toast';
+
 
 class Show extends Component {
   constructor(props) {
@@ -13,7 +15,7 @@ class Show extends Component {
 
   addToWatchList = () => {
     this.props.addToWatchList(this.props.show);
-    alert("Show Added");
+    notify.show("Show Added");
   }
 
   addToWatchList(show) {
