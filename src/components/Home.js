@@ -5,7 +5,6 @@ import Show from './search/Show';
 import Slider from 'react-slick';
 import Spinner from 'react-spinkit';
 import Accordion from './general/Accordion';
-import Notifications, {notify} from 'react-notify-toast'; 
 
 class Home extends Component {
   componentWillMount() {
@@ -95,7 +94,7 @@ class Home extends Component {
 
     return (
         <div className="container">
-          <Notifications />
+          <div className="snackbar" id="snackbarShowAdded">Show Added</div>
           {/*<div className="row">
             <h3 className="sliderHeader">Popular Shows</h3>
             <div>

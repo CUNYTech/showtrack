@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import * as actions from '../../actions';
 import SearchBar from './SearchBar';
 import ShowListing from './ShowListing';
-import Notifications, {notify} from 'react-notify-toast';
 
 class Search extends Component {
   componentWillUnmount() {
@@ -12,7 +11,7 @@ class Search extends Component {
   render() {
     return (
       <div>
-        <Notifications />
+        <div className="snackbar" id="snackbarShowAdded">Show Added</div>
         <SearchBar />
         <ShowListing shows={this.props.searchResults} />
 

@@ -5,12 +5,10 @@ import Accordion from './Accordion';
 import EpisodeDetail from './EpisodeDetail';
 import Spinner from 'react-spinkit';
 import ReactDisqusThread from 'react-disqus-thread';
-import Notifications, {notify} from 'react-notify-toast';
 
 class ShowDetail extends Component {
  constructor(props) {
    super(props)
-
    this.renderGenres = this.renderGenres.bind(this);
  }
 
@@ -65,18 +63,17 @@ class ShowDetail extends Component {
     return episodeData;
   }
 
-
   addToWatchList = () => {
     this.props.addToWatchList(this.props.show);
-    notify.show("Show Added");
-    //alert("show added");
 
+    var x = document.getElementById("snackbarShowAdded");
+    x.className += " show";
+    setTimeout(function(){ x.className = x.className.replace(" show", ""); }, 3000);
   }
 
   addToWatchList(show) {
     this.props.addToWatchList(show);
   }
-
 
   render() {
 
@@ -96,10 +93,10 @@ class ShowDetail extends Component {
     }
 
 
-
     return (
       <div className="container">
-        <Notifications />
+        <div className="snackbar" id="snackbarShowAdded">Show Added</div>
+
         <div className="row">
           <h2 className="col-sm-12">{show.name}</h2>
         </div>

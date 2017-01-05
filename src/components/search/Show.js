@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router';
 import { connect } from 'react-redux';
 import * as actions from '../../actions/index';
-import Notifications, {notify} from 'react-notify-toast';
+
 
 
 class Show extends Component {
@@ -15,8 +15,10 @@ class Show extends Component {
 
   addToWatchList = () => {
     this.props.addToWatchList(this.props.show);
-    //alert("show added");
-    notify.show("Show Added");
+
+    var x = document.getElementById("snackbarShowAdded");
+    x.className += " show";
+    setTimeout(function(){ x.className = x.className.replace(" show", ""); }, 3000);
 
   }
 
@@ -87,7 +89,14 @@ class Show extends Component {
     const showStyle = {
       padding: '20px',
     }
-    var promptLogin = () =>{ notify.show("Please Login") };
+    var promptLogin = () =>{ notify.show("Please Login", "warning", -1) };
+
+    var showSnackbar= () =>{
+      var x = document.getElementById("snackbar")
+      x.className = "show";
+      setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+    };
+
 
     if (this.props.authenticated){
       return (
