@@ -316,21 +316,7 @@ button#saveEpisode {
 #detailsPageButton{
   margin-top: 20px;
 }
-/*************************************  Toast  ******************************/
-.toast-notification{
-    top: auto!important;
-    /*bottom: 50px!important;*/
-    bottom: 150px!important;
-    /*opacity:0.85!important;*/
-    transition: all 1000ms ease !important;
-    /*transform: none!important;*/
-}
-
-.toast-notification span{
-  border-radius: 4px!important;
-}
-
-
+/*************************************  Snackbar  ******************************/
 .snackbar {
    visibility: hidden; /* Hidden by default. Visible on click */
    min-width: 250px; /* Set a default minimum width */
