@@ -23,6 +23,7 @@ class Show extends Component {
   }
 
 
+
    renderImage() {
     if(this.props.show.image) {
      return (
@@ -84,21 +85,40 @@ class Show extends Component {
     const showStyle = {
       padding: '20px',
     }
+    var promptLogin = () =>{ notify.show("Please Login") };
 
-    return (
-      <div>
-        <figure className="browse-show-wrap" style={showStyle}>
-          <Link to={"shows/" + this.props.show.id}>
-            {this.renderImage()}
-          </Link>
-          {this.renderFigcaption()}
-        </figure>
-        <div id="browse-show-bottom">
-          <h6>{show.name}</h6>
-          { show.premiered ? <h6><small> {"(" + show.premiered.substring(0, 4) + ")"} </small></h6> : null }
+    if (this.props.authenticated){
+      return (
+        <div>
+          <figure className="browse-show-wrap" style={showStyle}>
+            <Link to={"shows/" + this.props.show.id}>
+              {this.renderImage()}
+            </Link>
+            {this.renderFigcaption()}
+          </figure>
+          <div id="browse-show-bottom">
+            <h6>{show.name}</h6>
+            { show.premiered ? <h6><small> {"(" + show.premiered.substring(0, 4) + ")"} </small></h6> : null }
+          </div>
         </div>
-      </div>
-    )
+      )
+    }
+    else{
+      return (
+        <div>
+          <figure className="browse-show-wrap" style={showStyle}>
+            <Link onClick={promptLogin}>
+              {this.renderImage()}
+            </Link>
+            {this.renderFigcaption()}
+          </figure>
+          <div id="browse-show-bottom">
+            <h6>{show.name}</h6>
+            { show.premiered ? <h6><small> {"(" + show.premiered.substring(0, 4) + ")"} </small></h6> : null }
+          </div>
+        </div>
+      )
+    }
   }
 };
 
