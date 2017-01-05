@@ -5,6 +5,7 @@ import Accordion from './Accordion';
 import EpisodeDetail from './EpisodeDetail';
 import Spinner from 'react-spinkit';
 import ReactDisqusThread from 'react-disqus-thread';
+import Notifications, {notify} from 'react-notify-toast';
 
 class ShowDetail extends Component {
  constructor(props) {
@@ -67,7 +68,9 @@ class ShowDetail extends Component {
 
   addToWatchList = () => {
     this.props.addToWatchList(this.props.show);
-    alert("Show Added");
+    notify.show("Show Added");
+    //alert("show added");
+
   }
 
   addToWatchList(show) {
@@ -96,6 +99,7 @@ class ShowDetail extends Component {
 
     return (
       <div className="container">
+        <Notifications />
         <div className="row">
           <h2 className="col-sm-12">{show.name}</h2>
         </div>
