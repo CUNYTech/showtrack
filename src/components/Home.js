@@ -95,6 +95,7 @@ class Home extends Component {
     return (
         <div className="container">
           <div className="snackbar" id="snackbarShowAdded">Show Added</div>
+          <div className="snackbar" id="snackbarLoginPrompt">Please Login</div>
           {/*<div className="row">
             <h3 className="sliderHeader">Popular Shows</h3>
             <div>

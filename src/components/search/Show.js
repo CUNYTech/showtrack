@@ -13,6 +13,7 @@ class Show extends Component {
     this.addToWatchList = this.addToWatchList.bind(this);
   }
 
+
   addToWatchList = () => {
     this.props.addToWatchList(this.props.show);
 
@@ -89,14 +90,11 @@ class Show extends Component {
     const showStyle = {
       padding: '20px',
     }
-    var promptLogin = () =>{ notify.show("Please Login", "warning", -1) };
-
-    var showSnackbar= () =>{
-      var x = document.getElementById("snackbar")
-      x.className = "show";
-      setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+    var promptLogin = () =>{
+      var x = document.getElementById("snackbarLoginPrompt");
+      x.className += " show";
+      setTimeout(function(){ x.className = x.className.replace(" show", ""); }, 3000);
     };
-
 
     if (this.props.authenticated){
       return (
