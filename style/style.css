@@ -205,6 +205,7 @@ li.nav-item {
   font-size: 20px;
   color: rgba(255,255,255, .5);
   transition: all .6s cubic-bezier(0.080, 1.090, 0.320, 1.275);
+  margin-top: 10px;
 }
 .fa-rotate-180 {
   color: rgba(255,255,255, 1);
@@ -213,6 +214,7 @@ li.nav-item {
   position: absolute;
   margin-left: -5px;
 }
+
 /******************************  Slick Slider  ******************************/
 .row .sliderHeader{
   padding-bottom: 0px!important;

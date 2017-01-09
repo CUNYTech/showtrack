@@ -50,7 +50,7 @@ class ShowDetail extends Component {
             <div className="col-sm-3">
               <img src={x.image ? x.image.medium : 'http://placehold.it/250x140'} className="img-responsive" alt={episodes.name} />
             </div>
-            <div className="col-xs-6">
+            <div className="col-sm-6">
               <h5>{x.number}. {x.name}</h5> <p> Aired: {x.airdate}</p>
               <p dangerouslySetInnerHTML={{__html: x.summary}} ></p>
             </div>
