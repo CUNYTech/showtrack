@@ -313,6 +313,7 @@ button#removeBtn:hover{
 
 button#saveEpisode {
   margin-top: 20px;
+  margin-left: 15px;
 }
 /******************************  Details Page  ******************************/
 #detailsPageButton{
