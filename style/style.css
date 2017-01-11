@@ -319,6 +319,13 @@ button#saveEpisode {
 #detailsPageButton{
   margin-top: 20px;
 }
+
+div#disqus_thread {
+  background-color: #918888;
+  padding: 20px;
+  border-radius: 4px;
+  margin-top: 50px;
+}
 /*************************************  Snackbar  ******************************/
 .snackbar {
    visibility: hidden; /* Hidden by default. Visible on click */
@@ -364,6 +371,7 @@ button#saveEpisode {
 form button.btn.btn-primary.pull-right {
     margin-top: 30px;
 }
+
 
 /*******************************  Media Queries  ******************************/
 @media (max-width: 767px){
