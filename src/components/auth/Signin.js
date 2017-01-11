@@ -46,10 +46,6 @@ class Signin extends Component {
               </form>
             </div>
           <div className="col-sm-2"></div>
-
-        </div>
-        <div className="row">
-
         </div>
       </div>
     );
