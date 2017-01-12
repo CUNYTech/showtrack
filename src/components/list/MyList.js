@@ -10,6 +10,14 @@ class MyList extends Component {
   componentWillMount() {
     this.props.fetchWatchList();
   }
+  componentDidMount(){
+    var x = document.getElementById("my-shows");
+    x.className += " current-location";
+  }
+  componentWillUnmount(){
+    var x = document.getElementById("my-shows");
+    x.className = x.className.replace(" current-location", "");
+  }
 
   renderWatchList() {
     let watchList = this.props.watchList;

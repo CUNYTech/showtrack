@@ -7,9 +7,16 @@ class Signup extends Component {
   componentWillMount(){
     document.body.setAttribute('id', 'bg-image');
   }
+  componentDidMount(){
+    //var x = document.getElementById("sign-up");
+    //x.className += " current-location";
+  }
   componentWillUnmount(){
+    //var x = document.getElementById("sign-up");
+    //x.className = x.className.replace(" current-location", "");
     document.body.removeAttribute('id', 'bg-image');
   }
+
 
   handleFormSubmit(formProps) {
     this.props.signupUser(formProps);

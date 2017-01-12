@@ -12,6 +12,15 @@ class Home extends Component {
     this.props.fetchPopularShows();
   }
 
+  componentDidMount(){
+    var x = document.getElementById("navbar-brand");
+    x.className += " current-location";
+  }
+  componentWillUnmount(){
+    var x = document.getElementById("navbar-brand");
+    x.className = x.className.replace(" current-location", "");
+  }
+
 
   renderTrendingShows() {
     let showProps = this.props.trendingShows;

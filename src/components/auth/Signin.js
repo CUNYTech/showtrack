@@ -7,9 +7,16 @@ class Signin extends Component {
   componentWillMount(){
     document.body.setAttribute('id', 'bg-image');
   }
+  componentDidMount(){
+    //var x = document.getElementById("sign-in");
+    //x.className += " current-location";
+  }
   componentWillUnmount(){
+    //var x = document.getElementById("sign-in");
+    //x.className = x.className.replace(" current-location", "");
     document.body.removeAttribute('id', 'bg-image');
   }
+
 
   handleFormSubmit({ username, password }) {
     this.props.signinUser({ username, password });
