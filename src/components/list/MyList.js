@@ -29,7 +29,7 @@ class MyList extends Component {
       list = (
         <div className="jumbotron text-center">
           <h1>You do not have any shows!</h1>
-          <p>Search for shows <Link to='/search'>here</Link> to add to your list and start keep tracking of what you are up to!</p>
+          <p>Search for shows <Link to='/search'>here</Link> to add to your list and start keeping track of what you are up to!</p>
         </div>
       )
     )
