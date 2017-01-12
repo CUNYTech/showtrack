@@ -117,6 +117,9 @@ span.btn.btn-primary:hover, button.btn.btn-primary.btn-md:hover{
 li.nav-item {
     margin-left: 13px;
 }
+.navbar{
+  margin-top: 20px;
+}
 
 /***********************  Accordions and Matching Navbar ******************************/
 .accordion {
@@ -136,7 +139,7 @@ li.nav-item {
   text-transform: uppercase;
   letter-spacing: 1px;
   text-align: left;
-  line-height: 2;
+  line-height: 2.3;
   font-weight: lighter;
   position: relative;
   padding: 10px;
@@ -375,6 +378,8 @@ form button.btn.btn-primary.pull-right {
 
 /*******************************  Media Queries  ******************************/
 @media (max-width: 767px){
+
+
   a.navbar-brand{
     float:none;
   }
@@ -384,6 +389,7 @@ form button.btn.btn-primary.pull-right {
   li.nav-item {
     margin-left: 0px;
     margin-top: 5px;
+    width: 135px;
   }
   i.fa.fa-film.fa-2x {
     font-size: 1em;
