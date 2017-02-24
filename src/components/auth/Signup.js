@@ -11,10 +11,10 @@ class Signup extends Component {
     document.body.removeAttribute('id', 'bg-image');
   }
 
+
   handleFormSubmit(formProps) {
     this.props.signupUser(formProps);
   }
-
 
 
   renderAlert() {

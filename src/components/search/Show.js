@@ -3,6 +3,8 @@ import { Link } from 'react-router';
 import { connect } from 'react-redux';
 import * as actions from '../../actions/index';
 
+
+
 class Show extends Component {
   constructor(props) {
     super(props)
@@ -11,10 +13,21 @@ class Show extends Component {
     this.addToWatchList = this.addToWatchList.bind(this);
   }
 
+
   addToWatchList = () => {
     this.props.addToWatchList(this.props.show);
-    alert("Show Added");
+
+    var x = document.getElementById("snackbarShowAdded");
+    x.className += " show";
+    setTimeout(function(){ x.className = x.className.replace(" show", ""); }, 3000);
+
   }
+
+  addToWatchList(show) {
+    this.props.addToWatchList(show);
+  }
+
+
 
    renderImage() {
     if(this.props.show.image) {
@@ -32,22 +45,6 @@ class Show extends Component {
         <img src='http://placehold.it/210x295' role="presentation"/>
       )
     }
-  }
-
-  addToWatchList(show) {
-    this.props.addToWatchList(show);
-  }
-
-  renderNameAndYear(){
-    return (
-      <div id="browse-show-bottom">
-        <h6>{this.props.show.name} <small>{this.props.show.premiered}</small></h6>
-      </div>
-      )
-  }
-
-  renderRating() {
-
   }
 
   renderFigcaption() {
@@ -93,19 +90,44 @@ class Show extends Component {
     const showStyle = {
       padding: '20px',
     }
+    var promptLogin = () =>{
+      var x = document.getElementById("snackbarLoginPrompt");
+      x.className += " show";
+      setTimeout(function(){ x.className = x.className.replace(" show", ""); }, 3000);
+    };
 
-    return (
-      <div>
-        <figure className="browse-show-wrap" style={showStyle}>
-          {this.renderImage()}
-          {this.renderFigcaption()}
-        </figure>
-        <div id="browse-show-bottom">
-          <h6>{show.name}</h6>
-          { show.premiered ? <h6><small> {"(" + show.premiered.substring(0, 4) + ")"} </small></h6> : null }
+    if (this.props.authenticated){
+      return (
+        <div>
+          <figure className="browse-show-wrap" style={showStyle}>
+            <Link to={"shows/" + this.props.show.id}>
+              {this.renderImage()}
+            </Link>
+            {this.renderFigcaption()}
+          </figure>
+          <div id="browse-show-bottom">
+            <h6>{show.name}</h6>
+            { show.premiered ? <h6><small> {"(" + show.premiered.substring(0, 4) + ")"} </small></h6> : null }
+          </div>
         </div>
-      </div>
-    )
+      )
+    }
+    else{
+      return (
+        <div>
+          <figure className="browse-show-wrap" style={showStyle}>
+            <Link onClick={promptLogin}>
+              {this.renderImage()}
+            </Link>
+            {this.renderFigcaption()}
+          </figure>
+          <div id="browse-show-bottom">
+            <h6>{show.name}</h6>
+            { show.premiered ? <h6><small> {"(" + show.premiered.substring(0, 4) + ")"} </small></h6> : null }
+          </div>
+        </div>
+      )
+    }
   }
 };
 
@@ -115,7 +137,4 @@ function mapStateToProps(state) {
   }
 }
 
-//can only export one or the other below
-
-//export default connect(null, actions)(Show);
 export default connect(mapStateToProps, actions)(Show);

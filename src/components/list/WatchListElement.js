@@ -56,32 +56,35 @@ class WatchListElement extends Component {
     const seasonOptions = seasonData;
 
     return (
-      <div className="row">
-        <div className="col-sm-6">
-          <h6>Current Season: </h6>
-          <Select
-            name="form-field-season"
-            value={this.state.season}
-            options={seasonOptions}
-            onChange={this.selectedSeason}
-            clearable={false}
-            searchable={true}
-          />
-        <button type="button" id="saveEpisode" onClick={() => (this.updateProgressWatchList())} className="btn btn-primary btn-md">Save</button>
-        </div>
+      <div>
+        <div className="row">
+          <div className="col-xs-6">
+            <h6>Current Season: </h6>
+            <Select
+              name="form-field-season"
+              value={this.state.season}
+              options={seasonOptions}
+              onChange={this.selectedSeason}
+              clearable={false}
+              searchable={true}
+            />
+          </div>
 
-        <div className="col-sm-6">
-          <h6>Current Episode: </h6>
-          <Select
-            name="form-field-episode"
-            value={this.state.episode}
-            options={episodeOptions}
-            onChange={this.selectedEpisode}
-            clearable={false}
-            searchable={true}
-          />
+          <div className="col-xs-6">
+            <h6>Current Episode: </h6>
+            <Select
+              name="form-field-episode"
+              value={this.state.episode}
+              options={episodeOptions}
+              onChange={this.selectedEpisode}
+              clearable={false}
+              searchable={true}
+            />
+          </div>
         </div>
-
+        <div className="row">
+          <button type="button" id="saveEpisode" onClick={() => (this.updateProgressWatchList())} className="btn btn-primary btn-md">Save</button>
+        </div>
       </div>
     )
   }

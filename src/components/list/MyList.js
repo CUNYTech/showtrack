@@ -10,6 +10,14 @@ class MyList extends Component {
   componentWillMount() {
     this.props.fetchWatchList();
   }
+  componentDidMount(){
+    var x = document.getElementById("my-shows");
+    x.className += " current-location";
+  }
+  componentWillUnmount(){
+    var x = document.getElementById("my-shows");
+    x.className = x.className.replace(" current-location", "");
+  }
 
   renderWatchList() {
     let watchList = this.props.watchList;
@@ -29,7 +37,7 @@ class MyList extends Component {
       list = (
         <div className="jumbotron text-center">
           <h1>You do not have any shows!</h1>
-          <p>Search for shows <Link to='/search'>here</Link> to add to your list and start keep tracking of what you are up to!</p>
+          <p>Search for shows <Link to='/search'>here</Link> to add to your list and start keeping track of what you are up to!</p>
         </div>
       )
     )

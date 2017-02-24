@@ -12,6 +12,15 @@ class Home extends Component {
     this.props.fetchPopularShows();
   }
 
+  componentDidMount(){
+    var x = document.getElementById("navbar-brand");
+    x.className += " current-location";
+  }
+  componentWillUnmount(){
+    var x = document.getElementById("navbar-brand");
+    x.className = x.className.replace(" current-location", "");
+  }
+
 
   renderTrendingShows() {
     let showProps = this.props.trendingShows;
@@ -49,7 +58,7 @@ class Home extends Component {
     var settings = {
       dots: true,
       infinite: true,
-      speed: 900,
+      autoplaySpeed: 6000,
       slidesToShow: 5,
       slidesToScroll: 5,
       responsive: [
@@ -72,7 +81,7 @@ class Home extends Component {
           settings: {
             slidesToShow: 2,
             slidesToScroll: 2,
-            autoplay: false
+            autoplay: true
           }
         },
         {
@@ -80,17 +89,13 @@ class Home extends Component {
           settings: {
             slidesToShow: 1,
             slidesToScroll: 1,
-            autoplay: false
+            autoplay: true
           }
         }
       ]
     };
 
-    var titleStyle = {
-      color: 'white',
-      fontSize: '30px',
-      paddingBottom: '20px'
-    };
+
 
     var lineStyle = {
       padding: '20x'
@@ -98,8 +103,10 @@ class Home extends Component {
 
     return (
         <div className="container">
+          <div className="snackbar" id="snackbarShowAdded">Show Added</div>
+          <div className="snackbar" id="snackbarLoginPrompt">Please Login</div>
           {/*<div className="row">
-            <h3 style={titleStyle} className="sliderHeader">Popular Shows</h3>
+            <h3 className="sliderHeader">Popular Shows</h3>
             <div>
               {!this.props.popularShows ? (
                 <div className="container">
@@ -123,7 +130,7 @@ class Home extends Component {
           </div>*/}
 
           <div className="row">
-            <h3 style={titleStyle} className="sliderHeader">Trending Shows</h3>
+            <h4 className="sliderHeader">Trending Shows</h4>
             <div>
               {!this.props.trendingShows ? (
                 <div className="container">

@@ -11,9 +11,11 @@ class Signin extends Component {
     document.body.removeAttribute('id', 'bg-image');
   }
 
+
   handleFormSubmit({ username, password }) {
     this.props.signinUser({ username, password });
-}
+  }
+  
   renderAlert() {
     if(this.props.errorMessage) {
       return (
@@ -46,9 +48,7 @@ class Signin extends Component {
               </form>
             </div>
           <div className="col-sm-2"></div>
-
         </div>
-
       </div>
     );
   }

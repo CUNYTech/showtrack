@@ -9,7 +9,6 @@ import ReactDisqusThread from 'react-disqus-thread';
 class ShowDetail extends Component {
  constructor(props) {
    super(props)
-
    this.renderGenres = this.renderGenres.bind(this);
  }
 
@@ -51,7 +50,7 @@ class ShowDetail extends Component {
             <div className="col-sm-3">
               <img src={x.image ? x.image.medium : 'http://placehold.it/250x140'} className="img-responsive" alt={episodes.name} />
             </div>
-            <div className="col-xs-6">
+            <div className="col-sm-6">
               <h5>{x.number}. {x.name}</h5> <p> Aired: {x.airdate}</p>
               <p dangerouslySetInnerHTML={{__html: x.summary}} ></p>
             </div>
@@ -64,6 +63,17 @@ class ShowDetail extends Component {
     return episodeData;
   }
 
+  addToWatchList = () => {
+    this.props.addToWatchList(this.props.show);
+
+    var x = document.getElementById("snackbarShowAdded");
+    x.className += " show";
+    setTimeout(function(){ x.className = x.className.replace(" show", ""); }, 3000);
+  }
+
+  addToWatchList(show) {
+    this.props.addToWatchList(show);
+  }
 
   render() {
 
@@ -83,9 +93,10 @@ class ShowDetail extends Component {
     }
 
 
-
     return (
       <div className="container">
+        <div className="snackbar" id="snackbarShowAdded">Show Added</div>
+
         <div className="row">
           <h2 className="col-sm-12">{show.name}</h2>
         </div>
@@ -115,6 +126,7 @@ class ShowDetail extends Component {
             <div>Episodes ordered: {show.type}</div>
             <br />
             <div>Rating: {show.rating.average || 0}/10</div>
+            <span className="btn btn-primary" id="detailsPageButton" onClick={() => (this.addToWatchList(this.props.show))}>Add to my shows</span>
           </div>
         </div>
 
